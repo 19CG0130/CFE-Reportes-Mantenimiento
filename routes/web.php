@@ -19,4 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/register', [ProfileController::class, 'edit'])->name('profile.edit');
 });
 
+Route::get('/usuarios', function () {
+    return view('registroMantenimientos.usuarios');
+})->middleware(['auth', 'verified'])->name('usuarios');
+
+
 require __DIR__.'/auth.php';
