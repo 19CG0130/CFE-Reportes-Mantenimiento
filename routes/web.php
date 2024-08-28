@@ -2,9 +2,18 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('auth.login');
+});
+
+Route::get('/w', function () {
+    return view('welcome');
+});
+
+Route::post('/registro_mantenimiento_equipo/post', function (Request $request) {
+    dd($request->all());
 });
 
 Route::get('/dashboard', function () {
