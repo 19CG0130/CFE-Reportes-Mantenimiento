@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form method="POST" action="/registro_mantenimiento_equipo/post">
+    <form method="POST" action="/registro_mantenimiento/post">
         @csrf
         <!-- Mantenimiento preventivo equipos de computo -->
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -165,6 +165,7 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-2">
+
                     <!-- Sistema Operativo -->
                     <div class="p-2 w-1/4">
                         <label for="input-1" class="block text-base font-medium text-gray-900">Sistema
@@ -177,6 +178,7 @@
                             <option value="Superintendencia">Linux</option>
                         </select>
                     </div>
+
                     <!-- Versión Sistema Operativo -->
                     <div class="p-2 w-1/4">
                         <label for="input-1" class="block text-base font-medium text-gray-900">Versión Sistema
@@ -189,6 +191,7 @@
                             <option value="Superintendencia">Linux</option>
                         </select>
                     </div>
+
                     <!-- Office -->
                     <div class="p-2 w-1/4">
                         <label for="input-1" class="block text-base font-medium text-gray-900">Office</label>
@@ -199,6 +202,7 @@
                             <option value="Superintendencia">Office 2019</option>
                         </select>
                     </div>
+
                     <!-- Antivirus -->
                     <div class="p-2 w-1/4">
                         <label for="input-1" class="block text-base font-medium text-gray-900">Antivirus</label>
@@ -209,6 +213,7 @@
                             <option value="Superintendencia">KASPERSKY</option>
                         </select>
                     </div>
+
                     <!-- Antivirus Versión -->
                     <div class="p-2 w-1/4">
                         <label for="input-3" class="block text-base font-medium text-gray-900">Antivirus
@@ -216,18 +221,7 @@
                         <input type="text" id="input-antivirusVersion" name="antivirusVersion"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    {{-- <!-- Añadir Otro Antivirus -->
-                    <div class="p-2 w-1/4">
-                        <label for="input-4" class="block text-base font-medium text-gray-900">Añadir Otro Antivirus</label>
-                        <input type="text" id="input-4"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- Añadir Otro Software -->
-                    <div class="p-2 w-1/4">
-                        <label for="input-4" class="block text-base font-medium text-gray-900">Añadir Otro Software</label>
-                        <input type="text" id="input-4"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div> --}}
+                    
                 </div>
             </div>
         </div>
@@ -246,7 +240,7 @@
                     <!-- Agregar Otro -->
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <input type="text" id="input-marca" name="marca"
+                        <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                 </div>
@@ -263,7 +257,7 @@
                     <!-- Agregar Otro -->
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <input type="text" id="input-IpEthernet" name="IpEthernet"
+                        <input type="text" id="input-agregarOtroMantenimiento" name="agregarOtroMantenimiento"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                 </div>
@@ -281,8 +275,6 @@
                 <div class="flex flex-wrap -mx-2">
                     <!-- Observaciones -->
                     <div class="p-2 w-full">
-                        <label for="input-observaciones"
-                            class="block text-base font-medium text-gray-900">Observaciones</label>
                         <textarea id="input-observaciones" name="observaciones"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                             rows="4"></textarea>
