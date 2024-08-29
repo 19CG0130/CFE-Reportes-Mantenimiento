@@ -12,10 +12,6 @@ Route::get('/w', function () {
     return view('welcome');
 });
 
-Route::post('/registro_mantenimiento_equipo/post', function (Request $request) {
-    dd($request->all());
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,8 +28,12 @@ Route::get('/usuarios', function () {
     return view('registroMantenimientos.usuarios');
 })->middleware(['auth', 'verified'])->name('usuarios');
 
-Route::get('/registro_mantenimiento_equipo', function () {
+Route::get('/registro_mantenimiento', function () {
     return view('registroMantenimientos.formularioMantenimiento');
-})->middleware(['auth', 'verified'])->name('usuarios');
+})->middleware(['auth', 'verified'])->name('registro_mantenimiento');
+
+Route::post('/registro_mantenimiento/post', function (Request $request) {
+    dd($request->all());
+});
 
 require __DIR__.'/auth.php';
