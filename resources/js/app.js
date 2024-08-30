@@ -4,7 +4,6 @@ import Alpine from "alpinejs";
 import "flowbite";
 import { Datepicker } from "flowbite-datepicker";
 
-// Datepicker traducido
 (function () {
     Datepicker.locales.es = {
         days: [
@@ -56,11 +55,16 @@ import { Datepicker } from "flowbite-datepicker";
 
 document.addEventListener("DOMContentLoaded", function () {
     const datepickerEl = document.getElementById("datepicker-autohide");
+    const today = new Date();
     const options = {
         language: "es",
         autohide: true,
     };
-    new Datepicker(datepickerEl, options);
+    
+    const datepicker = new Datepicker(datepickerEl, options);
+    
+    // Auto-seleccionar
+    datepickerEl.value = today.toLocaleDateString("es-ES");
 });
 
 window.Alpine = Alpine;
