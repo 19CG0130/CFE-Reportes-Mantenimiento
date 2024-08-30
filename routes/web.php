@@ -28,8 +28,8 @@ Route::get('/usuarios', [ProfileController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('usuarios');
 
-Route::get('/registro_mantenimiento', function () {
-    return view('registroMantenimientos.formularioMantenimiento');
+Route::get('/computadora_de_escritorio', function () {
+    return view('registroMantenimientos.formularios.computadoraEscritorio');
 })->middleware(['auth', 'verified'])->name('registro_mantenimiento');
 
 Route::post('/registro_mantenimiento/post', function (Request $request) {
