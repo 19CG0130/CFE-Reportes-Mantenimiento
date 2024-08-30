@@ -24,9 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/register', [ProfileController::class, 'edit'])->name('profile.edit');
 });
 
-Route::get('/usuarios', function () {
-    return view('registroMantenimientos.usuarios');
-})->middleware(['auth', 'verified'])->name('usuarios');
+Route::get('/usuarios', [ProfileController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('usuarios');
 
 Route::get('/registro_mantenimiento', function () {
     return view('registroMantenimientos.formularioMantenimiento');
@@ -35,5 +35,7 @@ Route::get('/registro_mantenimiento', function () {
 Route::post('/registro_mantenimiento/post', function (Request $request) {
     dd($request->all());
 });
+
+
 
 require __DIR__.'/auth.php';
