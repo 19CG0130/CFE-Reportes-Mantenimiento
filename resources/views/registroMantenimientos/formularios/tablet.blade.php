@@ -6,7 +6,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
                     <div class="p-1 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Mantenimiento preventivo equipos de computo</span>
+                        <span class="text-2xl font-extrabold">Mantenimiento Tablet</span>
                     </div>
                     <div class=" pl-2">
                         <div class="relative max-w-sm">
@@ -52,7 +52,7 @@
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Informatica">Operativo</option>
-                            <option value="Superintendencia">Capacitación</option>
+                            <option value="Superintendencia">Stock</option>
                         </select>
                     </div>
                     <!-- Hora Inicio / Fin -->
@@ -150,13 +150,6 @@
                         <input type="text" id="input-serie" name="serie"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <!-- Nombre D.A -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Nombre
-                            D.A</label>
-                        <input type="text" id="input-nombreDA" name="nombreDA"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
                     <!-- Num. Activo fijo -->
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">Num. Activo
@@ -213,99 +206,20 @@
                 </div>
             </div>
         </div>
-
-        <!-- Software -->
-        <div class="pb-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
-                <div class="flex justify-between">
-                    <div class="p-1 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Software</span>
-                    </div>
-                </div>
-                <div class="flex flex-wrap">
-                    <!-- Sistema Operativo -->
-                    <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">Sistema
-                            Operativo</label>
-                        <select id="select-sistemaOperativo" name="sistemaOperativo"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Windows">Windows</option>
-                            <option value="MacOS">MacOS</option>
-                            <option value="Linux">Linux</option>
-                        </select>
-                    </div>
-                    <!-- Arquitectura -->
-                    <div class="flex pr-2 mt-3.5">
-                        <!-- x32 -->
-                        <div class="flex items-center pr-2 ">
-                            <input id="radio-x32" type="radio" value="x32" name="Arquitectura"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-license"
-                                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">x32</label>
-                        </div>
-                        <!-- x64 -->
-                        <div class="flex items-center">
-                            <input id="radio-x64" type="radio" value="x64" name="Arquitectura"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-id"
-                                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">x64</label>
-                        </div>
-                    </div>
-                    <!-- Versión Sistema Operativo -->
-                    <div class="pr-2 w-1/4">
-                        <label for="input-versionSistemaOpertativo"
-                            class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
-                        <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- Office -->
-                    <div class="pr-2 pb-1 w-1/4">
-                        <label for="inputOffice" class="block text-base font-medium text-gray-900">Office</label>
-                        <select id="select-office" name="office"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Office 365">Office 365</option>
-                            <option value="Office 2016">Office 2016</option>
-                            <option value="Office 2019">Office 2019</option>
-                        </select>
-                    </div>
-                    <!-- Antivirus -->
-                    <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-Antivirus"
-                            class="block text-base font-medium text-gray-900">Antivirus</label>
-                        <select id="select-antivirus" name="antivirus"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Institucional">Institucional</option>
-                        </select>
-                    </div>
-                    <!-- Antivirus Versión -->
-                    <div class="pr-2 w-1/4">
-                        <label for="input-antivirusVersion"
-                            class="block text-base font-medium text-gray-900">Antivirus Versión</label>
-                        <input type="text" name="antivirusVersion" id="input-antivirusVersion"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Hardware -->
+        <!-- Justificación del porqué se Realiza el Mantenimiento Fuera del Periodo -->
         <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
                     <div class="p-2 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Hardware</span>
+                        <span class="text-2xl font-extrabold">Justificación del porqué se Realiza el Mantenimiento Fuera del Periodo</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-2">
-                    <div class="p-2 w-1/4">
-                        <label for="input-agregarOtroHardware"
-                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    <!-- Justificacion -->
+                    <div class="p-2 w-full">
+                        <textarea id="input-justificacion" name="justificacion"
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            rows="4"></textarea>
                     </div>
                 </div>
             </div>
@@ -328,69 +242,40 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-DesarmarEquipoParaSuLimpiezaInterna" type="checkbox"
+                                            <input name="limpiezaSopleteadoExternoEquipo" id="checkbox-limpiezaSopleteadoExternoEquipo" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-DesarmarEquipoParaSuLimpiezaInterna"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
-                                                Equipo Para su Limpieza Interna</label>
+                                            <label for="checkbox-limpiezaSopleteadoExternoEquipo"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
+                                                y Sopleteado Externo del Equipo</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaYSopleteadoInternaYExternaDelEquipo"
+                                            <input name="validarTouchPantalla" id="checkbox-validarTouchPantalla"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaYSopleteadoInternaYExternaDelEquipo"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                y Sopleteado Interno y Externo del Equipo</label>
+                                            <label for="checkbox-validarTouchPantalla"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
+                                                Touch Pantalla</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaDePantalla" type="checkbox"
+                                            <input name="revisionBateria" id="checkbox-revisionBateria" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaDePantalla"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                de Pantalla</label>
+                                            <label for="checkbox-revisionBateria"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revision
+                                                de Bateria</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaDeTeclado" type="checkbox"
+                                            <input name="verificarSwInstitucional" id="checkbox-verificarSwInstitucional" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaDeTeclado"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                de Teclado</label>
+                                            <label for="checkbox-verificarSwInstitucional"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
+                                                Sw Institucional Actualizado</label>
                                         </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaVentiladores" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaVentiladores"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                Ventiladores</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaYSopleteadoDeLaTarjetaPrincipal"
-                                                type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaYSopleteadoDeLaTarjetaPrincipal"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                y Sopleteado de la Tarjeta Principal</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaDeFuenteDePoder" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaDeFuenteDePoder"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                de Fuente de Poder</label>
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
 
@@ -400,67 +285,31 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificacionDeLaBateria" type="checkbox"
+                                            <input name="verificarEstadoConectorDatos" id="checkbox-verificarEstadoConectorDatos" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-VerificacionDeLaBateria"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificación
-                                                de la Bateria</label>
+                                            <label for="checkbox-verificarEstadoConectorDatos"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
+                                                Estado del Conector de Datos</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificarConexionesEléctricasEnBuenEstado"
+                                            <input name="validarEstadoTeclado" id="checkbox-validarEstadoTeclado"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-VerificarConexionesEléctricasEnBuenEstado"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
-                                                Conexiones Eléctricas en Buen Estado</label>
+                                            <label for="checkbox-validarEstadoTeclado"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
+                                                Estado del Teclado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificarQueFuncioneCorrectamenteDespuésDelServicio"
+                                            <input name="verificarFuncionamientoEquipoDespuesServicio" id="checkbox-verificarFuncionamientoEquipoDespuesServicio"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-VerificarQueFuncioneCorrectamenteDespuésDelServicio"
+                                            <label for="checkbox-verificarFuncionamientoEquipoDespuesServicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
-                                                que Funcione Correctamente Después del Servicio</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input id="checkbox-AntivirusInstitucionalActualizado" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-AntivirusInstitucionalActualizado"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antivirus
-                                                Institucional Actualizado</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input id="checkbox-EjecuciónDeDefrag" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-EjecuciónDeDefrag"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ejecución
-                                                de Defrag</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input id="checkbox-EstadoDeServicioDeEscritorioRemoto" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-EstadoDeServicioDeEscritorioRemoto"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado
-                                                de Servicio de Escritorio Remoto</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input id="checkbox-AsignaciónDeIPPorDHCP" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-AsignaciónDeIPPorDHCP"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asignación
-                                                de IP por DHCP</label>
+                                                Funcionamiento del Equipo Después del Servicio</label>
                                         </div>
                                     </li>
                                 </ul>

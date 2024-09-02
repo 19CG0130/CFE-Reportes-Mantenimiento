@@ -3,10 +3,16 @@
         @csrf
         <!-- Mantenimiento preventivo equipos de computo -->
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <!-- Boton Cancelar -->
+            <a href="{{ route('dashboard') }}"
+                class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                Cancelar
+            </a>
+            <!-- Título -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
                     <div class="p-1 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Mantenimiento preventivo equipos de computo</span>
+                        <span class="text-2xl font-extrabold">Mantenimiento Equipo de Computo</span>
                     </div>
                     <div class=" pl-2">
                         <div class="relative max-w-sm">
@@ -152,14 +158,14 @@
                     </div>
                     <!-- Nombre D.A -->
                     <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Nombre
-                            D.A</label>
+                        <label for="input-2" class="block text-base font-medium text-gray-900">Nombre Active
+                            Directory</label>
                         <input type="text" id="input-nombreDA" name="nombreDA"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Num. Activo fijo -->
                     <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Num. Activo
+                        <label for="input-2" class="block text-base font-medium text-gray-900">Numero Activo
                             fijo</label>
                         <input type="text" id="input-numActivoFijo" name="numActivoFijo"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
@@ -222,7 +228,7 @@
                         <span class="text-2xl font-extrabold">Software</span>
                     </div>
                 </div>
-                <div class="flex flex-wrap">
+                <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">Sistema
@@ -288,7 +294,122 @@
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                 </div>
+                <!-- Otros Softwares Checkbox -->
+                <div class="flex justify-center">
+                    <div class="w-full px-4">
+                        <div class="grid grid-cols-3 gap-4 sm:grid-cols-3">
+                            <!-- Columna 1 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="sicom" id="checkbox-sicom" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-sicom"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SICOM</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="sicoss" id="checkbox-sicoss" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-sicoss"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SICOSS</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="simed" id="checkbox-simed" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-simed"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SIMED</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="facthor" id="checkbox-facthor"
+                                                type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-facthor"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">FACTHOR</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
 
+                            <!-- Columna 2 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="siad" id="checkbox-siad" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-siad"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SIAD</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="autocad" id="checkbox-autocad" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-autocad"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">AUTOCAD</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="sinergy" id="checkbox-sinergy"
+                                                type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-sinergy"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SINERGY</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Columna 3 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="mysapR3" id="checkbox-mysapR3" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-mysapR3"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">MySAP R3</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="lotus" id="checkbox-lotus" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-lotus"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LOTUS</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="vpn" id="checkbox-vpn"
+                                                type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-vpn"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">VPN</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agregar Otro -->
+                    <div>
+                        <label for="input-agregarOtroHardware" class="block text-base font-medium text-gray-900">Agregar Otro</label>
+                        <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
+                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -300,10 +421,63 @@
                         <span class="text-2xl font-extrabold">Hardware</span>
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-2">
-                    <div class="p-2 w-1/4">
-                        <label for="input-agregarOtroHardware"
-                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
+                <div class="flex justify-center">
+                    <div class="w-full px-4">
+                        <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
+                            <!-- Columna 1 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="microfono" id="checkbox-microfono" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-microfono"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Microfono</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="bocina" id="checkbox-bocina"
+                                                type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-bocina"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Bocina</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Columna 2 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="hubUSB" id="checkbox-hubUSB" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-hubUSB"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hub
+                                                USB</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="camaraWeb" id="checkbox-camaraWeb"
+                                                type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-camaraWeb"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Camara
+                                                Web</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agregar Otro -->
+                    <div>
+                        <label for="input-agregarOtroHardware" class="block text-base font-medium text-gray-900">Agregar Otro</label>
                         <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
@@ -328,65 +502,70 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-DesarmarEquipoParaSuLimpiezaInterna" type="checkbox"
+                                            <input name="desarmarEquipoLimpiezaInterna"
+                                                id="checkbox-desarmarEquipoLimpiezaInterna" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-DesarmarEquipoParaSuLimpiezaInterna"
+                                            <label for="checkbox-desarmarEquipoLimpiezaInterna"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
                                                 Equipo Para su Limpieza Interna</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaYSopleteadoInternaYExternaDelEquipo"
-                                                type="checkbox"
+                                            <input name="limpiezaSopleteadoInternoExternoEquipo"
+                                                id="checkbox-limpiezaSopleteadoInternoExternoEquipo" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaYSopleteadoInternaYExternaDelEquipo"
+                                            <label for="checkbox-limpiezaSopleteadoInternoExternoEquipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaDePantalla" type="checkbox"
+                                            <input name="limpiezaPantalla" id="checkbox-limpiezaPantalla"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaDePantalla"
+                                            <label for="checkbox-limpiezaPantalla"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Pantalla</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaDeTeclado" type="checkbox"
+                                            <input name="limpiezaTeclado" id="checkbox-limpiezaTeclado"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaDeTeclado"
+                                            <label for="checkbox-limpiezaTeclado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Teclado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaVentiladores" type="checkbox"
+                                            <input name="limpiezaVentiladores" id="checkbox-limpiezaVentiladores"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaVentiladores"
+                                            <label for="checkbox-limpiezaVentiladores"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 Ventiladores</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaYSopleteadoDeLaTarjetaPrincipal"
-                                                type="checkbox"
+                                            <input name="limpiezaSopleteadoTarjetaPrincipal"
+                                                id="checkbox-limpiezaSopleteadoTarjetaPrincipal" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaYSopleteadoDeLaTarjetaPrincipal"
+                                            <label for="checkbox-limpiezaSopleteadoTarjetaPrincipal"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado de la Tarjeta Principal</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaDeFuenteDePoder" type="checkbox"
+                                            <input name="limpiezaFuentePoder" id="checkbox-limpiezaFuentePoder"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaDeFuenteDePoder"
+                                            <label for="checkbox-limpiezaFuentePoder"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Fuente de Poder</label>
                                         </div>
@@ -400,65 +579,71 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificacionDeLaBateria" type="checkbox"
+                                            <input name="verificacionBateria" id="checkbox-verificacionBateria"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-VerificacionDeLaBateria"
+                                            <label for="checkbox-verificacionBateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificación
                                                 de la Bateria</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificarConexionesEléctricasEnBuenEstado"
-                                                type="checkbox"
+                                            <input name="verificarConexionesElectricasBuenEstado"
+                                                id="checkbox-verificarConexionesElectricasBuenEstado" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-VerificarConexionesEléctricasEnBuenEstado"
+                                            <label for="checkbox-verificarConexionesElectricasBuenEstado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Conexiones Eléctricas en Buen Estado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificarQueFuncioneCorrectamenteDespuésDelServicio"
+                                            <input name="verificarFuncioneCorrectamenteDespuésServicio"
+                                                id="checkbox-verificarFuncioneCorrectamenteDespuésServicio"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-VerificarQueFuncioneCorrectamenteDespuésDelServicio"
+                                            <label for="checkbox-verificarFuncioneCorrectamenteDespuésServicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 que Funcione Correctamente Después del Servicio</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-AntivirusInstitucionalActualizado" type="checkbox"
+                                            <input name="antivirusInstitucionalActualizado"
+                                                id="checkbox-antivirusInstitucionalActualizado" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-AntivirusInstitucionalActualizado"
+                                            <label for="checkbox-antivirusInstitucionalActualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antivirus
                                                 Institucional Actualizado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-EjecuciónDeDefrag" type="checkbox"
+                                            <input name="ejecucionDefrag" id="checkbox-ejecucionDefrag"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-EjecuciónDeDefrag"
+                                            <label for="checkbox-ejecucionDefrag"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ejecución
                                                 de Defrag</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-EstadoDeServicioDeEscritorioRemoto" type="checkbox"
+                                            <input name="estadoServicioEscritorioRemoto"
+                                                id="checkbox-estadoServicioEscritorioRemoto" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-EstadoDeServicioDeEscritorioRemoto"
+                                            <label for="checkbox-estadoServicioEscritorioRemoto"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado
                                                 de Servicio de Escritorio Remoto</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-AsignaciónDeIPPorDHCP" type="checkbox"
+                                            <input name="asignaciónIPDHCP" id="checkbox-asignaciónIPDHCP"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-AsignaciónDeIPPorDHCP"
+                                            <label for="checkbox-asignaciónIPDHCP"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asignación
                                                 de IP por DHCP</label>
                                         </div>
