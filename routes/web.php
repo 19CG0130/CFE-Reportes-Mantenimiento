@@ -28,9 +28,24 @@ Route::get('/usuarios', [ProfileController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('usuarios');
 
-Route::get('/computadora_de_escritorio', function () {
-    return view('registroMantenimientos.formularios.computadoraEscritorio');
-})->middleware(['auth', 'verified'])->name('registro_mantenimiento');
+
+
+Route::get('/equipo_de_computo', function () {
+    return view('registroMantenimientos.formularios.equipoComputo');
+})->middleware(['auth', 'verified'])->name('equipo_de_computo');
+
+Route::get('/terminal_portatil', function () {
+    return view('registroMantenimientos.formularios.terminalPortatil');
+})->middleware(['auth', 'verified'])->name('terminal_portatil');
+
+Route::get('/tablet', function () {
+    return view('registroMantenimientos.formularios.tablet');
+})->middleware(['auth', 'verified'])->name('tablet');
+
+Route::get('/impresora', function () {
+    return view('registroMantenimientos.formularios.impresora');
+})->middleware(['auth', 'verified'])->name('impresora');
+
 
 Route::post('/registro_mantenimiento/post', function (Request $request) {
     dd($request->all());
