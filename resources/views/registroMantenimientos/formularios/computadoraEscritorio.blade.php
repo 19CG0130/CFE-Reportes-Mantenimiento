@@ -5,10 +5,10 @@
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
-                    <div class="p-2 text-gray-900 text-xl font-bold">
+                    <div class="p-1 text-gray-900 text-xl font-bold">
                         <span class="text-2xl font-extrabold">Mantenimiento preventivo equipos de computo</span>
                     </div>
-                    <div class="pl-2">
+                    <div class=" pl-2">
                         <div class="relative max-w-sm">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -23,19 +23,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-2">
+                <div class="flex flex-wrap">
                     <!-- Zona -->
-                    <div class="p-2 w-1/4">
-                        <label for="inputDepartamento" class="block text-base font-medium text-gray-900">Zona</label>
-                        <select id="select-departamento" name="departamento"
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="input-zona" class="block text-base font-medium text-gray-900">Zona</label>
+                        <select id="select-zona" name="zona"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Informatica">Nuevo Casas Grandes</option>
                         </select>
                     </div>
                     <!-- Departamento -->
-                    <div class="p-2 w-1/4">
-                        <label for="inputDepartamento"
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="input-Departamento"
                             class="block text-base font-medium text-gray-900">Departamento</label>
                         <select id="select-departamento" name="departamento"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -45,10 +45,10 @@
                         </select>
                     </div>
                     <!-- Uso que se le da al equipo -->
-                    <div class="p-2 w-1/4">
-                        <label for="inputDepartamento" class="block text-base font-medium text-gray-900">Uso que se le
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="input-usoQueSeLeDa" class="block text-base font-medium text-gray-900">Uso que se le
                             da al equipo</label>
-                        <select id="select-departamento" name="departamento"
+                        <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Informatica">Operativo</option>
@@ -56,7 +56,7 @@
                         </select>
                     </div>
                     <!-- Hora Inicio / Fin -->
-                    <div class="p-2 flex w-1/4">
+                    <div class="pr-2 pb-1 flex w-1/4">
                         <div class="w-1/2 pr-2">
                             <label for="start-time" class="block text-base font-medium text-gray-900">Inicio</label>
                             <div class="relative">
@@ -90,20 +90,20 @@
                     </div>
 
                     <!-- Usuario -->
-                    <div class="p-2 w-1/4">
-                        <label for="inputUsuario" class="block text-base font-medium text-gray-900">Usuario</label>
+                    <div class="pr-2 w-1/4">
+                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Usuario</label>
                         <input type="text" name="usuario" id="input-usuario"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Puesto -->
-                    <div class="p-2 w-1/4">
-                        <label for="inputPuesto" class="block text-base font-medium text-gray-900">Puesto</label>
+                    <div class="pr-2 w-1/4">
+                        <label for="input-Puesto" class="block text-base font-medium text-gray-900">Puesto</label>
                         <input type="text" name="puesto" id="input-puesto"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- RPE -->
-                    <div class="p-2 w-1/4">
-                        <label for="input-4" class="block text-base font-medium text-gray-900">RPE</label>
+                    <div class="pr-2 w-1/4">
+                        <label for="input-RPE" class="block text-base font-medium text-gray-900">RPE</label>
                         <input type="text" name="RPE" id="input-RPE"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
@@ -212,74 +212,83 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- Software -->
-        <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
+        <div class="pb-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
-                    <div class="p-2 text-gray-900 text-xl font-bold">
+                    <div class="p-1 text-gray-900 text-xl font-bold">
                         <span class="text-2xl font-extrabold">Software</span>
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-2">
+                <div class="flex flex-wrap">
                     <!-- Sistema Operativo -->
-                    <div class="p-2 w-1/4">
+                    <div class="pr-2 pb-1 w-1/4">
                         <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">Sistema
                             Operativo</label>
                         <select id="select-sistemaOperativo" name="sistemaOperativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
-                            <option value="Informatica">Windows</option>
-                            <option value="Superintendencia">MacOs</option>
-                            <option value="Superintendencia">Linux</option>
+                            <option value="Windows">Windows</option>
+                            <option value="MacOS">MacOS</option>
+                            <option value="Linux">Linux</option>
                         </select>
+                    </div>
+                    <!-- Arquitectura -->
+                    <div class="flex pr-2 mt-3.5">
+                        <!-- x32 -->
+                        <div class="flex items-center pr-2 ">
+                            <input id="radio-x32" type="radio" value="x32" name="Arquitectura"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="horizontal-list-radio-license"
+                                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">x32</label>
+                        </div>
+                        <!-- x64 -->
+                        <div class="flex items-center">
+                            <input id="radio-x64" type="radio" value="x64" name="Arquitectura"
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="horizontal-list-radio-id"
+                                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">x64</label>
+                        </div>
                     </div>
                     <!-- Versión Sistema Operativo -->
-                    <div class="p-2 w-1/4">
+                    <div class="pr-2 w-1/4">
                         <label for="input-versionSistemaOpertativo"
-                            class="block text-base font-medium text-gray-900">Versión Sistema
-                            Operativo</label>
-                        <select id="select-versionSistemaOpertativo" name="versionSistemaOpertativo"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Informatica">Windows</option>
-                            <option value="Superintendencia">MacOs</option>
-                            <option value="Superintendencia">Linux</option>
-                        </select>
+                            class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
+                        <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo"
+                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Office -->
-                    <div class="p-2 w-1/4">
-                        <label for="input-office" class="block text-base font-medium text-gray-900">Office</label>
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="inputOffice" class="block text-base font-medium text-gray-900">Office</label>
                         <select id="select-office" name="office"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
-                            <option value="Informatica">Office 2016</option>
-                            <option value="Superintendencia">Office 2019</option>
+                            <option value="Office 365">Office 365</option>
+                            <option value="Office 2016">Office 2016</option>
+                            <option value="Office 2019">Office 2019</option>
                         </select>
                     </div>
                     <!-- Antivirus -->
-                    <div class="p-2 w-1/4">
-                        <label for="input-antivirus"
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="input-Antivirus"
                             class="block text-base font-medium text-gray-900">Antivirus</label>
                         <select id="select-antivirus" name="antivirus"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
-                            <option value="Informatica">MCCOFFE</option>
-                            <option value="Superintendencia">KASPERSKY</option>
+                            <option value="Institucional">Institucional</option>
                         </select>
                     </div>
                     <!-- Antivirus Versión -->
-                    <div class="p-2 w-1/4">
+                    <div class="pr-2 w-1/4">
                         <label for="input-antivirusVersion"
-                            class="block text-base font-medium text-gray-900">Antivirus
-                            Versión</label>
-                        <input type="text" id="input-antivirusVersion" name="antivirusVersion"
+                            class="block text-base font-medium text-gray-900">Antivirus Versión</label>
+                        <input type="text" name="antivirusVersion" id="input-antivirusVersion"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
-
                 </div>
+
             </div>
         </div>
 
@@ -311,7 +320,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="max-w-3xl w-full px-4">
+                    <div class="w-full px-4">
                         <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
                             <!-- Columna 1 -->
                             <div class="pb-2">
@@ -328,7 +337,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaYSopleteadoInternaYExternaDelEquipo" type="checkbox"
+                                            <input id="checkbox-LimpiezaYSopleteadoInternaYExternaDelEquipo"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-LimpiezaYSopleteadoInternaYExternaDelEquipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -364,7 +374,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-LimpiezaYSopleteadoDeLaTarjetaPrincipal" type="checkbox"
+                                            <input id="checkbox-LimpiezaYSopleteadoDeLaTarjetaPrincipal"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-LimpiezaYSopleteadoDeLaTarjetaPrincipal"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -392,12 +403,14 @@
                                             <input id="checkbox-VerificacionDeLaBateria" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-VerificacionDeLaBateria"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificación de la Bateria</label>
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificación
+                                                de la Bateria</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificarConexionesEléctricasEnBuenEstado" type="checkbox"
+                                            <input id="checkbox-VerificarConexionesEléctricasEnBuenEstado"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-VerificarConexionesEléctricasEnBuenEstado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -406,7 +419,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox-VerificarQueFuncioneCorrectamenteDespuésDelServicio" type="checkbox"
+                                            <input id="checkbox-VerificarQueFuncioneCorrectamenteDespuésDelServicio"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-VerificarQueFuncioneCorrectamenteDespuésDelServicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
