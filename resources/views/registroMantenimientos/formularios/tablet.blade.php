@@ -3,6 +3,12 @@
         @csrf
         <!-- Mantenimiento preventivo equipos de computo -->
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <!-- Boton Cancelar -->
+            <a href="{{ route('dashboard') }}"
+                class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                Cancelar
+            </a>
+            <!-- Título -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
                     <div class="p-1 text-gray-900 text-xl font-bold">
@@ -211,7 +217,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
                     <div class="p-2 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Justificación del porqué se Realiza el Mantenimiento Fuera del Periodo</span>
+                        <span class="text-2xl font-extrabold">Justificación del porqué se Realiza el Mantenimiento
+                            Fuera del Periodo</span>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-2">
@@ -242,7 +249,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaSopleteadoExternoEquipo" id="checkbox-limpiezaSopleteadoExternoEquipo" type="checkbox"
+                                            <input name="limpiezaSopleteadoExternoEquipo"
+                                                id="checkbox-limpiezaSopleteadoExternoEquipo" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpiezaSopleteadoExternoEquipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -261,7 +269,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="revisionBateria" id="checkbox-revisionBateria" type="checkbox"
+                                            <input name="revisionBateria" id="checkbox-revisionBateria"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-revisionBateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revision
@@ -270,7 +279,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarSwInstitucional" id="checkbox-verificarSwInstitucional" type="checkbox"
+                                            <input name="verificarSwInstitucional"
+                                                id="checkbox-verificarSwInstitucional" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificarSwInstitucional"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -285,7 +295,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarEstadoConectorDatos" id="checkbox-verificarEstadoConectorDatos" type="checkbox"
+                                            <input name="verificarEstadoConectorDatos"
+                                                id="checkbox-verificarEstadoConectorDatos" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificarEstadoConectorDatos"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -304,7 +315,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarFuncionamientoEquipoDespuesServicio" id="checkbox-verificarFuncionamientoEquipoDespuesServicio"
+                                            <input name="verificarFuncionamientoEquipoDespuesServicio"
+                                                id="checkbox-verificarFuncionamientoEquipoDespuesServicio"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificarFuncionamientoEquipoDespuesServicio"

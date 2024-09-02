@@ -3,10 +3,16 @@
         @csrf
         <!-- Mantenimiento preventivo equipos de computo -->
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <!-- Boton Cancelar -->
+            <a href="{{ route('dashboard') }}"
+                class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                Cancelar
+            </a>
+            <!-- Título -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
                     <div class="p-1 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Mantenimiento preventivo equipos de computo</span>
+                        <span class="text-2xl font-extrabold">Mantenimiento Impresora</span>
                     </div>
                     <div class=" pl-2">
                         <div class="relative max-w-sm">
@@ -151,7 +157,7 @@
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Nombre D.A -->
-                
+
                     <!-- Num. Activo fijo -->
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">Num. Activo
@@ -210,9 +216,9 @@
         </div>
 
         <!-- Software -->
-        
+
         <!-- Hardware -->
-        
+
 
         <!-- Mantenimiento Ejecutado -->
         <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
@@ -231,7 +237,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="DesarmarEquipoParaSuLimpiezaInterna" id="checkbox-DesarmarEquipoParaSuLimpiezaInterna" type="checkbox"
+                                            <input name="DesarmarEquipoParaSuLimpiezaInterna"
+                                                id="checkbox-DesarmarEquipoParaSuLimpiezaInterna" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-DesarmarEquipoParaSuLimpiezaInterna"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
@@ -240,17 +247,18 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaSopleteadoInternoExternoEquipo" id="checkbox-limpiezaSopleteadoInternoExternoEquipo"
-                                                type="checkbox"
+                                            <input name="limpiezaSopleteadoInternoExternoEquipo"
+                                                id="checkbox-limpiezaSopleteadoInternoExternoEquipo" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label  for="checkbox-limpiezaSopleteadoInternoExternoEquipo"
+                                            <label for="checkbox-limpiezaSopleteadoInternoExternoEquipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="LimpiezaPantalla" id="checkbox-LimpiezaPantalla" type="checkbox"
+                                            <input name="LimpiezaPantalla" id="checkbox-LimpiezaPantalla"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-LimpiezaPantalla"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -259,35 +267,23 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaRevisionMecanismoAlimentacionPapel" id="checkbox-limpiezaRevisionMecanismoAlimentacionPapel" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaRevisionMecanismoAlimentacionPapel"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza y revisión de mecanismo alimentación del papel</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input name="limpiezaRevisionUnidadFusion" id="checkbox-limpiezaRevisionUnidadFusion" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaRevisionUnidadFusion"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza y revisión de la unidad de fusión</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input name="limpiezaRevisionUnidadLaser" id="checkbox-limpiezaRevisionUnidadLaser"
+                                            <input name="limpiezaRevisionMecanismoAlimentacionPapel"
+                                                id="checkbox-limpiezaRevisionMecanismoAlimentacionPapel"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaRevisionUnidadLaser"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza y revisión de la unidad láser</label>
+                                            <label for="checkbox-limpiezaRevisionMecanismoAlimentacionPapel"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
+                                                y revisión de mecanismo alimentación del papel</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validarEstadoConsumibles" id="checkbox-validarEstadoConsumibles" type="checkbox"
+                                            <input name="limpiezaRevisionUnidadFusion"
+                                                id="checkbox-limpiezaRevisionUnidadFusion" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-validarEstadoConsumibles"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar Estado de Consumibles</label>
+                                            <label for="checkbox-limpiezaRevisionUnidadFusion"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
+                                                y revisión de la unidad de fusión</label>
                                         </div>
                                     </li>
                                 </ul>
@@ -299,10 +295,31 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
+                                            <input name="validarEstadoConsumibles"
+                                                id="checkbox-validarEstadoConsumibles" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-validarEstadoConsumibles"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
+                                                Estado de Consumibles</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="limpiezaRevisionUnidadLaser"
+                                                id="checkbox-limpiezaRevisionUnidadLaser" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-limpiezaRevisionUnidadLaser"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
+                                                y revisión de la unidad láser</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
                                             <input name="equipoRed" id="checkbox-equipoRed" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipoRed"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo en Red </label>
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
+                                                en Red </label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
@@ -311,19 +328,21 @@
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-realizarAutoPrueba"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Realizar Auto Prueba</label>
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Realizar
+                                                Auto Prueba</label>
                                         </div>
                                     </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                    <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="equipoOperandoDespuesServicio" id="checkbox-equipoOperandoDespuesServicio"
-                                                type="checkbox"
+                                            <input name="equipoOperandoDespuesServicio"
+                                                id="checkbox-equipoOperandoDespuesServicio" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipoOperandoDespuesServicio"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo Operando después del servicio</label>
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
+                                                Operando después del servicio</label>
                                         </div>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
