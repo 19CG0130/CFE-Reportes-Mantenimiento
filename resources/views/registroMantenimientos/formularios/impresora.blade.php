@@ -50,16 +50,8 @@
                             <option value="Superintendencia">Superintendencia</option>
                         </select>
                     </div>
-                    <!-- Uso que se le da al equipo -->
+                    <!-- div Vacio -->
                     <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-usoQueSeLeDa" class="block text-base font-medium text-gray-900">Uso que se le
-                            da al equipo</label>
-                        <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Informatica">Operativo</option>
-                            <option value="Superintendencia">Capacitación</option>
-                        </select>
                     </div>
                     <!-- Hora Inicio / Fin -->
                     <div class="pr-2 pb-1 flex w-1/4">
@@ -130,8 +122,8 @@
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                     <!-- Servicio -->
                     <div>
-                        <label for="input-1" class="block text-base font-medium text-gray-900">Servicio</label>
-                        <select id="select-tipo" name="tipo"
+                        <label for="input-servicio" class="block text-base font-medium text-gray-900">Servicio</label>
+                        <select id="select-servicio" name="servicio"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Informatica">Preventivo</option>
@@ -237,53 +229,53 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="DesarmarEquipoParaSuLimpiezaInterna"
-                                                id="checkbox-DesarmarEquipoParaSuLimpiezaInterna" type="checkbox"
+                                            <input name="desarmar_limpieza_interna"
+                                                id="checkbox-desarmar_limpieza_interna" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-DesarmarEquipoParaSuLimpiezaInterna"
+                                            <label for="checkbox-desarmar_limpieza_interna"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
                                                 Equipo para su Limpieza Interna</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaSopleteadoInternoExternoEquipo"
-                                                id="checkbox-limpiezaSopleteadoInternoExternoEquipo" type="checkbox"
+                                            <input name="limpieza_sopleteado_int_ext"
+                                                id="checkbox-limpieza_sopleteado_int_ext" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaSopleteadoInternoExternoEquipo"
+                                            <label for="checkbox-limpieza_sopleteado_int_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="LimpiezaPantalla" id="checkbox-LimpiezaPantalla"
+                                            <input name="limpieza_bandejas" id="checkbox-limpieza_bandejas"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-LimpiezaPantalla"
+                                            <label for="checkbox-limpieza_bandejas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                de bandejas o charolas</label>
+                                                de Bandejas o Charolas</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaRevisionMecanismoAlimentacionPapel"
-                                                id="checkbox-limpiezaRevisionMecanismoAlimentacionPapel"
+                                            <input name="limpieza_alimentacion_papel"
+                                                id="checkbox-limpieza_alimentacion_papel"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaRevisionMecanismoAlimentacionPapel"
+                                            <label for="checkbox-limpieza_alimentacion_papel"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                y revisión de mecanismo alimentación del papel</label>
+                                                y Revisión del Mecanismo de Alimentación del Papel</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaRevisionUnidadFusion"
-                                                id="checkbox-limpiezaRevisionUnidadFusion" type="checkbox"
+                                            <input name="limpieza_unidad_fusion"
+                                                id="checkbox-limpieza_unidad_fusion" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaRevisionUnidadFusion"
+                                            <label for="checkbox-limpieza_unidad_fusion"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                y revisión de la unidad de fusión</label>
+                                                y Revisión de la Unidad de Fusión</label>
                                         </div>
                                     </li>
                                 </ul>
@@ -295,51 +287,51 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validarEstadoConsumibles"
-                                                id="checkbox-validarEstadoConsumibles" type="checkbox"
+                                            <input name="limpieza_unidad_laser"
+                                                id="checkbox-limpieza_unidad_laser" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-validarEstadoConsumibles"
+                                            <label for="checkbox-limpieza_unidad_laser"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
+                                                y Revisión de la Unidad Láser</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="validar_consumibles"
+                                                id="checkbox-validar_consumibles" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-validar_consumibles"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
                                                 Estado de Consumibles</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaRevisionUnidadLaser"
-                                                id="checkbox-limpiezaRevisionUnidadLaser" type="checkbox"
+                                            <input name="equipo_en_red" id="checkbox-equipo_en_red" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaRevisionUnidadLaser"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
-                                                y revisión de la unidad láser</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input name="equipoRed" id="checkbox-equipoRed" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-equipoRed"
+                                            <label for="checkbox-equipo_en_red"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
-                                                en Red </label>
+                                                en Red</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="realizarAutoPrueba" id="checkbox-realizarAutoPrueba"
+                                            <input name="realizar_auto_prueba" id="checkbox-realizar_auto_prueba"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-realizarAutoPrueba"
+                                            <label for="checkbox-realizar_auto_prueba"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Realizar
                                                 Auto Prueba</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="equipoOperandoDespuesServicio"
-                                                id="checkbox-equipoOperandoDespuesServicio" type="checkbox"
+                                            <input name="verificar_post_servicio"
+                                                id="checkbox-verificar_post_servicio" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-equipoOperandoDespuesServicio"
+                                            <label for="checkbox-verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
-                                                Operando después del servicio</label>
+                                                Operando Después del Servicio</label>
                                         </div>
                                     </li>
 

@@ -46,7 +46,13 @@
                         <select id="select-departamento" name="departamento"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
-                            <option value="Informatica">Informatica</option>
+                            <option value="Administración">Administración</option>
+                            <option value="Gestión Comercial">Gestión Comercial</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Jurídico">Jurídico</option>
+                            <option value="Medición, Conexiones y Servicios">Medición, Conexiones y Servicios</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Planeación">Planeación</option>
                             <option value="Superintendencia">Superintendencia</option>
                         </select>
                     </div>
@@ -130,8 +136,8 @@
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                     <!-- Servicio -->
                     <div>
-                        <label for="input-1" class="block text-base font-medium text-gray-900">Servicio</label>
-                        <select id="select-tipo" name="tipo"
+                        <label for="input-servicio" class="block text-base font-medium text-gray-900">Servicio</label>
+                        <select id="select-servicio" name="servicio"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Informatica">Preventivo</option>
@@ -405,8 +411,8 @@
                     </div>
                     <!-- Agregar Otro -->
                     <div>
-                        <label for="input-agregarOtroHardware" class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
+                        <label for="input-agregarOtroSoftware" class="block text-base font-medium text-gray-900">Agregar Otro</label>
+                        <input type="text" id="input-agregarOtroSoftware" name="agregarOtroSoftware"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                 </div>
@@ -502,70 +508,70 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="desarmarEquipoLimpiezaInterna"
-                                                id="checkbox-desarmarEquipoLimpiezaInterna" type="checkbox"
+                                            <input name="desarmar_equipo"
+                                                id="checkbox-desarmar_equipo" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-desarmarEquipoLimpiezaInterna"
+                                            <label for="checkbox-desarmar_equipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
                                                 Equipo Para su Limpieza Interna</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaSopleteadoInternoExternoEquipo"
-                                                id="checkbox-limpiezaSopleteadoInternoExternoEquipo" type="checkbox"
+                                            <input name="limpieza_sopleteado_interno_externo"
+                                                id="checkbox-limpieza_sopleteado_interno_externo" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaSopleteadoInternoExternoEquipo"
+                                            <label for="checkbox-limpieza_sopleteado_interno_externo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaPantalla" id="checkbox-limpiezaPantalla"
+                                            <input name="limpieza_pantalla" id="checkbox-limpieza_pantalla"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaPantalla"
+                                            <label for="checkbox-limpieza_pantalla"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Pantalla</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaTeclado" id="checkbox-limpiezaTeclado"
+                                            <input name="limpieza_teclado" id="checkbox-limpieza_teclado"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaTeclado"
+                                            <label for="checkbox-limpieza_teclado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Teclado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaVentiladores" id="checkbox-limpiezaVentiladores"
+                                            <input name="limpieza_ventiladores" id="checkbox-limpieza_ventiladores"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaVentiladores"
+                                            <label for="checkbox-limpieza_ventiladores"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 Ventiladores</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaSopleteadoTarjetaPrincipal"
-                                                id="checkbox-limpiezaSopleteadoTarjetaPrincipal" type="checkbox"
+                                            <input name="limpieza_tarjeta_principal"
+                                                id="checkbox-limpieza_tarjeta_principal" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaSopleteadoTarjetaPrincipal"
+                                            <label for="checkbox-limpieza_tarjeta_principal"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado de la Tarjeta Principal</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaFuentePoder" id="checkbox-limpiezaFuentePoder"
+                                            <input name="limpieza_fuente_poder" id="checkbox-limpieza_fuente_poder"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaFuentePoder"
+                                            <label for="checkbox-limpieza_fuente_poder"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Fuente de Poder</label>
                                         </div>
@@ -579,71 +585,71 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificacionBateria" id="checkbox-verificacionBateria"
+                                            <input name="verificacion_bateria" id="checkbox-verificacion_bateria"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificacionBateria"
+                                            <label for="checkbox-verificacion_bateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificación
                                                 de la Bateria</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarConexionesElectricasBuenEstado"
-                                                id="checkbox-verificarConexionesElectricasBuenEstado" type="checkbox"
+                                            <input name="verificar_conexiones_electricas"
+                                                id="checkbox-verificar_conexiones_electricas" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificarConexionesElectricasBuenEstado"
+                                            <label for="checkbox-verificar_conexiones_electricas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Conexiones Eléctricas en Buen Estado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarFuncioneCorrectamenteDespuésServicio"
-                                                id="checkbox-verificarFuncioneCorrectamenteDespuésServicio"
+                                            <input name="verificar_funcionamiento_post_servicio"
+                                                id="checkbox-verificar_funcionamiento_post_servicio"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificarFuncioneCorrectamenteDespuésServicio"
+                                            <label for="checkbox-verificar_funcionamiento_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 que Funcione Correctamente Después del Servicio</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="antivirusInstitucionalActualizado"
-                                                id="checkbox-antivirusInstitucionalActualizado" type="checkbox"
+                                            <input name="antivirus_actualizado"
+                                                id="checkbox-antivirus_actualizado" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-antivirusInstitucionalActualizado"
+                                            <label for="checkbox-antivirus_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antivirus
                                                 Institucional Actualizado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="ejecucionDefrag" id="checkbox-ejecucionDefrag"
+                                            <input name="ejecucion_defrag" id="checkbox-ejecucion_defrag"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-ejecucionDefrag"
+                                            <label for="checkbox-ejecucion_defrag"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ejecución
                                                 de Defrag</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="estadoServicioEscritorioRemoto"
-                                                id="checkbox-estadoServicioEscritorioRemoto" type="checkbox"
+                                            <input name="estado_servicio_escritorio_remoto"
+                                                id="checkbox-estado_servicio_escritorio_remoto" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-estadoServicioEscritorioRemoto"
+                                            <label for="checkbox-estado_servicio_escritorio_remoto"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado
                                                 de Servicio de Escritorio Remoto</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="asignaciónIPDHCP" id="checkbox-asignaciónIPDHCP"
+                                            <input name="asignacion_ip_dhcp" id="checkbox-asignacion_ip_dhcp"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-asignaciónIPDHCP"
+                                            <label for="checkbox-asignacion_ip_dhcp"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asignación
                                                 de IP por DHCP</label>
                                         </div>

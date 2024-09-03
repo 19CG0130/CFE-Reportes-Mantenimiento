@@ -113,8 +113,8 @@
                         <input type="text" name="RPE" id="input-RPE"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
+                    
                 </div>
-
             </div>
         </div>
 
@@ -130,8 +130,8 @@
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                     <!-- Servicio -->
                     <div>
-                        <label for="input-1" class="block text-base font-medium text-gray-900">Servicio</label>
-                        <select id="select-tipo" name="tipo"
+                        <label for="input-servicio" class="block text-base font-medium text-gray-900">Servicio</label>
+                        <select id="select-servicio" name="servicio"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Informatica">Preventivo</option>
@@ -249,40 +249,40 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpiezaSopleteadoExternoEquipo"
-                                                id="checkbox-limpiezaSopleteadoExternoEquipo" type="checkbox"
+                                            <input name="limpieza_sopleteado_ext"
+                                                id="checkbox-limpieza_sopleteado_ext" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpiezaSopleteadoExternoEquipo"
+                                            <label for="checkbox-limpieza_sopleteado_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Externo del Equipo</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validarTouchPantalla" id="checkbox-validarTouchPantalla"
+                                            <input name="validar_touch" id="checkbox-validar_touch"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-validarTouchPantalla"
+                                            <label for="checkbox-validar_touch"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
                                                 Touch Pantalla</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="revisionBateria" id="checkbox-revisionBateria"
+                                            <input name="revision_bateria" id="checkbox-revision_bateria"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-revisionBateria"
+                                            <label for="checkbox-revision_bateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revision
                                                 de Bateria</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarSwInstitucional"
-                                                id="checkbox-verificarSwInstitucional" type="checkbox"
+                                            <input name="verificar_sw_actualizado"
+                                                id="checkbox-verificar_sw_actualizado" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificarSwInstitucional"
+                                            <label for="checkbox-verificar_sw_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Sw Institucional Actualizado</label>
                                         </div>
@@ -295,31 +295,31 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarEstadoConectorDatos"
-                                                id="checkbox-verificarEstadoConectorDatos" type="checkbox"
+                                            <input name="verificar_conector_datos"
+                                                id="checkbox-verificar_conector_datos" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificarEstadoConectorDatos"
+                                            <label for="checkbox-verificar_conector_datos"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Estado del Conector de Datos</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validarEstadoTeclado" id="checkbox-validarEstadoTeclado"
+                                            <input name="validar_teclado" id="checkbox-validar_teclado"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-validarEstadoTeclado"
+                                            <label for="checkbox-validar_teclado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
                                                 Estado del Teclado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificarFuncionamientoEquipoDespuesServicio"
-                                                id="checkbox-verificarFuncionamientoEquipoDespuesServicio"
+                                            <input name="verificar_post_servicio"
+                                                id="checkbox-verificar_post_servicio"
                                                 type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificarFuncionamientoEquipoDespuesServicio"
+                                            <label for="checkbox-verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Funcionamiento del Equipo Después del Servicio</label>
                                         </div>
