@@ -113,7 +113,7 @@
                         <input type="text" name="RPE" id="input-RPE"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -174,20 +174,6 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    <!-- IP Ethernet -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">IP
-                            Ethernet</label>
-                        <input type="text" id="input-IpEthernet" name="IpEthernet"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- MAC Ethernet -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">MAC
-                            Ethernet</label>
-                        <input type="text" id="input-macEthernet" name="macEthernet"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
                     <!-- IP Inalámbrica -->
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">IP
@@ -212,21 +198,129 @@
                 </div>
             </div>
         </div>
-        <!-- Justificación del porqué se Realiza el Mantenimiento Fuera del Periodo -->
-        <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
+        <!-- Software -->
+        <div class="pb-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
-                    <div class="p-2 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Justificación del porqué se Realiza el Mantenimiento
-                            Fuera del Periodo</span>
+                    <div class="p-1 text-gray-900 text-xl font-bold">
+                        <span class="text-2xl font-extrabold">Software</span>
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-2">
-                    <!-- Justificacion -->
-                    <div class="p-2 w-full">
-                        <textarea id="input-justificacion" name="justificacion"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                            rows="4"></textarea>
+                <div class="pb-3 flex flex-wrap">
+                    <!-- Sistema Operativo -->
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">Sistema
+                            Operativo</label>
+                        <select id="select-sistemaOperativo" name="sistemaOperativo"
+                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Seleccionar</option>
+                            <option value="Windows">Android</option>
+                        </select>
+                    </div>
+                    <!-- Versión Sistema Operativo -->
+                    <div class="pr-2 w-1/4">
+                        <label for="input-versionSistemaOpertativo"
+                            class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
+                        <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo"
+                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+                <!-- Otros Softwares Checkbox -->
+                <div class="flex justify-center">
+                    <div class="w-full px-4">
+                        <div class="grid grid-cols-3 gap-4 sm:grid-cols-3">
+                            <!-- Columna 1 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="LMobile" id="checkbox-LMobile" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-LMobile"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LMobile</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="lasmobile" id="checkbox-lasmobile" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-lasmobile"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LASMobile</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="lasmobile" id="checkbox-lasmobile" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-lasmobile"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">lasmobile</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Columna 2 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="siad" id="checkbox-siad" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-siad"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">--</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="autocad" id="checkbox-autocad" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-autocad"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">--</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="sinergy" id="checkbox-sinergy" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-sinergy"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">--</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Columna 3 -->
+                            <div class="pb-2">
+                                <ul
+                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="mysapR3" id="checkbox-mysapR3" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-mysapR3"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">--</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="lotus" id="checkbox-lotus" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-lotus"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">--</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agregar Otro -->
+                    <div>
+                        <label for="input-agregarOtroSoftware"
+                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
+                        <input type="text" id="input-agregarOtroSoftware" name="agregarOtroSoftware"
+                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                 </div>
             </div>
@@ -259,8 +353,7 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validar_touch" id="checkbox-validar_touch"
-                                                type="checkbox"
+                                            <input name="validar_touch" id="checkbox-validar_touch" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-validar_touch"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
@@ -316,8 +409,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_post_servicio"
-                                                id="checkbox-verificar_post_servicio"
-                                                type="checkbox"
+                                                id="checkbox-verificar_post_servicio" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
