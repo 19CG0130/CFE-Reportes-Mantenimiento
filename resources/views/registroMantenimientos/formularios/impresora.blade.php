@@ -172,22 +172,238 @@
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">IP
                             Ethernet</label>
-                        <input type="text" id="input-IpEthernet" name="IpEthernet"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                        <!-- <input type="text" id="input-IpEthernet" name="IpEthernet"-->
+                        <!--class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+
+                        <!--Script IP Ethernet-->
+                        <style>
+                            .ip-segment {
+                                width: 35px;
+                                text-align: center;
+                                margin-right: 5px;
+                            }
+
+                            .ip-container input[type="text"] {
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                padding: 5px;
+                            }
+                        </style>
+
+                        <div class="ip-container">
+                            <input type="text" class="ip-segment" maxlength="3" id="seg1" />
+                            .
+                            <input type="text" class="ip-segment" maxlength="3" id="seg2" />
+                            .
+                            <input type="text" class="ip-segment" maxlength="3" id="seg3" />
+                            .
+                            <input type="text" class="ip-segment" maxlength="3" id="seg4" />
+                        </div>
+
+                        <!-- Input para mostrar la IP completa -->
+                        <div>
+                            <input type="hidden" id="input-IpEthernet" name="IpEthernet" readonly />
+                        </div>
+
+                        <script>
+                            const segments = document.querySelectorAll('.ip-segment');
+                            const fullIpInput = document.getElementById('input-IpEthernet');
+
+                            segments.forEach((segment, index) => {
+                                segment.addEventListener('input', function() {
+
+                                    const ipAddress = Array.from(segments).map(seg => seg.value).join('.');
+                                    fullIpInput.value = ipAddress;
+                                });
+
+                                segment.addEventListener('keydown', function(e) {
+
+                                    if (e.key === 'Backspace' && segment.value === '' && index > 0) {
+                                        segments[index - 1].focus();
+                                    } else if (e.key === 'ArrowRight' && index < 3) {
+                                        segments[index + 1].focus();
+                                    } else if (e.key === 'ArrowLeft' && index > 0) {
+                                        segments[index - 1].focus();
+                                    }
+                                });
+                            });
+
+
+                            document.querySelector('form').addEventListener('submit', function(e) {
+                                let valid = true;
+                                segments.forEach(segment => {
+                                    if (segment.value.length < 1 || segment.value.length > 3) {
+                                        valid = false;
+                                    }
+                                });
+
+                                if (!valid) {
+                                    e.preventDefault();
+                                    alert('Por favor, asegúrese de que cada segmento de la IP tenga entre 1 y 3 dígitos.');
+                                } else {
+                                    // Concatenar 
+                                    const ipAddress = Array.from(segments).map(seg => seg.value).join('.');
+                                    fullIpInput.value = ipAddress;
+                                }
+                            });
+                        </script>
+
+
+                        <!--End of Script IP Ethernet-->
                     </div>
                     <!-- MAC Ethernet -->
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">MAC
                             Ethernet</label>
-                        <input type="text" id="input-macEthernet" name="macEthernet"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                        <input type="hidden" id="input-macEthernet" name="macEthernet">
+                        <!--Script MAC Ethernet-->
+                        <style>
+                            .Mac-segment {
+                                width: 35px;
+                                text-align: center;
+                                margin-right: 5px;
+                            }
+
+                            .ip-container input[type="text"] {
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                padding: 5px;
+                            }
+                        </style>
+
+                        <div class="ip-container">
+                            <input type="text" class="Mac-segment" maxlength="3" id="segm1" />
+                            :
+                            <input type="text" class="Mac-segment" maxlength="3" id="segm2" />
+                            :
+                            <input type="text" class="Mac-segment" maxlength="3" id="segm3" />
+                            :
+                            <input type="text" class="Mac-segment" maxlength="3" id="segm4" />
+                            :
+                            <input type="text" class="Mac-segment" maxlength="3" id="segm4" />
+                            :
+                            <input type="text" class="Mac-segment" maxlength="3" id="segm4" />
+                        </div>
+
+                        <script>
+                            const segmentsM = document.querySelectorAll('.Mac-segment');
+                            const fullIpInputI = document.getElementById('input-macEthernet');
+
+                            segmentsM.forEach((segment, index) => {
+                                segment.addEventListener('input', function() {
+                                    
+                                    const macAddressI = Array.from(segmentsM).map(seg => seg.value).join(':');
+                                    fullIpInputI.value = macAddressI;
+                                });
+
+                                segment.addEventListener('keydown', function(e) {
+                                    // Navegación manual entre segmentos con las flechas o Backspace
+                                    if (e.key === 'Backspace' && segment.value === '' && index > 0) {
+                                        segmentsM[index - 1].focus();
+                                    } else if (e.key === 'ArrowRight' && index < 5) {
+                                        segmentsM[index + 1].focus();
+                                    } else if (e.key === 'ArrowLeft' && index > 0) {
+                                        segmentsM[index - 1].focus();
+                                    }
+                                });
+                            });
+
+                            
+                            document.querySelector('form').addEventListener('submit', function(e) {
+                                let valid = true;
+                                segmentsM.forEach(segment => {
+                                    if (segment.value.length < 1 || segment.value.length > 2) {
+                                        valid = false;
+                                    }
+                                });
+
+                                if (!valid) {
+                                    e.preventDefault();
+                                    alert('Por favor, asegúrese de que cada segmento de la MAC tenga entre 1 y 2 dígitos.');
+                                } else {
+                                    
+                                    const macAddressI = Array.from(segmentsM).map(seg => seg.value).join(':');
+                                    fullIpInputI.value = macAddressI;
+                                }
+                            });
+                        </script>
+
+                        <!--End Script MAC Ethernet-->
                     </div>
                     <!-- IP Inalámbrica -->
                     <div>
                         <label for="input-2" class="block text-base font-medium text-gray-900">IP
                             Inalámbrica</label>
-                        <input type="text" id="input-IpInalambrica" name="IpInalambrica"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                        <input type="hidden" id="input-IpInalambrica" name="IpInalambrica">
+
+                        <!-- Script IP Inalámbrica -->
+                        <style>
+                            .ip-segmentI {
+                                width: 35px;
+                                text-align: center;
+                                margin-right: 5px;
+                            }
+
+                            .ip-container input[type="text"] {
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                padding: 5px;
+                            }
+                        </style>
+
+                        <div class="ip-container">
+                            <input type="text" class="ip-segmentI" maxlength="3" id="segI1" />
+                            .
+                            <input type="text" class="ip-segmentI" maxlength="3" id="segI2" />
+                            .
+                            <input type="text" class="ip-segmentI" maxlength="3" id="segI3" />
+                            .
+                            <input type="text" class="ip-segmentI" maxlength="3" id="segI4" />
+                        </div>
+
+                        <script>
+                            const segmentsI = document.querySelectorAll('.ip-segmentI');
+                            const fullIpInputI = document.getElementById('input-IpInalambrica');
+
+                            segmentsI.forEach((segment, index) => {
+                                segment.addEventListener('input', function() {
+                                    // Unir los valores de los segmentos cuando se ingresa algo en cualquiera de ellos
+                                    const ipAddressI = Array.from(segmentsI).map(seg => seg.value).join('.');
+                                    fullIpInputI.value = ipAddressI;
+                                });
+
+                                segment.addEventListener('keydown', function(e) {
+                                    // Navegación manual entre segmentos con las flechas o Backspace
+                                    if (e.key === 'Backspace' && segment.value === '' && index > 0) {
+                                        segmentsI[index - 1].focus();
+                                    } else if (e.key === 'ArrowRight' && index < 3) {
+                                        segmentsI[index + 1].focus();
+                                    } else if (e.key === 'ArrowLeft' && index > 0) {
+                                        segmentsI[index - 1].focus();
+                                    }
+                                });
+                            });
+
+                            // Validar que todos los segmentos estén llenos al enviar el formulario
+                            document.querySelector('form').addEventListener('submit', function(e) {
+                                let valid = true;
+                                segmentsI.forEach(segment => {
+                                    if (segment.value.length < 1 || segment.value.length > 3) {
+                                        valid = false;
+                                    }
+                                });
+
+                                if (!valid) {
+                                    e.preventDefault();
+                                    alert('Por favor, asegúrese de que cada segmento de la IP tenga entre 1 y 3 dígitos.');
+                                } else {
+                                    // Concatenar los segmentos y asignar el valor al input de IP completa
+                                    const ipAddressI = Array.from(segmentsI).map(seg => seg.value).join('.');
+                                    fullIpInputI.value = ipAddressI;
+                                }
+                            });
+                        </script>
+                        <!--End Script IP Inalámbrica-->
                     </div>
                     <!-- MAC Inalámbrica -->
                     <div>
@@ -260,8 +476,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_alimentacion_papel"
-                                                id="checkbox-limpieza_alimentacion_papel"
-                                                type="checkbox"
+                                                id="checkbox-limpieza_alimentacion_papel" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_alimentacion_papel"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -270,8 +485,8 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_unidad_fusion"
-                                                id="checkbox-limpieza_unidad_fusion" type="checkbox"
+                                            <input name="limpieza_unidad_fusion" id="checkbox-limpieza_unidad_fusion"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_unidad_fusion"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -287,8 +502,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_unidad_laser"
-                                                id="checkbox-limpieza_unidad_laser" type="checkbox"
+                                            <input name="limpieza_unidad_laser" id="checkbox-limpieza_unidad_laser"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_unidad_laser"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -297,8 +512,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validar_consumibles"
-                                                id="checkbox-validar_consumibles" type="checkbox"
+                                            <input name="validar_consumibles" id="checkbox-validar_consumibles"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-validar_consumibles"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
