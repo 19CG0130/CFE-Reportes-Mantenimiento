@@ -104,7 +104,7 @@
 
                     <!-- Usuario -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Usuario</label>
+                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Responsable del Equipo</label>
                         <input type="text" name="usuario" id="input-usuario"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
@@ -195,41 +195,15 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    <!-- IP Ethernet -->
+                    <!--  Ethernets -->
                     <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">IP
-                            Ethernet</label>
-                        <input type="text" id="input-IpEthernet" name="IpEthernet"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                        <x-ethernet-input>
+                        </x-ethernet-input>
                     </div>
-                    <!-- MAC Ethernet -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">MAC
-                            Ethernet</label>
-                        <input type="text" id="input-macEthernet" name="macEthernet"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- IP Inalámbrica -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">IP
-                            Inalámbrica</label>
-                        <input type="text" id="input-IpInalambrica" name="IpInalambrica"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- MAC Inalámbrica -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">MAC
-                            Inalámbrica</label>
-                        <input type="text" id="input-macInalambrica" name="macInalambrica"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- MAC Bluetooth -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">MAC
-                            Bluetooth</label>
-                        <input type="text" id="input-macBluetooth" name="macBluetooth"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
+                    <!-- Inalámbricos -->
+                    <x-inalambrico-input>
+                    </x-inalambrico-input>
+                    
                 </div>
             </div>
         </div>
