@@ -103,10 +103,27 @@
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Puesto -->
-                    <div class="pr-2 w-1/4">
-                        <label for="input-Puesto" class="block text-base font-medium text-gray-900">Puesto</label>
-                        <input type="text" name="puesto" id="input-puesto"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="input-puesto" class="block text-base font-medium text-gray-900">Puesto</label>
+                        <select id="select-puesto" name="puesto"
+                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Seleccionar</option>
+                            <option value="JEFE DEPARTAMENTO">JEFE DEPARTAMENTO</option>
+                            <option value="SUPERINTENDENTE">SUPERINTENDENTE</option>
+                            <option value="JEFE OFICINA">JEFE OFICINA</option>
+                            <option value="SECRETARIA">SECRETARIA</option>
+                            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                            <option value="SUPERVISOR">SUPERVISOR</option>
+                            <option value="AGENTE COMERCIAL">AGENTE COMERCIAL</option>
+                            <option value="OFICINISTA">OFICINISTA</option>
+                            <option value="AUXILIAR ESPECIALIZADO">AUXILIAR ESPECIALIZADO</option>
+                            <option value="AUXILIAR ADMINISTRATIVO">AUXILIAR ADMINISTRATIVO</option>
+                            <option value="OPERADOR DISTRIBUCIÓN">OPERADOR DISTRIBUCIÓN</option>
+                            <option value="TÉCNICO">TÉCNICO</option>
+                            <option value="SOBRESTANTE">SOBRESTANTE</option>
+                            <option value="VERIFICADOR CALIBRADOR">VERIFICADOR CALIBRADOR</option>
+                            <option value="PROFESIONISTA">PROFESIONISTA</option>
+                        </select>
                     </div>
                     <!-- RPE -->
                     <div class="pr-2 w-1/4">
