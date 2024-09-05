@@ -46,6 +46,9 @@ Route::get('/impresora', function () {
     return view('registroMantenimientos.formularios.impresora');
 })->middleware(['auth', 'verified'])->name('impresora');
 
+Route::get('/otro_dispositivo', function () {
+    return view('registroMantenimientos.formularios.otroDispositivo');
+})->middleware(['auth', 'verified'])->name('otro_dispositivo');
 
 Route::post('/registro_mantenimiento/post', function (Request $request) {
     dd($request->all());

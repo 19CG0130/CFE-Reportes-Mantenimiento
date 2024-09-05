@@ -180,7 +180,7 @@
                                                     </a>
                                                 </li>
 
-                                                <!-- Terminal Portátil -->
+                                                <!-- Tablet -->
                                                 <li>
                                                     <a href="{{ route('tablet') }}" for="job-1"
                                                         class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
@@ -222,7 +222,6 @@
                                                                     d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
                                                             </svg>
 
-
                                                             <div class="w-full text-lg font-semibold">Impresora
                                                             </div>
 
@@ -236,6 +235,34 @@
                                                         </svg>
                                                     </a>
                                                 </li>
+                                                <!-- Otro Dispositivo -->
+                                                <li>
+                                                    <a href="{{ route('otro_dispositivo') }}" for="job-1"
+                                                        class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                                        <div class="flex items-center">
+                                                            <svg class="text-blue-500 w-8 h-8 mr-2"
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" fill="none" viewBox="0 0 24 24"
+                                                                stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2"
+                                                                    d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                            </svg>
+
+                                                            <div class="w-full text-lg font-semibold">Otro Dispositivo
+                                                            </div>
+
+                                                        </div>
+                                                        <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400"
+                                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 14 10">
+                                                            <path stroke="currentColor" stroke-linecap="round"
+                                                                stroke-linejoin="round" stroke-width="2"
+                                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                                        </svg>
+                                                    </a>
+                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>

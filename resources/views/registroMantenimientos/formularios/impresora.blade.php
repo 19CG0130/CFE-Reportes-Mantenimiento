@@ -1,7 +1,8 @@
 <x-app-layout>
     <form method="POST" action="/registro_mantenimiento/post">
         @csrf
-        <!-- Mantenimiento preventivo equipos de computo -->
+        <!-- Mantenimiento Mantenimiento Impresora -->
+        <input type="hidden" name="dispositivo" value="impresora">
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Boton Cancelar -->
             <a href="{{ route('dashboard') }}"
