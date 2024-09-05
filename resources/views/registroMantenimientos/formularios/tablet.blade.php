@@ -175,26 +175,8 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                     <!-- IP Inalámbrica -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">IP
-                            Inalámbrica</label>
-                        <input type="text" id="input-IpInalambrica" name="IpInalambrica"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- MAC Inalámbrica -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">MAC
-                            Inalámbrica</label>
-                        <input type="text" id="input-macInalambrica" name="macInalambrica"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- MAC Bluetooth -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">MAC
-                            Bluetooth</label>
-                        <input type="text" id="input-macBluetooth" name="macBluetooth"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
+                    <x-inalambrico-input>
+                    </x-inalambrico-input>
                 </div>
             </div>
         </div>
