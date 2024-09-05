@@ -109,10 +109,27 @@
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Puesto -->
-                    <div class="pr-2 w-1/4">
-                        <label for="input-Puesto" class="block text-base font-medium text-gray-900">Puesto</label>
-                        <input type="text" name="puesto" id="input-puesto"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    <div class="pr-2 pb-1 w-1/4">
+                        <label for="input-puesto" class="block text-base font-medium text-gray-900">Puesto</label>
+                        <select id="select-puesto" name="puesto"
+                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Seleccionar</option>
+                            <option value="JEFE DEPARTAMENTO">JEFE DEPARTAMENTO</option>
+                            <option value="SUPERINTENDENTE">SUPERINTENDENTE</option>
+                            <option value="JEFE OFICINA">JEFE OFICINA</option>
+                            <option value="SECRETARIA">SECRETARIA</option>
+                            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                            <option value="SUPERVISOR">SUPERVISOR</option>
+                            <option value="AGENTE COMERCIAL">AGENTE COMERCIAL</option>
+                            <option value="OFICINISTA">OFICINISTA</option>
+                            <option value="AUXILIAR ESPECIALIZADO">AUXILIAR ESPECIALIZADO</option>
+                            <option value="AUXILIAR ADMINISTRATIVO">AUXILIAR ADMINISTRATIVO</option>
+                            <option value="OPERADOR DISTRIBUCIÓN">OPERADOR DISTRIBUCIÓN</option>
+                            <option value="TÉCNICO">TÉCNICO</option>
+                            <option value="SOBRESTANTE">SOBRESTANTE</option>
+                            <option value="VERIFICADOR CALIBRADOR">VERIFICADOR CALIBRADOR</option>
+                            <option value="PROFESIONISTA">PROFESIONISTA</option>
+                        </select>
                     </div>
                     <!-- RPE -->
                     <div class="pr-2 w-1/4">
@@ -196,7 +213,7 @@
                     <!-- Inalámbricos -->
                     <x-inalambrico-input>
                     </x-inalambrico-input>
-                    
+
                 </div>
             </div>
         </div>
@@ -288,7 +305,8 @@
                                             <input name="visualAppeal" id="checkbox-visualAppeal" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-visualAppeal" title="SICOM, SICOSS, SIMED"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Visual Appeal</label>
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Visual
+                                                Appeal</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
@@ -301,8 +319,7 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="vpn" id="checkbox-vpn"
-                                                type="checkbox"
+                                            <input name="vpn" id="checkbox-vpn" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-vpn"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">VPN</label>
@@ -333,8 +350,7 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="sinergy" id="checkbox-sinergy"
-                                                type="checkbox"
+                                            <input name="sinergy" id="checkbox-sinergy" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-sinergy"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SINERGY</label>
@@ -352,13 +368,13 @@
                                             <input name="mysapR3" id="checkbox-mysapR3" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-mysapR3"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">MySAP R3</label>
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">MySAP
+                                                R3</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="lotus" id="checkbox-lotus"
-                                                type="checkbox"
+                                            <input name="lotus" id="checkbox-lotus" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-lotus"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LOTUS</label>
@@ -370,9 +386,21 @@
                     </div>
                     <!-- Agregar Otro -->
                     <div>
-                        <label for="input-agregarOtroSoftware" class="block text-base font-medium text-gray-900">Agregar Otro</label>
+                        <label for="input-agregarOtroSoftware"
+                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
+                        <div class="relative w-full">
                         <input type="text" id="input-agregarOtroSoftware" name="agregarOtroSoftware"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                            <button type="submit"
+                            class="absolute top-0 end-0 text-sm p-1 font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                            <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="white" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M5 12h14m-7 7V5" />
+                            </svg>
+                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -403,8 +431,7 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="bocina" id="checkbox-bocina"
-                                                type="checkbox"
+                                            <input name="bocina" id="checkbox-bocina" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-bocina"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Bocina</label>
@@ -428,8 +455,7 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="camaraWeb" id="checkbox-camaraWeb"
-                                                type="checkbox"
+                                            <input name="camaraWeb" id="checkbox-camaraWeb" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-camaraWeb"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Camara
@@ -442,9 +468,21 @@
                     </div>
                     <!-- Agregar Otro -->
                     <div>
-                        <label for="input-agregarOtroHardware" class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                        <label for="input-agregarOtroHardware"
+                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
+                        <div class="relative w-full">
+                            <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
+                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
+                            <button type="submit"
+                                class="absolute top-0 end-0 text-sm p-1 font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    viewBox="0 0 24 24">
+                                    <path stroke="white" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M5 12h14m-7 7V5" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -467,8 +505,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="desarmar_equipo"
-                                                id="checkbox-desarmar_equipo" type="checkbox"
+                                            <input name="desarmar_equipo" id="checkbox-desarmar_equipo"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-desarmar_equipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
@@ -565,8 +603,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_post_servicio"
-                                                id="checkbox-verificar_post_servicio"
-                                                type="checkbox"
+                                                id="checkbox-verificar_post_servicio" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -575,8 +612,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="antivirus_actualizado"
-                                                id="checkbox-antivirus_actualizado" type="checkbox"
+                                            <input name="antivirus_actualizado" id="checkbox-antivirus_actualizado"
+                                                type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-antivirus_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antivirus
