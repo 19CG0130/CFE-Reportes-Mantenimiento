@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mantenimientos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->boolean('antivirus_actualizado');
             $table->boolean('asignacion_ip_dhcp');
             $table->boolean('desarmar_limpieza_interna');
