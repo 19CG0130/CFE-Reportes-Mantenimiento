@@ -47,7 +47,14 @@
                         <select id="select-departamento" name="departamento"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
-                            <option value="Informatica">Informatica</option>
+                            <option selected>Seleccionar</option>
+                            <option value="Administración">Administración</option>
+                            <option value="Gestión Comercial">Gestión Comercial</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Jurídico">Jurídico</option>
+                            <option value="Medición, Conexiones y Servicios">Medición, Conexiones y Servicios</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Planeación">Planeación</option>
                             <option value="Superintendencia">Superintendencia</option>
                         </select>
                     </div>
@@ -98,7 +105,7 @@
 
                     <!-- Usuario -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Usuario</label>
+                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Responsable del Equipo</label>
                         <input type="text" name="usuario" id="input-usuario"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>

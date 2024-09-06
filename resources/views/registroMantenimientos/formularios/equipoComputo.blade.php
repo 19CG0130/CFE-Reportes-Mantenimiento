@@ -104,7 +104,7 @@
 
                     <!-- Usuario -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Usuario</label>
+                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Responsable del Equipo</label>
                         <input type="text" name="usuario" id="input-usuario"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
