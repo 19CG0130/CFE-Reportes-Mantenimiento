@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->string('serie');
+            $table->string('active_directory');
             $table->string('num_activo_fijo');
             $table->string('observaciones');
             $table->timestamps();

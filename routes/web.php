@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\MantenimientoController;
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -54,6 +54,8 @@ Route::post('/registro_mantenimiento/post', function (Request $request) {
     dd($request->all());
 });
 
+
+Route::post('/registro_mantenimiento/postORIGIN',[MantenimientoController::class, 'store'])->name('registro_mantenimiento.postORIGIN');
 
 
 require __DIR__.'/auth.php';

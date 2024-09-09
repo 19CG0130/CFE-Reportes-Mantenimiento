@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form method="POST" action="/registro_mantenimiento/post">
+    <form method="POST" action="{{ route('registro_mantenimiento.postORIGIN') }}">
         @csrf
         <!-- Mantenimiento Equipo de Computo -->
         <input type="hidden" name="dispositivo" value="equipoComputo">
@@ -680,9 +680,9 @@
 
         <!-- Botón Guardar -->
         <div class="flex justify-center pb-6">
-            <x-primary-button>
-                {{ __('Guardar Registro') }}
-            </x-primary-button>
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">
+                Guardar Registro
+            </button>
         </div>
     </form>
 
