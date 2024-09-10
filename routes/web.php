@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MantenimientoController;
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -11,6 +12,7 @@ Route::get('/', function () {
 Route::get('/w', function () {
     return view('welcome');
 });
+
 
 Route::get('/registros', function () {
     return view('dashboard');
@@ -52,7 +54,7 @@ Route::get('/otro_dispositivo', function () {
 
 Route::post('/registro_mantenimiento/post', function (Request $request) {
     dd($request->all());
-});
+})->name("/registro_mantenimiento/post");
 
 
 Route::post('/registro_mantenimiento/postORIGIN',[MantenimientoController::class, 'store'])->name('registro_mantenimiento.postORIGIN');
