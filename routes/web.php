@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/register', [ProfileController::class, 'edit'])->name('profile.edit');
 });
 
+//Mostrar Usuarios
 Route::get('/usuarios', [ProfileController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('usuarios');

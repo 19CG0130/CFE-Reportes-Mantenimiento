@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('limpieza_bandejas');
             $table->boolean('limpieza_fuente_poder');
             $table->boolean('limpieza_pantalla');
+            $table->boolean('limpieza_teclado');
             $table->boolean('limpieza_sopleteado_ext');
             $table->boolean('limpieza_sopleteado_int_ext');
             $table->boolean('limpieza_tarjeta_principal');

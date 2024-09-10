@@ -232,7 +232,7 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_sopleteado_int_ext"
+                                            <input name="limpieza_sopleteado_interno_externo"
                                                 id="checkbox-limpieza_sopleteado_int_ext" type="checkbox"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_sopleteado_int_ext"

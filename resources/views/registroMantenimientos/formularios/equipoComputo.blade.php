@@ -229,8 +229,8 @@
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
                     <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">Sistema
-                            Operativo</label>
+                        <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">
+                            Sistema Operativo</label>
                         <select id="select-sistemaOperativo" name="sistemaOperativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
