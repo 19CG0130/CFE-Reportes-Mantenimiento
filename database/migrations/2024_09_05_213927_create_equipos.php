@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('zona');
             $table->string('departamento');
-            $table->string('uso');
+            $table->string('uso')->nullable();
             $table->string('hora_inicio');
             $table->string('hora_fin');
             $table->string('responsable');
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->string('serie');
-            $table->string('active_directory');
+            $table->string('active_directory')->nullable();
             $table->string('num_activo_fijo');
             $table->string('observaciones');
             $table->timestamps();

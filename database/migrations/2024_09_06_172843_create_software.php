@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('software', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sistema_operativo');
-            $table->string('version_sistema_operativo');
-            $table->string('office');
-            $table->string('antivirus');
-            $table->string('antivirus_version');
+            $table->string('sistema_operativo')->nullable();
+            $table->string('version_sistema_operativo')->nullable();
+            $table->string('office')->nullable();
+            $table->string('antivirus')->nullable();
+            $table->string('antivirus_version')->nullable();
             $table->integer('visual_appeal')->nullable();
             $table->integer('mysap_r3')->nullable();
             $table->integer('facthor')->nullable();

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('conectividad', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ip_ethernet');
-            $table->string('mac_ethernet');
-            $table->string('ip_inalambrica');
-            $table->string('mac_inalambrica');
-            $table->string('mac_bluetooth');
+            $table->string('ip_ethernet')->nullable();
+            $table->string('mac_ethernet')->nullable();
+            $table->string('ip_inalambrica')->nullable();
+            $table->string('mac_inalambrica')->nullable();
+            $table->string('mac_bluetooth')->nullable();
             $table->timestamps();
         });
     }

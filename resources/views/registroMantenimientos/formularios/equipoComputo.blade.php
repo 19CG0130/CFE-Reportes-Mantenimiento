@@ -1,197 +1,36 @@
 <x-app-layout>
     <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
-        <!-- Mantenimiento Equipo de Computo -->
         <input type="hidden" name="dispositivo" value="equipoComputo">
-        <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <!-- Boton Cancelar -->
-            <a href="{{ route('dashboard') }}"
-                class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                Cancelar
-            </a>
-            <!-- Título -->
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
-                <div class="flex justify-between">
-                    <div class="p-1 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Mantenimiento Equipo de Computo</span>
-                    </div>
-                    <!-- Fecha -->
-                    <div class=" pl-2">
-                        <div class="relative max-w-sm">
-                            <input type="date" name="fecha" value="{{ date('Y-m-d') }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap">
-                    <!-- Zona -->
-                    <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-zona" class="block text-base font-medium text-gray-900">Zona</label>
-                        <select id="select-zona" name="zona"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Informatica">Nuevo Casas Grandes</option>
-                        </select>
-                    </div>
-                    <!-- Departamento -->
-                    <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-Departamento"
-                            class="block text-base font-medium text-gray-900">Departamento</label>
-                        <select id="select-departamento" name="departamento"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Administración">Administración</option>
-                            <option value="Gestión Comercial">Gestión Comercial</option>
-                            <option value="Informática">Informática</option>
-                            <option value="Jurídico">Jurídico</option>
-                            <option value="Medición, Conexiones y Servicios">Medición, Conexiones y Servicios</option>
-                            <option value="Personal">Personal</option>
-                            <option value="Planeación">Planeación</option>
-                            <option value="Superintendencia">Superintendencia</option>
-                        </select>
-                    </div>
-                    <!-- Uso que se le da al equipo -->
-                    <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-usoQueSeLeDa" class="block text-base font-medium text-gray-900">Uso que se le
-                            da al equipo</label>
-                        <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Informatica">Operativo</option>
-                            <option value="Superintendencia">Capacitación</option>
-                        </select>
-                    </div>
-                    <!-- Hora Inicio / Fin -->
-                    <div class="pr-2 pb-1 flex w-1/4">
-                        <div class="w-1/2 pr-2">
-                            <label for="start-time" class="block text-base font-medium text-gray-900">Inicio</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd"
-                                            d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <input type="time" id="start-time" name="horaInicio"
-                                    class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
-                            </div>
-                        </div>
-                        <div class="w-1/2 pr-2">
-                            <label for="end-time" class="block text-base font-medium text-gray-900">Fin</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd"
-                                            d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <input type="time" id="end-time" name="horaFin"
-                                    class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Usuario -->
-                    <div class="pr-2 w-1/4">
-                        <label for="input-Usuario" class="block text-base font-medium text-gray-900">Responsable del
-                            Equipo</label>
-                        <input type="text" name="usuario" id="input-usuario"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- Puesto -->
-                    <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-puesto" class="block text-base font-medium text-gray-900">Puesto</label>
-                        <select id="select-puesto" name="puesto"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="JEFE DEPARTAMENTO">JEFE DEPARTAMENTO</option>
-                            <option value="SUPERINTENDENTE">SUPERINTENDENTE</option>
-                            <option value="JEFE OFICINA">JEFE OFICINA</option>
-                            <option value="SECRETARIA">SECRETARIA</option>
-                            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
-                            <option value="SUPERVISOR">SUPERVISOR</option>
-                            <option value="AGENTE COMERCIAL">AGENTE COMERCIAL</option>
-                            <option value="OFICINISTA">OFICINISTA</option>
-                            <option value="AUXILIAR ESPECIALIZADO">AUXILIAR ESPECIALIZADO</option>
-                            <option value="AUXILIAR ADMINISTRATIVO">AUXILIAR ADMINISTRATIVO</option>
-                            <option value="OPERADOR DISTRIBUCIÓN">OPERADOR DISTRIBUCIÓN</option>
-                            <option value="TÉCNICO">TÉCNICO</option>
-                            <option value="SOBRESTANTE">SOBRESTANTE</option>
-                            <option value="VERIFICADOR CALIBRADOR">VERIFICADOR CALIBRADOR</option>
-                            <option value="PROFESIONISTA">PROFESIONISTA</option>
-                        </select>
-                    </div>
-                    <!-- RPE -->
-                    <div class="pr-2 w-1/4">
-                        <label for="input-RPE" class="block text-base font-medium text-gray-900">RPE</label>
-                        <input type="text" name="RPE" id="input-RPE"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                </div>
-
+        <!---------- Mantenimiento Equipo de Computo ---------->
+        <x-formularios.form-mantenimiento titulo="Mantenimiento Equipo de Computo">
+            <!-- Uso que se le da al equipo -->
+            <div class="pr-2 pb-1 w-1/4">
+                <label for="input-usoQueSeLeDa" class="block text-base font-medium text-gray-900">Uso que se le
+                    da al equipo</label>
+                <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
+                    class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Seleccionar</option>
+                    <option value="Informatica">Operativo</option>
+                    <option value="Superintendencia">Capacitación</option>
+                </select>
             </div>
-        </div>
+        </x-formularios.form-mantenimiento>
 
-        <!-- Equipo Atendido y Conectividad -->
-        <div class="flex grid max-w-7xl mx-auto gap-6 pb-6 lg:grid-cols-2 sm:px-6 lg:px-8">
+        <!---------- Equipo Atendido y Conectividad ---------->
+        <div class="grid max-w-7xl mx-auto gap-6 pb-6 lg:grid-cols-2 sm:px-6 lg:px-8">
             <!-- Equipo Atendido -->
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
-                <div class="flex justify-between">
-                    <div class="p-2 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Equipo Atendido</span>
-                    </div>
+            <x-formularios.form-equipo-atendido>
+                <!-- Nombre D.A -->
+                <div>
+                    <label for="input-2" class="block text-base font-medium text-gray-900">Nombre Active
+                        Directory</label>
+                    <input type="text" id="input-nombreDA" name="nombreDA"
+                        class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    <!-- Servicio -->
-                    <div>
-                        <label for="input-servicio" class="block text-base font-medium text-gray-900">Servicio</label>
-                        <select id="select-servicio" name="servicio"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Informatica">Preventivo</option>
-                            <option value="Superintendencia">Correctivo</option>
-                        </select>
-                    </div>
-                    <!-- Marca -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Marca</label>
-                        <input type="text" id="input-marca" name="marca"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- Modelo -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Modelo</label>
-                        <input type="text" id="input-modelo" name="modelo"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- Serie -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Serie</label>
-                        <input type="text" id="input-serie" name="serie"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- Nombre D.A -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Nombre Active
-                            Directory</label>
-                        <input type="text" id="input-nombreDA" name="nombreDA"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <!-- Num. Activo fijo -->
-                    <div>
-                        <label for="input-2" class="block text-base font-medium text-gray-900">Numero Activo
-                            fijo</label>
-                        <input type="text" id="input-numActivoFijo" name="numActivoFijo"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                </div>
-            </div>
+            </x-formularios.form-equipo-atendido>
 
-            <!-- Conectividad -->
+            <!------ Conectividad ------>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
                     <div class="p-2 text-gray-900 text-xl font-bold">
@@ -201,18 +40,18 @@
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                     <!--  Ethernets -->
                     <div>
-                        <x-ethernet-input>
-                        </x-ethernet-input>
+                        <x-formularios.ethernet-input>
+                        </x-formularios.ethernet-input>
                     </div>
                     <!-- Inalámbricos -->
-                    <x-inalambrico-input>
-                    </x-inalambrico-input>
+                    <x-formularios.inalambrico-input>
+                    </x-formularios.inalambrico-input>
 
                 </div>
             </div>
         </div>
 
-        <!-- Software -->
+        <!---------- Software ---------->
         <div class="pb-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
@@ -270,8 +109,7 @@
                     </div>
                     <!-- Antivirus -->
                     <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-Antivirus"
-                            class="block text-base font-medium text-gray-900">Antivirus</label>
+                        <label for="input-Antivirus" class="block text-base font-medium text-gray-900">Antivirus</label>
                         <select id="select-antivirus" name="antivirus"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
@@ -280,8 +118,8 @@
                     </div>
                     <!-- Antivirus Versión -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-antivirusVersion"
-                            class="block text-base font-medium text-gray-900">Antivirus Versión</label>
+                        <label for="input-antivirusVersion" class="block text-base font-medium text-gray-900">Antivirus
+                            Versión</label>
                         <input type="text" name="antivirusVersion" id="input-antivirusVersion"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
@@ -296,7 +134,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="visualAppeal" id="checkbox-visualAppeal" type="checkbox" value="0" value="0"
+                                            <input name="visualAppeal" id="checkbox-visualAppeal" type="checkbox"
+                                                value="1" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-visualAppeal" title="SICOM, SICOSS, SIMED"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Visual
@@ -305,7 +144,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="facthor" id="checkbox-facthor" type="checkbox" value="0"
+                                            <input name="facthor" id="checkbox-facthor" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-facthor"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">FACTHOR</label>
@@ -313,7 +153,7 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="vpn" id="checkbox-vpn" type="checkbox" value="0"
+                                            <input name="vpn" id="checkbox-vpn" type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-vpn"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">VPN</label>
@@ -328,7 +168,7 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="siad" id="checkbox-siad" type="checkbox" value="0"
+                                            <input name="siad" id="checkbox-siad" type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-siad"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SIAD</label>
@@ -336,7 +176,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="autocad" id="checkbox-autocad" type="checkbox" value="0"
+                                            <input name="autocad" id="checkbox-autocad" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-autocad"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">AUTOCAD</label>
@@ -344,7 +185,8 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="sinergy" id="checkbox-sinergy" type="checkbox" value="0"
+                                            <input name="sinergy" id="checkbox-sinergy" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-sinergy"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SINERGY</label>
@@ -359,7 +201,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="mysapR3" id="checkbox-mysapR3" type="checkbox" value="0"
+                                            <input name="mysapR3" id="checkbox-mysapR3" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-mysapR3"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">MySAP
@@ -368,7 +211,7 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="lotus" id="checkbox-lotus" type="checkbox" value="0"
+                                            <input name="lotus" id="checkbox-lotus" type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-lotus"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LOTUS</label>
@@ -400,7 +243,7 @@
             </div>
         </div>
 
-        <!-- Hardware -->
+        <!---------- Hardware ---------->
         <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
@@ -417,7 +260,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="microfono" id="checkbox-microfono" type="checkbox" value="0"
+                                            <input name="microfono" id="checkbox-microfono" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-microfono"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Microfono</label>
@@ -425,7 +269,8 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="bocina" id="checkbox-bocina" type="checkbox" value="0"
+                                            <input name="bocina" id="checkbox-bocina" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-bocina"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Bocina</label>
@@ -440,7 +285,8 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="hubUSB" id="checkbox-hubUSB" type="checkbox" value="0"
+                                            <input name="hubUSB" id="checkbox-hubUSB" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-hubUSB"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hub
@@ -449,7 +295,8 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="camaraWeb" id="checkbox-camaraWeb" type="checkbox" value="0"
+                                            <input name="camaraWeb" id="checkbox-camaraWeb" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-camaraWeb"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Camara
@@ -482,7 +329,7 @@
             </div>
         </div>
 
-        <!-- Mantenimiento Ejecutado -->
+        <!---------- Mantenimiento Ejecutado ---------->
         <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
@@ -500,7 +347,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="desarmar_equipo" id="checkbox-desarmar_equipo"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-desarmar_equipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
@@ -510,7 +357,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_sopleteado_interno_externo"
-                                                id="checkbox-limpieza_sopleteado_interno_externo" type="checkbox" value="0"
+                                                id="checkbox-limpieza_sopleteado_interno_externo" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_sopleteado_interno_externo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -520,7 +368,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_pantalla" id="checkbox-limpieza_pantalla"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_pantalla"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -530,7 +378,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_teclado" id="checkbox-limpieza_teclado"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_teclado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -540,7 +388,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_ventiladores" id="checkbox-limpieza_ventiladores"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_ventiladores"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -550,7 +398,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_tarjeta_principal"
-                                                id="checkbox-limpieza_tarjeta_principal" type="checkbox" value="0"
+                                                id="checkbox-limpieza_tarjeta_principal" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_tarjeta_principal"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -560,7 +409,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_fuente_poder" id="checkbox-limpieza_fuente_poder"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_fuente_poder"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -577,7 +426,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="verificacion_bateria" id="checkbox-verificacion_bateria"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificacion_bateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificación
@@ -587,7 +436,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_conexiones_electricas"
-                                                id="checkbox-verificar_conexiones_electricas" type="checkbox" value="0"
+                                                id="checkbox-verificar_conexiones_electricas" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_conexiones_electricas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -597,7 +447,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_post_servicio"
-                                                id="checkbox-verificar_post_servicio" type="checkbox" value="0"
+                                                id="checkbox-verificar_post_servicio" type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -607,7 +457,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="antivirus_actualizado" id="checkbox-antivirus_actualizado"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-antivirus_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antivirus
@@ -617,7 +467,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="ejecucion_defrag" id="checkbox-ejecucion_defrag"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-ejecucion_defrag"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ejecución
@@ -627,7 +477,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="estado_servicio_escritorio_remoto"
-                                                id="checkbox-estado_servicio_escritorio_remoto" type="checkbox" value="0"
+                                                id="checkbox-estado_servicio_escritorio_remoto" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-estado_servicio_escritorio_remoto"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado
@@ -637,7 +488,7 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="asignacion_ip_dhcp" id="checkbox-asignacion_ip_dhcp"
-                                                type="checkbox" value="0"
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-asignacion_ip_dhcp"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asignación
@@ -652,33 +503,10 @@
             </div>
         </div>
 
-        <!-- Observaciones -->
-        <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
-                <div class="flex justify-between">
-                    <div class="p-2 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Observaciones</span>
-                    </div>
-                </div>
-                <div class="flex flex-wrap -mx-2">
-                    <!-- Observaciones -->
-                    <div class="p-2 w-full">
-                        <textarea id="input-observaciones" name="observaciones"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                            rows="4"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!---------- bottom ---------->
+        <x-formularios.form-bottom>
+        </x-formularios.form-bottom>
 
-
-        <!-- Botón Guardar -->
-        <div class="flex justify-center pb-6">
-            <button type="submit"
-                class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">
-                Guardar Registro
-            </button>
-        </div>
     </form>
 
 </x-app-layout>

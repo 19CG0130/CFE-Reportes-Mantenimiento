@@ -124,10 +124,11 @@ class MantenimientoController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route('dashboard')->with('success', 'Datos insertados correctamente.');
+            //return redirect()->route('dashboard')->with('success', 'Datos insertados correctamente.');
             //return response()->json([
             //    "success" => "Datos insertados correctamente"
             //]);
+            dd($request->all());
         } catch (\Exception $e) {
             DB::rollBack();
             // return redirect()->back()->withErrors('Error al insertar los datos: ' . $e->getMessage());
