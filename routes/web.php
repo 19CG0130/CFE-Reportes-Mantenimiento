@@ -13,10 +13,10 @@ Route::get('/w', function () {
     return view('welcome');
 });
 
-
-Route::get('/registros', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Mostrar Registros de Mantenimientos
+Route::get('/registros',[MantenimientoController::class,'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

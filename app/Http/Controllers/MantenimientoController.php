@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\DB;
 
 class MantenimientoController extends Controller
 {
+
+    public function index()
+    {
+        $registros = Equipos::all();
+
+        return view('dashboard', compact('registros'));
+    }
+
+
+
+
     public function store(request $request)
     {
         // Iniciar transaccion
@@ -124,11 +135,11 @@ class MantenimientoController extends Controller
             ]);
 
             DB::commit();
-            //return redirect()->route('dashboard')->with('success', 'Datos insertados correctamente.');
-            //return response()->json([
-            //    "success" => "Datos insertados correctamente"
-            //]);
-            dd($request->all());
+            return redirect()->route('dashboard')->with('success', 'Datos insertados correctamente.');
+            return response()->json([
+                "success" => "Datos insertados correctamente"
+            ]);
+            //dd($request->all());
         } catch (\Exception $e) {
             DB::rollBack();
             // return redirect()->back()->withErrors('Error al insertar los datos: ' . $e->getMessage());
