@@ -26,9 +26,11 @@ class MantenimientoController extends Controller
 
 
 
-
     public function store(request $request)
     {
+        //if(!auth()->check()) abort(403);
+        //return view('auth.login');
+        
         // Iniciar transaccion
         DB::beginTransaction();
         try {
