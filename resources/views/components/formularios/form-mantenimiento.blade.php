@@ -118,7 +118,10 @@
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Tipo de Dispositivo -->
-                    {{ $otroDispositivo }}
+                    @isset($otroDispositivo)
+                        {{ $otroDispositivo }}
+                    @endisset
+
                 </div>
 
             </div>
