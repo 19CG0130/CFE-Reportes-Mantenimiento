@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('hardware', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('microfono');
-            $table->string('bocina');
-            $table->string('hub_usb');
-            $table->string('camara_web');
+            $table->string('microfono')->nullable();
+            $table->string('bocina')->nullable();
+            $table->string('hub_usb')->nullable();
+            $table->string('camara_web')->nullable();
             $table->timestamps();
         });
     }

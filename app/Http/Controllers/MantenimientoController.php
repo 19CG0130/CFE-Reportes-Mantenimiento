@@ -71,7 +71,7 @@ class MantenimientoController extends Controller
             ]);
 
             EquipoSoftware::create([
-                'id_equipo' => $equipo->id,
+                'id_equipos' => $equipo->id,
                 'id_software' => $software->id
             ]);
 
@@ -83,7 +83,7 @@ class MantenimientoController extends Controller
             ]);
 
             EquipoHardware::create([
-                'id_equipo' => $equipo->id,
+                'id_equipos' => $equipo->id,
                 'id_hardware' => $hardware->id
             ]);
 
@@ -119,15 +119,15 @@ class MantenimientoController extends Controller
             ]);
 
             EquipoMantenimiento::create([
-                'id_mantenimiento' =>$mantenimiento->id,
-                'id_equipo' =>$equipo->id
+                'id_mantenimientos' =>$mantenimiento->id,
+                'id_equipos' =>$equipo->id
             ]);
 
             DB::commit();
-            //return redirect()->route('dashboard')->with('success', 'Datos insertados correctamente.');
-            return response()->json([
-                "success" => "Datos insertados correctamente"
-            ]);
+            return redirect()->route('dashboard')->with('success', 'Datos insertados correctamente.');
+            //return response()->json([
+            //    "success" => "Datos insertados correctamente"
+            //]);
         } catch (\Exception $e) {
             DB::rollBack();
             // return redirect()->back()->withErrors('Error al insertar los datos: ' . $e->getMessage());

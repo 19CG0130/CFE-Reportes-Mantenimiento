@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('office');
             $table->string('antivirus');
             $table->string('antivirus_version');
-            $table->boolean('visual_appeal');
-            $table->boolean('mysap_r3');
-            $table->boolean('facthor');
-            $table->boolean('siad');
-            $table->boolean('autocad');
-            $table->boolean('sinergy');
-            $table->boolean('lotus');
-            $table->boolean('vpn');
+            $table->integer('visual_appeal')->nullable();
+            $table->integer('mysap_r3')->nullable();
+            $table->integer('facthor')->nullable();
+            $table->integer('siad')->nullable();
+            $table->integer('autocad')->nullable();
+            $table->integer('sinergy')->nullable();
+            $table->integer('lotus')->nullable();
+            $table->integer('vpn')->nullable();
             $table->timestamps();
         });
     }

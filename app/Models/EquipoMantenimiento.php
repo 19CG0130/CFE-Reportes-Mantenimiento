@@ -10,7 +10,7 @@ class EquipoMantenimiento extends Model
     use HasFactory;
     protected $table = 'equipos_mantenimiento';
     protected $fillable = [
-        'id_mantenimiento',
+        'id_mantenimientos',
         'id_equipos',
     ];
 }
