@@ -419,6 +419,9 @@
                                     RPE
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
+                                    Dispositivo
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-center">
                                     Acciones
                                 </th>
                             </tr>
@@ -438,6 +441,9 @@
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $registro->rpe }}
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    {{ $registro->dispositivo }}
                                 </td>
                                 <td class="px-6 py-4 flex justify-center space-x-2">
                                     <div class="flex justify-center space-x-2">
