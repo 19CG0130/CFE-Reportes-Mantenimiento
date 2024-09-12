@@ -20,7 +20,7 @@ class ProfileController extends Controller
         
         $users = User::all();
         
-        return view('registroMantenimientos.usuarios', compact('users'));
+        return view('admin.usuarios', compact('users'));
     }
 
     public function edit(Request $request): View

@@ -14,15 +14,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/register', [ProfileController::class, 'edit'])->name('profile.edit');
-
     //Mostrar Registros de Mantenimientos
     Route::get('/registros', [MantenimientoController::class, 'index'])
         ->name('dashboard');
-
-    //Mostrar Usuarios
-    Route::get('/usuarios', [ProfileController::class, 'index'])
-        ->name('usuarios');
 
     //Rutas para los formularios de registros mantenimientos
     Route::prefix('registro_mantenimiento')->group(function () {
@@ -47,5 +41,14 @@ Route::middleware('auth')->group(function () {
         })->name('otro_dispositivo');
     });
 });
+
+//Rutas Administrador
+Route::middleware(['auth','admin'])->group(function(){
+    //Tabla Usuarios
+    Route::get('/usuarios', [ProfileController::class, 'index'])->name('usuarios');
+
+});
+
+
 
 require __DIR__ . '/auth.php';
