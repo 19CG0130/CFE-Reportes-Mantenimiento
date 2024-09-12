@@ -405,7 +405,7 @@
                     </div>
 
                     <!-- Tabla Registros -->
-                    <table class="w-full shadow-md text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table class="w-full shadow-md text-base text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead
                             class="text-xs text-gray-200 uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400 rounded-lg">
                             <tr class="divide-x divide-gray-500">
@@ -434,16 +434,16 @@
                             <tr
                                 class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td class="px-6 py-4 text-center">
-                                    {{ $registro->fecha }}
+                                    {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
                                 </td>
-                                <td class="px-6 py-4 text-center">
+                                <td class="px-6 py-4 text-center uppercase">
+                                    {{ $registro->dispositivo }}
+                                </td>
+                                <td class="px-6 py-4 text-center uppercase">
                                     {{ $registro->serie }}
                                 </td>
-                                <td class="px-6 py-4 text-center">
+                                <td class="px-6 py-4 text-center uppercase">
                                     {{ $registro->rpe }}
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    {{ $registro->dispositivo }}
                                 </td>
                                 <td class="px-6 py-4 flex justify-center space-x-2">
                                     <div class="flex justify-center space-x-2">
