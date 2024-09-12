@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('img/logo_tic.png') }}" alt="TIC - logo" class="block h-9 w-auto fill-current text-gray-800" />
+                        <img src="{{ asset('img/logo_tic.png') }}" alt="TIC - logo"
+                            class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
@@ -17,7 +18,7 @@
                     </x-nav-link>
                 </div>
 
-                
+
 
             </div>
             <!-- Settings Dropdown -->
@@ -42,9 +43,10 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             <div style="padding-right: 4px;">
-                                <svg class="text-themeColor-500 w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg class="text-themeColor-500 w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
                                     <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                                     <circle cx="8.5" cy="7" r="4" />
                                 </svg>
@@ -54,23 +56,28 @@
                             </div>
                         </x-dropdown-link>
 
-                        <x-dropdown-link :href="route('usuarios')">
-                            <div style="padding-right: 4px;">
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <circle cx="9" cy="7" r="4" />
-                                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                                </svg>
+                        <!-- Admin Links -->
+                        @if (Auth::user()->usertype == 'admin')
+                            <x-dropdown-link :href="route('usuarios')">
+                                <div style="padding-right: 4px;">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                                    </svg>
 
-                            </div>
-                            <div>
-                                Usuarios
-                            </div>
-                        </x-dropdown-link>
+                                </div>
+                                <div>
+                                    Usuarios
+                                </div>
+                            </x-dropdown-link>
+                        @endif
+
+
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

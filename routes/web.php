@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 });
 
 //Rutas Administrador
-Route::middleware(['auth','admin'])->group(function(){
+Route::middleware(['auth','adminMiddleware'])->group(function(){
     //Tabla Usuarios
     Route::get('/usuarios', [ProfileController::class, 'index'])->name('usuarios');
 

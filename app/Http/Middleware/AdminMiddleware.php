@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Verifica si el usuario es administrador, si no, lo regresa al dashboard
-        if(Auth::user()->usertype != 'admin'){
-            return redirect('/registros');
+        // Verifica si el usuario es rol usuario
+        if(Auth::user()->usertype == 'admin'){
+            return $next($request);
         }
-        return $next($request);
+        return redirect()->back();
     }
 }

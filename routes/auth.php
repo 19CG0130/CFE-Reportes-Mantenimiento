@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
 });
 
-Route::middleware(['auth','admin'])->group(function(){
+Route::middleware(['auth','adminMiddleware'])->group(function(){
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 
