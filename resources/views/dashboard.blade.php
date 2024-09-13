@@ -413,13 +413,13 @@
                                     Fecha
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
+                                    Dispositivo
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-center">
                                     Número de Serie
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
-                                    RPE
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-center">
-                                    Dispositivo
+                                    RPE 
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
                                     Acciones
@@ -428,7 +428,7 @@
                         </thead>
 
                         <tbody class="divide-y divide-gray-200">
-                            <!-- Registro 1 -->
+                            <!-- Registro -->
                             @foreach ($registros as $registro)
 
                             <tr
