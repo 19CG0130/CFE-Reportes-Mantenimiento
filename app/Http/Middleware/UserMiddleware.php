@@ -17,7 +17,7 @@ class UserMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Verifica si el usuario es rol usuario
-        if(Auth::user()->usertype == 'user'){
+        if(Auth::user()->usertype == 'usuario'){
             return $next($request);
         }
         return redirect()->back();
