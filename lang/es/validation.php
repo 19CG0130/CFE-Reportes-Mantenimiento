@@ -186,7 +186,7 @@ return [
         'excerpt'                  => 'extracto',
         'filter'                   => 'filtro',
         'finished_at'              => 'terminado el',
-        'first_name'               => 'nombre',
+        'name'               => 'nombre',
         'gender'                   => 'género',
         'grand_prize'              => 'gran Premio',
         'group'                    => 'grupo',

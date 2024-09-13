@@ -18,13 +18,16 @@
                                     Rol
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
+                                    Nombre de Usuario
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-center">
                                     Nombre
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
-                                    Usuario
+                                    Apellido
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
-                                    Correo
+                                    Correo Electrónico
                                 </th>
                             </tr>
                         </thead>
@@ -36,11 +39,14 @@
                                 <td scope="px-6 py-4 text-center uppercase">
                                     {{ $user->usertype }}
                                 </td>
+                                <td class="px-6 py-4 text-center">
+                                    {{ $user->username }}
+                                </td>
                                 <td scope="px-6 py-4 text-center uppercase">
                                     {{ $user->name }}
                                 </td>
-                                <td class="px-6 py-4 text-center">
-                                    {{ $user->username }}
+                                <td scope="px-6 py-4 text-center uppercase">
+                                    {{ $user->last_name }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     {{ $user->email }}

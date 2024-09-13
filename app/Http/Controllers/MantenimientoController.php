@@ -34,6 +34,11 @@ class MantenimientoController extends Controller
         // Iniciar transaccion
         DB::beginTransaction();
         try {
+
+            $request->validate([
+                'usuario' => ['required', 'string', 'max:255'],
+            ]);
+
             $equipo = Equipos::create([
                 'dispositivo' => $request->dispositivo,
                 'fecha' => $request->fecha,

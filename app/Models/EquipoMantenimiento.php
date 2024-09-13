@@ -12,5 +12,6 @@ class EquipoMantenimiento extends Model
     protected $fillable = [
         'id_mantenimientos',
         'id_equipos',
+        'usuario'
     ];
 }
