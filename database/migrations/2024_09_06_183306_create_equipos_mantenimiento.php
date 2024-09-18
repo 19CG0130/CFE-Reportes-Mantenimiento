@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('equipos_mantenimiento', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_mantenimientos')->unsigned();
-            $table->foreign('id_mantenimientos')->references('id')->on('mantenimientos');
+            $table->foreign('id_mantenimientos')->references('id')->on('mantenimientos')->onDelete('cascade');
             $table->integer('id_equipos')->unsigned();
-            $table->foreign('id_equipos')->references('id')->on('equipos');
+            $table->foreign('id_equipos')->references('id')->on('equipos')->onDelete('cascade');
             $table->timestamps();
         });
     }

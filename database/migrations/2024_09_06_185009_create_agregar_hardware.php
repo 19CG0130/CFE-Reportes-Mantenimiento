@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('agregar_hardware', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_hardware')->unsigned();
-            $table->foreign('id_hardware')->references('id')->on('hardware');
+            $table->foreign('id_hardware')->references('id')->on('hardware')->onDelete('cascade');
             $table->integer('id_otro_hardware')->unsigned();
-            $table->foreign('id_otro_hardware')->references('id')->on('otro_hardware');
+            $table->foreign('id_otro_hardware')->references('id')->on('otro_hardware')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('equipos_hardware', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_hardware')->unsigned();
-            $table->foreign('id_hardware')->references('id')->on('hardware');
+            $table->foreign('id_hardware')->references('id')->on('hardware')->onDelete('cascade');
             $table->integer('id_equipos')->unsigned();
-            $table->foreign('id_equipos')->references('id')->on('equipos');
+            $table->foreign('id_equipos')->references('id')->on('equipos')->onDelete('cascade');
             $table->timestamps();
         });
     }

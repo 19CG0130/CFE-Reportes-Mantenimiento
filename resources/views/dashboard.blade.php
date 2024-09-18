@@ -106,7 +106,6 @@
             </script>
         </section>
 
-        <!-- Tabla Registros -->
         <div class="col-span-4">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -405,7 +404,8 @@
                     </div>
 
                     <!-- Tabla Registros -->
-                    <table class="w-full shadow-md text-base text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table
+                        class="w-full shadow-md text-base text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead
                             class="text-xs text-gray-200 uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400 rounded-lg">
                             <tr class="divide-x divide-gray-500">
@@ -419,7 +419,7 @@
                                     Número de Serie
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
-                                    RPE 
+                                    RPE
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
                                     Acciones
@@ -430,70 +430,81 @@
                         <tbody class="divide-y divide-gray-200">
                             <!-- Registro -->
                             @foreach ($registros as $registro)
-
-                            <tr
-                                class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="px-6 py-4 text-center">
-                                    {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
-                                </td>
-                                <td class="px-6 py-4 text-center uppercase">
-                                    {{ $registro->dispositivo }}
-                                </td>
-                                <td class="px-6 py-4 text-center uppercase">
-                                    {{ $registro->serie }}
-                                </td>
-                                <td class="px-6 py-4 text-center uppercase">
-                                    {{ $registro->rpe }}
-                                </td>
-                                <td class="px-6 py-4 flex justify-center space-x-2">
-                                    <div class="flex justify-center space-x-2">
-                                        <!--svg Editar registro-->
-                                        <a href="#" title="editar">
-                                            <svg class="text-gray-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" />
-                                                <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                                <line x1="16" y1="5" x2="19" y2="8" />
-                                            </svg>
-                                        </a>
-                                        <!--svg Ver registro-->
-                                        <a href="" title="ver">
-                                            <svg class="text-green-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                                            </svg>
-                                        </a>
-                                        <!--svg Imprimir por PDF-->
-                                        <a href="" title="imprimir">
-                                            <svg class="text-blue-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 20 20"
-                                                fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </a>
-                                        <!--svg Eliminar registro-->
-                                        <a href="" title="eliminar">
-                                            <svg class="text-red-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" />
-                                                <line x1="4" y1="7" x2="20" y2="7" />
-                                                <line x1="10" y1="11" x2="10" y2="17" />
-                                                <line x1="14" y1="11" x2="14" y2="17" />
-                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </td>
+                                <tr
+                                    class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <td class="px-6 py-4 text-center">
+                                        {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center uppercase">
+                                        {{ $registro->dispositivo }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center uppercase">
+                                        {{ $registro->serie }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center uppercase">
+                                        {{ $registro->rpe }}
+                                    </td>
+                                    <td class="px-6 py-4 flex justify-center space-x-2">
+                                        <div class="flex justify-center space-x-2">
+                                            <!--svg Editar registro-->
+                                            <a href="{{ route('edit_equipo_de_computo') }}" title="editar">
+                                                <svg class="text-gray-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="24" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <path
+                                                        d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                                                    <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                                                    <line x1="16" y1="5" x2="19"
+                                                        y2="8" />
+                                                </svg>
+                                            </a>
+                                            <!--svg Ver registro-->
+                                            <a href="" title="ver">
+                                                <svg class="text-green-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="24" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                                                </svg>
+                                            </a>
+                                            <!--svg Imprimir por PDF-->
+                                            <a href="" title="imprimir">
+                                                <svg class="text-blue-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="24" viewBox="0 0 20 20"
+                                                    fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
+                                            <!--svg Eliminar registro-->
+                                            <form action="{{ route('registro.destroy', $registro->id) }}"
+                                                method="POST"
+                                                onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" title="eliminar">
+                                                    <svg class="text-red-500 w-8 h-8 hover:text-red-700"
+                                                        xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                        stroke="currentColor" fill="none" stroke-linecap="round"
+                                                        stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                                        <line x1="4" y1="7" x2="20"
+                                                            y2="7" />
+                                                        <line x1="10" y1="11" x2="10"
+                                                            y2="17" />
+                                                        <line x1="14" y1="11" x2="14"
+                                                            y2="17" />
+                                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
                             @endforeach
                             </tr>
                         </tbody>
