@@ -21,7 +21,7 @@
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
         <div>
-            <a href="/">
+            <a href="{{ route('dashboard') }}">
                 <img src="img/logo_cfe.png" alt="CFE - logo" style="width:300px;height:auto;" />
             </a>
         </div>

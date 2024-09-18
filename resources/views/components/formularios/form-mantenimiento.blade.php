@@ -35,7 +35,7 @@
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="input-Departamento"
                             class="block text-base font-medium text-gray-900">Departamento</label>
-                        <select id="select-departamento" name="departamento"
+                        <select id="select-departamento" name="departamento" :value="old('departamento')"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Administración">Administración</option>
@@ -47,6 +47,7 @@
                             <option value="Planeación">Planeación</option>
                             <option value="Superintendencia">Superintendencia</option>
                         </select>
+                        <x-input-error :messages="$errors->get('departamento')" class="mt-2" />
                     </div>
                     <!-- Uso que se le da al equipo -->
                     {{ $slot }}

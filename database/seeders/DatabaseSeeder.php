@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'nombre user',
             'last_name' => 'apellido user',
             'email' => 'user@user.com',
-            'usertype' => 'user',
+            'usertype' => 'usuario',
             'password' => Hash::make('123456789'),
         ]);
     }
