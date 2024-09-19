@@ -84,6 +84,7 @@
                             </div>
                         </div>
                     </div>
+                 
 
                     <!-- Responsable del Equipo -->
                     <div class="pr-2 w-1/4">

@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/otro_dispositivo', function () {
             return view('registroMantenimientos.formularios.otroDispositivo');
         })->name('otro_dispositivo');
+        Route::post('/',[MantenimientoController::class, 'store'])->name("registro_mantenimiento.post_web");
+
     });
 });
 

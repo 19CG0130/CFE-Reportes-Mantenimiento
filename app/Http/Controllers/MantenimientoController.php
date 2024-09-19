@@ -13,6 +13,9 @@ use App\Models\Hardware;
 use App\Models\Mantenimiento;
 use App\Models\EquiposConectividad;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rules;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
 
 class MantenimientoController extends Controller
 {
@@ -26,8 +29,14 @@ class MantenimientoController extends Controller
 
 
 
-    public function store(request $request)
+    public function store(Request $request): RedirectResponse
     {
+
+        $request->validate([
+            'responsable' => ['required'],
+            'rpe' => ['required'],
+        ] );
+     
 
         $equipo = Equipos::create([
             'dispositivo' => $request->dispositivo,
@@ -131,7 +140,7 @@ class MantenimientoController extends Controller
             'id_equipos' =>$equipo->id
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Registro agregado correctamente');
+        return redirect(route('dashboard', absolute: false));
     }
 
     public function destroy($id)
