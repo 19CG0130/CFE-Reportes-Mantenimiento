@@ -24,9 +24,9 @@ Route::middleware('auth')->group(function () {
             return view('registroMantenimientos.formularios.equipoComputo');
         })->name('equipo_de_computo');
 
-        Route::get('/edit_equipo_de_computo', function () {
+        Route::get('/edit/equipo_de_computo', function () {
             return view('registroMantenimientos.acciones.computoEdit');
-        })->name('edit_equipo_de_computo');
+        })->name('edit/equipo_de_computo');
 
         Route::get('/terminal_portatil', function () {
             return view('registroMantenimientos.formularios.terminalPortatil');
