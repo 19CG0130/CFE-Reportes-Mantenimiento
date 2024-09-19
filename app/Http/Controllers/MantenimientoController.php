@@ -28,10 +28,6 @@ class MantenimientoController extends Controller
 
     public function store(request $request)
     {
-        $request->validate([
-            'usuario' => ['required', 'string', 'max:255'],
-            'departamento' => ['required'],
-        ]);
 
         $equipo = Equipos::create([
             'dispositivo' => $request->dispositivo,
@@ -41,7 +37,7 @@ class MantenimientoController extends Controller
             'uso' => $request->usoQueSeLeDa,
             'hora_inicio' => $request->horaInicio,
             'hora_fin' => $request->horaFin,
-            'responsable' => $request->usuario,
+            'responsable' => $request->responsable,
             'puesto' => $request->puesto,
             'rpe' => $request->RPE,
             'servicio' => $request->servicio,
@@ -134,6 +130,8 @@ class MantenimientoController extends Controller
             'id_mantenimientos' =>$mantenimiento->id,
             'id_equipos' =>$equipo->id
         ]);
+
+        return redirect()->route('dashboard')->with('success', 'Registro agregado correctamente');
     }
 
     public function destroy($id)

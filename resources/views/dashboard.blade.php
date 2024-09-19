@@ -447,7 +447,7 @@
                                     <td class="px-6 py-4 flex justify-center space-x-2">
                                         <div class="flex justify-center space-x-2">
                                             <!--svg Editar registro-->
-                                            <a href="{{ route('edit_equipo_de_computo') }}" title="editar">
+                                            <a href="{{ route('edit/equipo_de_computo') }}" title="editar">
                                                 <svg class="text-gray-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                                                     width="24" height="24" viewBox="0 0 24 24"
                                                     stroke-width="2" stroke="currentColor" fill="none"
