@@ -34,14 +34,15 @@
         </style>
 
         <div class="ip-container3 py-1.5">
-            <input type="text" class="ip-segmentI" maxlength="3" id="segI1" />
+            <input type="text"  name="ii1" value="{{ old('ii1') }}" class="ip-segmentI" maxlength="3" id="segI1" />
             <span class="dot">.</span>
-            <input type="text" class="ip-segmentI" maxlength="3" id="segI2" />
+            <input type="text"  name="ii2" value="{{ old('ii2') }}" class="ip-segmentI" maxlength="3" id="segI2" />
             <span class="dot">.</span>
-            <input type="text" class="ip-segmentI" maxlength="3" id="segI3" />
+            <input type="text"  name="ii3" value="{{ old('ii3') }}"class="ip-segmentI" maxlength="3" id="segI3" />
             <span class="dot">.</span>
-            <input type="text" class="ip-segmentI" maxlength="3" id="segI4" />
+            <input type="text"  name="ii4" value="{{ old('ii4') }}"class="ip-segmentI" maxlength="3" id="segI4" />
         </div>
+        <x-input-error :messages="$errors->get('IpInalambrica')" class="mt-2" />
     </div>
     <script>
         const segmentsI = document.querySelectorAll('.ip-segmentI');
@@ -131,18 +132,19 @@
     <div class="mac-container">
         <label for="input-2" class="block text-base font-medium text-gray-900">MAC Inalámbrica</label>
         <div class="ip-container4 py-1.5">
-            <input type="text" class="Mac-segmentI small-input" maxlength="2" id="segmI1" />
+            <input type="text" name="mi1" value="{{ old('mi1') }}" class="Mac-segmentI small-input" maxlength="2" id="segmI1" />
             <span class="dot">:</span>
-            <input type="text" class="Mac-segmentI small-input" maxlength="2" id="segmI2" />
+            <input type="text" name="mi2" value="{{ old('mi2') }}" class="Mac-segmentI small-input" maxlength="2" id="segmI2" />
             <span class="dot">:</span>
-            <input type="text" class="Mac-segmentI small-input" maxlength="2" id="segmI3" />
+            <input type="text" name="mi3" value="{{ old('mi3') }}" class="Mac-segmentI small-input" maxlength="2" id="segmI3" />
             <span class="dot">:</span>
-            <input type="text" class="Mac-segmentI small-input" maxlength="2" id="segmI4" />
+            <input type="text" name="mi4" value="{{ old('mi4') }}" class="Mac-segmentI small-input" maxlength="2" id="segmI4" />
             <span class="dot">:</span>
-            <input type="text" class="Mac-segmentI small-input" maxlength="2" id="segmI5" />
+            <input type="text" name="mi5" value="{{ old('mi5') }}" class="Mac-segmentI small-input" maxlength="2" id="segmI5" />
             <span class="dot">:</span>
-            <input type="text" class="Mac-segmentI small-input" maxlength="2" id="segmI6" />
+            <input type="text" name="mi6" value="{{ old('mi6') }}" class="Mac-segmentI small-input" maxlength="2" id="segmI6" />
         </div>
+        <x-input-error :messages="$errors->get('macInalambrica')" class="mt-2" />
     </div>
 
     <script>
@@ -199,6 +201,7 @@
 <div>
     <label for="input-2" class="block text-base font-medium text-gray-900">MAC Bluetooth</label>
     <input type="hidden" id="input-macBluetooth" name="macBluetooth">
+    
     <style>
         .ip-container5 {
             display: inline-flex;
@@ -235,19 +238,19 @@
     </style>
 
     <div class="ip-container5 py-1.5">
-        <input type="text" class="Mac-segmentB small-input" maxlength="2" id="segmB1" />
+        <input type="text" name="mb1" value="{{ old('mb1') }}" class="Mac-segmentB small-input" maxlength="2" id="segmB1" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segmentB small-input" maxlength="2" id="segmB2" />
+        <input type="text" name="mb2" value="{{ old('mb2') }}" class="Mac-segmentB small-input" maxlength="2" id="segmB2" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segmentB small-input" maxlength="2" id="segmB3" />
+        <input type="text" name="mb3" value="{{ old('mb3') }}" class="Mac-segmentB small-input" maxlength="2" id="segmB3" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segmentB small-input" maxlength="2" id="segmB4" />
+        <input type="text" name="mb4" value="{{ old('mb4') }}" class="Mac-segmentB small-input" maxlength="2" id="segmB4" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segmentB small-input" maxlength="2" id="segmB5" />
+        <input type="text" name="mb5" value="{{ old('mb5') }}" class="Mac-segmentB small-input" maxlength="2" id="segmB5" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segmentB small-input" maxlength="2" id="segmB6" />
+        <input type="text" name="mb6" value="{{ old('mb6') }}" class="Mac-segmentB small-input" maxlength="2" id="segmB6" />
     </div>
-
+    <x-input-error :messages="$errors->get('macBluetooth')" class="mt-2" />
     <script>
         const segmentsMB = document.querySelectorAll('.Mac-segmentB');
         const fullMacInputMB = document.getElementById('input-macBluetooth');
