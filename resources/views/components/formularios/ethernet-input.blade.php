@@ -31,14 +31,15 @@
 </style>
 
 <div class="ip-container py-1.5">
-    <input type="text" class="ip-segment" maxlength="3" id="seg1" />
+    <input type="text" name="i1" class="ip-segment" value="{{ old('i1') }}" maxlength="3" id="seg1" />
     <span class="dot">.</span>
-    <input type="text" class="ip-segment" maxlength="3" id="seg2" />
+    <input type="text" name="i2" class="ip-segment" value="{{ old('i2') }}" maxlength="3" id="seg2" />
     <span class="dot">.</span>
-    <input type="text" class="ip-segment" maxlength="3" id="seg3" />
+    <input type="text" name="i3" class="ip-segment" value="{{ old('i3') }}" maxlength="3" id="seg3" />
     <span class="dot">.</span>
-    <input type="text" class="ip-segment" maxlength="3" id="seg4" />
+    <input type="text" name="i4" class="ip-segment" value="{{ old('i4') }}" maxlength="3" id="seg4" />
 </div>
+<x-input-error :messages="$errors->get('IpEthernet')" class="mt-2" />
 
 <div>
     <input type="hidden" id="input-IpEthernet" name="IpEthernet" readonly />
@@ -94,6 +95,7 @@
     <label for="input-2" class="block text-base font-medium text-gray-900">MAC
         Ethernet</label>
     <input type="hidden" id="input-macEthernet" name="macEthernet">
+    
     <style>
         .ip-container2 {
             display: inline-flex;
@@ -130,18 +132,19 @@
     </style>
 
     <div class="ip-container2 py-1.5">
-        <input type="text" class="Mac-segment small-input" maxlength="2" id="segm1" />
+        <input type="text" name="m1" value="{{ old('m1') }}" class="Mac-segment small-input" maxlength="2" id="segm1" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segment small-input" maxlength="2" id="segm2" />
+        <input type="text" name="m2" value="{{ old('m2') }}" class="Mac-segment small-input" maxlength="2" id="segm2" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segment small-input" maxlength="2" id="segm3" />
+        <input type="text" name="m3" value="{{ old('m3') }}" class="Mac-segment small-input" maxlength="2" id="segm3" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segment small-input" maxlength="2" id="segm4" />
+        <input type="text" name="m4" value="{{ old('m4') }}" class="Mac-segment small-input" maxlength="2" id="segm4" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segment small-input" maxlength="2" id="segm4" />
+        <input type="text" name="m5" value="{{ old('m5') }}" class="Mac-segment small-input" maxlength="2" id="segm4" />
         <span class="dot">:</span>
-        <input type="text" class="Mac-segment small-input" maxlength="2" id="segm4" />
+        <input type="text" name="m6" value="{{ old('m6') }}" class="Mac-segment small-input" maxlength="2" id="segm4" />
     </div>
+    <x-input-error :messages="$errors->get('macEthernet')" class="mt-2" />
 
     <script>
         const segmentsM = document.querySelectorAll('.Mac-segment');

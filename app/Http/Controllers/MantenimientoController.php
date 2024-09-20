@@ -33,10 +33,36 @@ class MantenimientoController extends Controller
     {
 
         $request->validate([
+            'zona' => ['required'],
+            'fecha' => ['required'],
+            'dispositivo' => ['required'],
+            'departamento' => ['required'],
+            'usoQueSeLeDa' => ['required'],
+            'horaInicio' => ['required'],
+            'horaFin' => ['required'],
             'responsable' => ['required'],
-            'rpe' => ['required'],
+            'puesto' => ['required','max:30'],
+            'RPE' => ['required','max:30'],
+            'servicio' => ['required'],
+            'marca' => ['required','max:30'],
+            'modelo' => ['required','max:30'],
+            'serie' => ['required','max:30'],
+            'nombreDA' => ['required','max:30'],
+            'numActivoFijo' => ['required','max:30'],
+            'observaciones' => ['required','max:30'],
+            'IpEthernet' => ['required','max:12'],
+            'macEthernet' => ['required','max:12'],
+            'IpInalambrica' => ['required','max:12'],
+            'macInalambrica' => ['required','max:12'],
+            'macBluetooth' => ['required','max:12'],
+            'sistemaOperativo' => ['required','max:30'],
+            'versionSistemaOpertativo' => ['required','max:30'],
+            'office' => ['required','max:25'],
+            'antivirus' => ['required','max:25'],
+            'antivirusVersion' => ['required','max:20'],
+
         ] );
-     
+        
 
         $equipo = Equipos::create([
             'dispositivo' => $request->dispositivo,

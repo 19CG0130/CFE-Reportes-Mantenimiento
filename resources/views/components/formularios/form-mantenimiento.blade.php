@@ -23,7 +23,7 @@
                     <!-- Zona -->
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="input-zona" class="block text-base font-medium text-gray-900">Zona</label>
-                        <select id="select-zona" name="zona"
+                        <select id="select-zona" name="zona" value="{{ old('zona') }}"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="Informatica">Nuevo Casas Grandes</option>
@@ -64,9 +64,11 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <input type="time" id="start-time" name="horaInicio"
+                                <input type="time" id="start-time" name="horaInicio" value="{{ old('horaInicio') }}"
                                     class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
+                                
                             </div>
+                            <x-input-error :messages="$errors->get('horaInicio')" class="mt-2" />
                         </div>
                         <div class="w-1/2 pr-2">
                             <label for="end-time" class="block text-base font-medium text-gray-900">Fin</label>
@@ -79,25 +81,27 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <input type="time" id="end-time" name="horaFin"
+                                <input type="time" id="end-time" name="horaFin" value="{{ old('horaFin') }}"
                                     class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
+                                
                             </div>
+                            <x-input-error :messages="$errors->get('horaFin')" class="mt-2" />
                         </div>
                     </div>
-                 
+                    
 
                     <!-- Responsable del Equipo -->
                     <div class="pr-2 w-1/4">
                         <label for="input-responsable" class="block text-base font-medium text-gray-900">Responsable del
                             Equipo</label>
-                        <input type="text" name="responsable" id="input-responsable"
+                        <input type="text" name="responsable" id="input-responsable" value="{{ old('responsable') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                         <x-input-error :messages="$errors->get('responsable')" class="mt-2" />
                     </div>
                     <!-- Puesto -->
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="input-puesto" class="block text-base font-medium text-gray-900">Puesto</label>
-                        <select id="select-puesto" name="puesto"
+                        <select id="select-puesto" name="puesto" value="{{ old('puesto') }}"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Seleccionar</option>
                             <option value="JEFE DEPARTAMENTO">JEFE DEPARTAMENTO</option>
@@ -117,12 +121,16 @@
                             <option value="PROFESIONISTA">PROFESIONISTA</option>
                         </select>
                     </div>
+                    <x-input-error :messages="$errors->get('puesto')" class="mt-2" />
                     <!-- RPE -->
                     <div class="pr-2 w-1/4">
                         <label for="input-RPE" class="block text-base font-medium text-gray-900">RPE</label>
-                        <input type="text" name="RPE" id="input-RPE"
+                        <input type="text" name="RPE" id="input-RPE" value="{{ old('RPE') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                        
+                        <x-input-error :messages="$errors->get('RPE')" class="mt-2" />
                     </div>
+                    
                     <!-- Tipo de Dispositivo -->
                     @isset($otroDispositivo)
                         {{ $otroDispositivo }}

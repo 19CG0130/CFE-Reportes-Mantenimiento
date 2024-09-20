@@ -1,6 +1,6 @@
 <x-app-layout>
     
-    <form method="POST" action="{{ route('registro_mantenimiento.post_web') }}">
+    <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
         <input type="hidden" name="dispositivo" value="impresora">
         
