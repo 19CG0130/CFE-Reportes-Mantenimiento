@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MantenimientoController extends Controller
 {
@@ -175,5 +176,18 @@ class MantenimientoController extends Controller
         $registro->delete();
 
         return redirect()->route('dashboard')->with('success', 'Registro eliminado correctamente');
+    }
+
+    public function pdf_generator_get(Request $request)
+    {
+        $registros = Equipos::get();
+
+        $data = [
+            'date' => date('m/d/Y'),
+            'registros' => $registros,
+        ];
+
+        $pdf = Pdf::loadview('registroMantenimientos.myPDF', $data);
+        return $pdf->download('Reporte_Mantenimientos.pdf');
     }
 }
