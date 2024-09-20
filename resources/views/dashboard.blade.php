@@ -466,7 +466,10 @@
                                                     width="24" height="24" fill="none" viewBox="0 0 24 24"
                                                     stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                                 </svg>
                                             </a>
                                             <!--svg Imprimir por PDF-->
@@ -480,35 +483,81 @@
                                                 </svg>
                                             </a>
                                             <!--svg Eliminar registro-->
-                                            <form action="{{ route('registro.destroy', $registro->id) }}"
-                                                method="POST"
-                                                onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" title="eliminar">
-                                                    <svg class="text-red-500 w-8 h-8 hover:text-red-700"
-                                                        xmlns="http://www.w3.org/2000/svg" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                                        <line x1="4" y1="7" x2="20"
-                                                            y2="7" />
-                                                        <line x1="10" y1="11" x2="10"
-                                                            y2="17" />
-                                                        <line x1="14" y1="11" x2="14"
-                                                            y2="17" />
-                                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                    </svg>
-                                                </button>
-                                            </form>
+                                            <button type="submit" title="eliminar"
+                                                data-modal-target="eliminar-modal-{{ $registro->id }}"
+                                                data-modal-toggle="eliminar-modal-{{ $registro->id }}">
+                                                <svg class="text-red-500 w-8 h-8 hover:text-red-700"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <line x1="4" y1="7" x2="20"
+                                                        y2="7" />
+                                                    <line x1="10" y1="11" x2="10"
+                                                        y2="17" />
+                                                    <line x1="14" y1="11" x2="14"
+                                                        y2="17" />
+                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                </svg>
+                                            </button>
+
+
                                         </div>
                                     </td>
                             @endforeach
                             </tr>
                         </tbody>
                     </table>
+
+                    <!---------- foreach modal eliminar ---------->
+                    @foreach ($registros as $registro)
+                        <!-- Eliminar Usuario modal -->
+                        <div id="eliminar-modal-{{ $registro->id }}" tabindex="-1"
+                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative p-4 w-full max-w-md max-h-full">
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <button type="button"
+                                        class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                        data-modal-hide="eliminar-modal-{{ $registro->id }}">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                    <div class="p-4 md:p-5 text-center">
+                                        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 20 20">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+                                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Estas
+                                            seguro que quieres eliminar el registro realizado en
+                                            {{ $registro->dispositivo }} el dia
+                                            {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}?</h3>
+                                        <form action="{{ route('registro.destroy', $registro->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button data-modal-hide="eliminar-modal-{{ $registro->id }}"
+                                                type="submit" href="/eliminar/{{ $registro->id }}"
+                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                                Si, estoy seguro
+                                            </button>
+                                            <button data-modal-hide="eliminar-modal-{{ $registro->id }}"
+                                                type="button"
+                                                class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No,
+                                                Cancelar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 
                 </div>
             </div>
