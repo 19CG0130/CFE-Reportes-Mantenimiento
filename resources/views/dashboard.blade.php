@@ -384,14 +384,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Imprimir registros -->
-                            <div>
-                                <a href="{{ url('pdf_generator') }}"
-                                    class="inline-flex items-center px-4 py-2 bg-blue-600 dark:bg-blue-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-blue-900 uppercase tracking-widest hover:bg-blue-500 dark:hover:bg-blue-300 focus:bg-blue-500 dark:focus:bg-blue-300 active:bg-blue-700 dark:active:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-blue-800 transition ease-in-out duration-150">
-                                    Imprimir tabla
-                                </a>
-
-                            </div>
                             <!-- Buscar -->
                             <div class="relative">
                                 <div
@@ -465,8 +457,8 @@
                                     </td>
                                     <td class="px-6 py-4 flex justify-center space-x-2">
                                         <div class="flex justify-center space-x-2">
-                                            <!--svg Editar registro-->
-                                            <a href="{{ route('edit/equipo_de_computo') }}" title="editar">
+                                            <!-- Editar registro -->
+                                            <a href="{{ route('editar', [$registro->dispositivo, $registro->id]) }}" title="editar">
                                                 <svg class="text-gray-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                                                     width="24" height="24" viewBox="0 0 24 24"
                                                     stroke-width="2" stroke="currentColor" fill="none"
@@ -479,8 +471,8 @@
                                                         y2="8" />
                                                 </svg>
                                             </a>
-                                            <!--svg Ver registro-->
-                                            <a href="" title="ver">
+                                            <!-- Ver registro -->
+                                            <a href="{{ route('visualizar', [$registro->dispositivo, $registro->id]) }}" title="ver">
                                                 <svg class="text-green-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                                                     width="24" height="24" fill="none" viewBox="0 0 24 24"
                                                     stroke="currentColor">
@@ -491,8 +483,8 @@
                                                         d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                                 </svg>
                                             </a>
-                                            <!--svg Imprimir por PDF-->
-                                            <a href="" title="imprimir">
+                                            <!-- Exportar a PDF -->
+                                            <a href="{{ url('exportar_registro_PDF') }}" title="imprimir">
                                                 <svg class="text-blue-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                                                     width="24" height="24" viewBox="0 0 20 20"
                                                     fill="currentColor">
@@ -501,7 +493,7 @@
                                                         clip-rule="evenodd" />
                                                 </svg>
                                             </a>
-                                            <!--svg Eliminar registro-->
+                                            <!-- Eliminar registro -->
                                             <button type="submit" title="eliminar"
                                                 data-modal-target="eliminar-modal-{{ $registro->id }}"
                                                 data-modal-toggle="eliminar-modal-{{ $registro->id }}">

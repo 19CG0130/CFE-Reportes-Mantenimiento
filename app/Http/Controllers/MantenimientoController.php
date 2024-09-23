@@ -28,6 +28,13 @@ class MantenimientoController extends Controller
         return view('dashboard', compact('registros'));
     }
 
+    public function show($id)
+    {
+        $datos = Equipos::findOrFail($id);
+
+        return view('registroMantenimientos.formularios.impresora', ['datos' => $datos]);
+    }   
+
     public function search(Request $request)
     {
         $search = $request->input('search');
@@ -207,7 +214,7 @@ class MantenimientoController extends Controller
             'registros' => $registros,
         ];
 
-        $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-tablaMantenimientos', $data);
+        $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-equipoComputo', $data);
         return $pdf->download('Reporte_general_mantenimientos.pdf');
     }
 }

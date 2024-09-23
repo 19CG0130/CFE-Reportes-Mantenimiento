@@ -14,26 +14,54 @@
         <!-- Logo -->
         <div>
             <img src="{{ public_path('img/logo_cfe.png') }}" style="width:300px;height:auto;" />
-            
+
         </div>
         <!--tabla-->
         <table class="w-full shadow-md">
             <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="px-1 py-1 text-center">
+                        Zona
+                    </th>
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Marca
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
                         Fecha
                     </th>
                     <th scope="col" class="px-1 py-1 text-center">
-                        Dispositivo
+                        Folio
                     </th>
-                    <th scope="col" class="px-6 py-3 text-center">
-                        Responsable del Mantenimiento
+                </tr>
+                <tr class="divide-x divide-gray-500">
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Departamento
                     </th>
                     <th scope="col" class="px-1 py-1 text-center">
-                        Número de Serie
+                        Modelo
                     </th>
                     <th scope="col" class="px-1 py-1 text-center">
-                        RPE
+                        Hora Inicio
+                    </th>
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Hora Fin
+                    </th>
+                </tr>
+                <tr class="divide-x divide-gray-500">
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Tipo de dispositivo
+                    </th>
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Nombre del usuario
+                    </th>
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Numero serie
+                    </th>
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Servicio
+                    </th>
+                    <th scope="col" class="px-1 py-1 text-center">
+                        Uso que se le da al equipo
                     </th>
                 </tr>
             </thead>
@@ -43,22 +71,50 @@
                 @foreach ($registros as $registro)
                     <tr class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-1 py-1 text-center">
+                            {{ $registro->zona }}
+                        </td>
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->marca }}
+                        </td>
+                        <td class="px-1 py-1 text-center uppercase">
                             {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
                         </td>
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->id }}
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->departamento }}
+                        </td>
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->modelo }}
+                        </td>
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->hora_inicio }}
+                        </td>
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->hora_fin }}
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-1 py-1 text-center uppercase">
                             {{ $registro->dispositivo }}
                         </td>
                         <td class="px-1 py-1 text-center uppercase">
-                            {{ $registro->responsable_mantenimiento }}
+                            {{ $registro->responsable_equipo }}
                         </td>
                         <td class="px-1 py-1 text-center uppercase">
                             {{ $registro->serie }}
                         </td>
                         <td class="px-1 py-1 text-center uppercase">
-                            {{ $registro->rpe }}
+                            {{ $registro->servicio }}
                         </td>
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->uso }}
+                        </td>
+                    </tr>
                 @endforeach
-                </tr>
             </tbody>
         </table>
 

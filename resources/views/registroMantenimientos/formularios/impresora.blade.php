@@ -1,9 +1,8 @@
 <x-app-layout>
-    
+    <h1>{{ $datos->responsable_mantenimiento}}</h1>
     <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
         <input type="hidden" name="dispositivo" value="impresora">
-        
         <!---------- Mantenimiento Impresora ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Impresora">
             <!-- Espacio Vacio -->
