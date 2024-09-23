@@ -26,6 +26,9 @@
                     <th scope="col" class="px-1 py-1 text-center">
                         Dispositivo
                     </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        Responsable del Mantenimiento
+                    </th>
                     <th scope="col" class="px-1 py-1 text-center">
                         Número de Serie
                     </th>
@@ -44,6 +47,9 @@
                         </td>
                         <td class="px-1 py-1 text-center uppercase">
                             {{ $registro->dispositivo }}
+                        </td>
+                        <td class="px-1 py-1 text-center uppercase">
+                            {{ $registro->responsable_mantenimiento }}
                         </td>
                         <td class="px-1 py-1 text-center uppercase">
                             {{ $registro->serie }}

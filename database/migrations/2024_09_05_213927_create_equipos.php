@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('uso')->nullable();
             $table->string('hora_inicio');
             $table->string('hora_fin');
-            $table->string('responsable');
+            $table->string('responsable_mantenimiento');
+            $table->string('responsable_equipo');
             $table->string('puesto');
             $table->string('rpe');
             $table->string('servicio');

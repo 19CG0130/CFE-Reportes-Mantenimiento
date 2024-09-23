@@ -386,31 +386,32 @@
                             </div>
                             <!-- Imprimir registros -->
                             <div>
-                                <!--svg Imprimir por PDF-->
-                                <a href="{{ url('pdf_generator') }}" title="imprimir">
-                                    <svg class="text-blue-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
+                                <a href="{{ url('pdf_generator') }}"
+                                    class="inline-flex items-center px-4 py-2 bg-blue-600 dark:bg-blue-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-blue-900 uppercase tracking-widest hover:bg-blue-500 dark:hover:bg-blue-300 focus:bg-blue-500 dark:focus:bg-blue-300 active:bg-blue-700 dark:active:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-blue-800 transition ease-in-out duration-150">
+                                    Imprimir tabla
                                 </a>
+
                             </div>
                             <!-- Buscar -->
-                            <label for="table-search" class="sr-only">Search</label>
                             <div class="relative">
                                 <div
                                     class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
+                                    <button type="submit" class="cursor-pointer">
+                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>                                    
                                 </div>
-                                <input type="text" id="table-search"
-                                    class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Buscar por número de serie">
+                                <form method="get" action="/search">
+                                    <input type="text" name="search" id="id-search"
+                                        value="{{ isset($search) ? $search : '' }}"
+                                        class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Buscar...">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -428,6 +429,9 @@
                                     Dispositivo
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
+                                    Responsable del Mantenimiento
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-center">
                                     Número de Serie
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-center">
@@ -438,7 +442,7 @@
                                 </th>
                             </tr>
                         </thead>
-
+                        
                         <tbody class="divide-y divide-gray-200">
                             <!-- Registro -->
                             @foreach ($registros as $registro)
@@ -449,6 +453,9 @@
                                     </td>
                                     <td class="px-6 py-4 text-center uppercase">
                                         {{ $registro->dispositivo }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center uppercase">
+                                        {{ $registro->responsable_mantenimiento }}
                                     </td>
                                     <td class="px-6 py-4 text-center uppercase">
                                         {{ $registro->serie }}

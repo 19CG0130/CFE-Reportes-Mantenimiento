@@ -15,7 +15,7 @@
                         <div class="relative max-w-sm">
                             <input type="date" name="fecha" value="{{ date('Y-m-d') }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <x-input-error :messages="$errors->get('fecha')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('fecha')" class="mt-2" />
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                                 </div>
                                 <input type="time" id="start-time" name="horaInicio" value="{{ old('horaInicio') }}"
                                     class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
-                                
+
                             </div>
                             <x-input-error :messages="$errors->get('horaInicio')" class="mt-2" />
                         </div>
@@ -83,20 +83,33 @@
                                 </div>
                                 <input type="time" id="end-time" name="horaFin" value="{{ old('horaFin') }}"
                                     class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
-                                
+
                             </div>
                             <x-input-error :messages="$errors->get('horaFin')" class="mt-2" />
                         </div>
                     </div>
-                    
+
+                    <!-- Responsable del Mantenimiento -->
+                    <div class="pr-2 w-1/4">
+                        <label for="input-responsable_mantenimiento" class="block text-base font-medium text-gray-900">
+                            Responsable del Mantenimiento
+                        </label>
+                        <input type="text" name="responsable_mantenimiento" id="input-responsable_mantenimiento"
+                            value="{{ Auth::user()->name }}"
+                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            readonly>
+                        <x-input-error :messages="$errors->get('responsable_mantenimiento')" class="mt-2" />
+                    </div>
 
                     <!-- Responsable del Equipo -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-responsable" class="block text-base font-medium text-gray-900">Responsable del
+                        <label for="input-responsable_equipo"
+                            class="block text-base font-medium text-gray-900">Responsable del
                             Equipo</label>
-                        <input type="text" name="responsable" id="input-responsable" value="{{ old('responsable') }}"
+                        <input type="text" name="responsable_equipo" id="input-responsable_equipo"
+                            value="{{ old('responsable_equipo') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                        <x-input-error :messages="$errors->get('responsable')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('responsable_equipo')" class="mt-2" />
                     </div>
                     <!-- Puesto -->
                     <div class="pr-2 pb-1 w-1/4">
@@ -127,10 +140,10 @@
                         <label for="input-RPE" class="block text-base font-medium text-gray-900">RPE</label>
                         <input type="text" name="RPE" id="input-RPE" value="{{ old('RPE') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                        
+
                         <x-input-error :messages="$errors->get('RPE')" class="mt-2" />
                     </div>
-                    
+
                     <!-- Tipo de Dispositivo -->
                     @isset($otroDispositivo)
                         {{ $otroDispositivo }}

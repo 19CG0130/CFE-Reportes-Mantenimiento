@@ -19,12 +19,7 @@ Route::middleware('auth')->group(function () {
         ->name('dashboard');
 
     //Generar PDF
-    Route::get('/pdf_generator', [MantenimientoController::class, 'pdf_generator_get'])
-    ->name('pdf_genrator');
-
-    Route::get('/pdf', function () {
-        return view('registroMantenimientos.myPDF');
-    });
+    Route::get('/pdf_generator', [MantenimientoController::class, 'pdf_generator_get']);
 
     //Rutas para los formularios de registros mantenimientos
     Route::prefix('registro_mantenimiento')->group(function () {
@@ -56,6 +51,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/',[MantenimientoController::class, 'store'])->name("registro_mantenimiento.post");
 
     });
+
+    //Ruta Busqueda Dashboard
+    Route::get('/search',[MantenimientoController::class, 'search']);
+
 });
 
 //Rutas Administrador
