@@ -14,12 +14,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    //LISTA REGISTROS MANNTENIMIENTOS
-    Route::get('/registros', [MantenimientoController::class, 'index'])
-        ->name('dashboard');
-
     //--------------------------registro_mantenimiento--------------------------
     Route::prefix('registro_mantenimiento')->group(function () {
+
+        //LISTA REGISTROS MANNTENIMIENTOS
+        Route::get('/', [MantenimientoController::class, 'index'])
+            ->name('dashboard');
 
         //VISTAS REGISTROS
         Route::get('/equipo_de_computo', function () {
@@ -55,17 +55,14 @@ Route::middleware('auth')->group(function () {
             return view('registroMantenimientos.acciones.editar-equipoComputo');
         })->name('visualizar');
 
+        //EXPORTAR A PDF
+        Route::get('/exportar_a_PDF/{dispositivo}/{id}', [MantenimientoController::class, 'pdf_generator_get'])
+            ->name('exportar_a_PDF');
+            
     });
 
     //Ruta Busqueda Dashboard
     Route::get('/search', [MantenimientoController::class, 'search']);
-
-    //Visualizar registro
-    Route::get('/registro_mantenimiento/{id}', [MantenimientoController::class, 'show']);
-
-
-    //Exportar los registros a PDF 
-    Route::get('/exportar_registro_PDF', [MantenimientoController::class, 'pdf_generator_get']);
 
 });
 
@@ -74,7 +71,5 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function () {
     //Tabla Usuarios
     Route::get('/usuarios', [ProfileController::class, 'index'])->name('usuarios');
 });
-
-
 
 require __DIR__ . '/auth.php';

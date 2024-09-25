@@ -1,8 +1,8 @@
 <x-app-layout>
-    <h1>{{ $datos->responsable_mantenimiento}}</h1>
     <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
         <input type="hidden" name="dispositivo" value="impresora">
+
         <!---------- Mantenimiento Impresora ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Impresora">
             <!-- Espacio Vacio -->
@@ -15,7 +15,6 @@
             <!-- Equipo Atendido -->
             <x-formularios.form-equipo-atendido>
             </x-formularios.form-equipo-atendido>
-
             <!------ Conectividad ------>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
@@ -32,7 +31,6 @@
                     <!-- Inalámbricos -->
                     <x-formularios.inalambrico-input>
                     </x-formularios.inalambrico-input>
-
                 </div>
             </div>
         </div>
@@ -54,106 +52,116 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="desarmar_limpieza_interna"
-                                                id="checkbox-desarmar_limpieza_interna" type="checkbox" value="1"
+                                            <input id="checkbox_desarmar_limpieza_interna"
+                                                name="desarmar_limpieza_interna" type="checkbox" value="1"
+                                                {{ old('desarmar_limpieza_interna') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-desarmar_limpieza_interna"
+                                            <label for="checkbox_desarmar_limpieza_interna"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
                                                 Equipo para su Limpieza Interna</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_sopleteado_interno_externo"
-                                                id="checkbox-limpieza_sopleteado_int_ext" type="checkbox" value="1"
+                                            <input id="checkbox_limpieza_sopleteado_interno_externo"
+                                                name="limpieza_sopleteado_interno_externo" type="checkbox"
+                                                value="1"
+                                                {{ old('limpieza_sopleteado_interno_externo') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpieza_sopleteado_int_ext"
+                                            <label for="checkbox_limpieza_sopleteado_interno_externo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_bandejas" id="checkbox-limpieza_bandejas"
+                                            <input id="checkbox_limpieza_bandejas" name="limpieza_bandejas"
                                                 type="checkbox" value="1"
+                                                {{ old('limpieza_bandejas') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpieza_bandejas"
+                                            <label for="checkbox_limpieza_bandejas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Bandejas o Charolas</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_alimentacion_papel"
-                                                id="checkbox-limpieza_alimentacion_papel" type="checkbox" value="1"
+                                            <input id="checkbox_limpieza_alimentacion_papel"
+                                                name="limpieza_alimentacion_papel" type="checkbox" value="1"
+                                                {{ old('limpieza_alimentacion_papel') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpieza_alimentacion_papel"
+                                            <label for="checkbox_limpieza_alimentacion_papel"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Revisión del Mecanismo de Alimentación del Papel</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_unidad_fusion" id="checkbox-limpieza_unidad_fusion"
+                                            <input id="checkbox_limpieza_unidad_fusion" name="limpieza_unidad_fusion"
                                                 type="checkbox" value="1"
+                                                {{ old('limpieza_unidad_fusion') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpieza_unidad_fusion"
+                                            <label for="checkbox_limpieza_unidad_fusion"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Revisión de la Unidad de Fusión</label>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-
                             <!-- Columna 2 -->
                             <div class="pb-2">
                                 <ul
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_unidad_laser" id="checkbox-limpieza_unidad_laser"
+                                            <input id="checkbox_limpieza_unidad_laser" name="limpieza_unidad_laser"
                                                 type="checkbox" value="1"
+                                                {{ old('limpieza_unidad_laser') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpieza_unidad_laser"
+                                            <label for="checkbox_limpieza_unidad_laser"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Revisión de la Unidad Láser</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validar_consumibles" id="checkbox-validar_consumibles"
+                                            <input id="checkbox_validar_consumibles" name="validar_consumibles"
                                                 type="checkbox" value="1"
+                                                {{ old('validar_consumibles') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-validar_consumibles"
+                                            <label for="checkbox_validar_consumibles"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
                                                 Estado de Consumibles</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="equipo_en_red" id="checkbox-equipo_en_red" type="checkbox" value="1"
+                                            <input id="checkbox_equipo_en_red" name="equipo_en_red" type="checkbox"
+                                                value="1" {{ old('equipo_en_red') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-equipo_en_red"
+                                            <label for="checkbox_equipo_en_red"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
                                                 en Red</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="realizar_auto_prueba" id="checkbox-realizar_auto_prueba"
+                                            <input id="checkbox_realizar_auto_prueba" name="realizar_auto_prueba"
                                                 type="checkbox" value="1"
+                                                {{ old('realizar_auto_prueba') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-realizar_auto_prueba"
+                                            <label for="checkbox_realizar_auto_prueba"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Realizar
                                                 Auto Prueba</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_post_servicio"
-                                                id="checkbox-verificar_post_servicio" type="checkbox" value="1"
+                                            <input id="checkbox_verificar_post_servicio"
+                                                name="verificar_post_servicio" type="checkbox" value="1"
+                                                {{ old('verificar_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_post_servicio"
+                                            <label for="checkbox_verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
                                                 Operando Después del Servicio</label>
                                         </div>
@@ -171,6 +179,4 @@
         </x-formularios.form-bottom>
 
     </form>
-
-
 </x-app-layout>

@@ -17,6 +17,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\Options;
 
 class MantenimientoController extends Controller
 {
@@ -33,7 +34,7 @@ class MantenimientoController extends Controller
         $datos = Equipos::findOrFail($id);
 
         return view('registroMantenimientos.formularios.impresora', ['datos' => $datos]);
-    }   
+    }
 
     public function search(Request $request)
     {
@@ -48,12 +49,12 @@ class MantenimientoController extends Controller
                     ->orWhere('rpe', 'LIKE', "%$search%");
             })
 
-            //Buscar por nombre del reponsablde del mantenimiento
-            //->orWhereHas('user', function ($query) use ($search) {
-            //    $query->where('name', 'LIKE', "%$search%");
-            //})
+                //Buscar por nombre del reponsablde del mantenimiento
+                //->orWhereHas('user', function ($query) use ($search) {
+                //    $query->where('name', 'LIKE', "%$search%");
+                //})
 
-            ->get();
+                ->get();
         }
 
         return view('dashboard', compact('registros', 'search'));
@@ -64,32 +65,111 @@ class MantenimientoController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        $request->validate([
-            'zona' => ['required'],
-            'fecha' => ['required'],
-            'dispositivo' => ['required'],
-            'departamento' => ['required'],
-            'usoQueSeLeDa' => ['required'],
-            'horaInicio' => ['required'],
-            'horaFin' => ['required'],
-            'responsable_mantenimiento' => ['required'],
-            'responsable_equipo' => ['required'],
-            'puesto' => ['required', 'max:30'],
-            'RPE' => ['required', 'max:30'],
-            'servicio' => ['required'],
-            'marca' => ['required', 'max:30'],
-            'modelo' => ['required', 'max:30'],
-            'serie' => ['required', 'max:30'],
-            'nombreDA' => ['required', 'max:30'],
-            'numActivoFijo' => ['required', 'max:30'],
-            'sistemaOperativo' => ['required', 'max:30'],
-            'versionSistemaOpertativo' => ['required', 'max:30'],
-            'office' => ['required', 'max:25'],
-            'antivirus' => ['required', 'max:25'],
-            'antivirusVersion' => ['required', 'max:20'],
+        $tipoFormulario = $request->input('dispositivo');
 
-        ]);
-
+        if ($tipoFormulario === 'equipoComputo') {
+            $request->validate([
+                'fecha' => ['required'],
+                'zona' => ['required'],
+                'departamento' => ['required'],
+                'usoQueSeLeDa' => ['required'],
+                'horaInicio' => ['required'],
+                'horaFin' => ['required'],
+                'responsable_mantenimiento' => ['required'],
+                'responsable_equipo' => ['required'],
+                'puesto' => ['required', 'max:30'],
+                'RPE' => ['required', 'max:30'],
+                'servicio' => ['required'],
+                'marca' => ['required', 'max:30'],
+                'modelo' => ['required', 'max:30'],
+                'serie' => ['required', 'max:30'],
+                'nombreDA' => ['required', 'max:30'],
+                'numActivoFijo' => ['required', 'max:30'],
+                'sistemaOperativo' => ['required'],
+                'Arquitectura' => ['required'],
+                'versionSistemaOpertativo' => ['required'],
+                'office' => ['required'],
+                'antivirus' => ['required'],
+                'antivirusVersion' => ['required'],
+            ]);
+        } elseif ($tipoFormulario === 'terminalPortatil') {
+            $request->validate([
+                'fecha' => ['required'],
+                'zona' => ['required'],
+                'departamento' => ['required'],
+                'usoQueSeLeDa' => ['required'],
+                'horaInicio' => ['required'],
+                'horaFin' => ['required'],
+                'responsable_mantenimiento' => ['required'],
+                'responsable_equipo' => ['required'],
+                'puesto' => ['required', 'max:30'],
+                'RPE' => ['required', 'max:30'],
+                'servicio' => ['required'],
+                'marca' => ['required', 'max:30'],
+                'modelo' => ['required', 'max:30'],
+                'serie' => ['required', 'max:30'],
+                'numActivoFijo' => ['required', 'max:30'],
+                'sistemaOperativo' => ['required'],
+                'versionSistemaOpertativo' => ['required'],
+            ]);
+        } elseif ($tipoFormulario === 'tablet') {
+            $request->validate([
+                'fecha' => ['required'],
+                'zona' => ['required'],
+                'departamento' => ['required'],
+                'usoQueSeLeDa' => ['required'],
+                'horaInicio' => ['required'],
+                'horaFin' => ['required'],
+                'responsable_mantenimiento' => ['required'],
+                'responsable_equipo' => ['required'],
+                'puesto' => ['required', 'max:30'],
+                'RPE' => ['required', 'max:30'],
+                'servicio' => ['required'],
+                'marca' => ['required', 'max:30'],
+                'modelo' => ['required', 'max:30'],
+                'serie' => ['required', 'max:30'],
+                'numActivoFijo' => ['required', 'max:30'],
+                'sistemaOperativo' => ['required'],
+                'versionSistemaOpertativo' => ['required'],
+            ]);
+        } elseif ($tipoFormulario === 'impresora') {
+            $request->validate([
+                'fecha' => ['required'],
+                'zona' => ['required'],
+                'departamento' => ['required'],
+                'horaInicio' => ['required'],
+                'horaFin' => ['required'],
+                'responsable_mantenimiento' => ['required'],
+                'responsable_equipo' => ['required'],
+                'puesto' => ['required', 'max:30'],
+                'RPE' => ['required', 'max:30'],
+                'servicio' => ['required'],
+                'marca' => ['required', 'max:30'],
+                'modelo' => ['required', 'max:30'],
+                'serie' => ['required', 'max:30'],
+                'numActivoFijo' => ['required', 'max:30'],
+            ]);
+        } else {
+            $request->validate([
+                'fecha' => ['required'],
+                'zona' => ['required'],
+                'departamento' => ['required'],
+                'usoQueSeLeDa' => ['required'],
+                'horaInicio' => ['required'],
+                'horaFin' => ['required'],
+                'responsable_mantenimiento' => ['required'],
+                'responsable_equipo' => ['required'],
+                'puesto' => ['required', 'max:30'],
+                'RPE' => ['required', 'max:30'],
+                'dispositivo' => ['required'],
+                'servicio' => ['required'],
+                'marca' => ['required', 'max:30'],
+                'modelo' => ['required', 'max:30'],
+                'serie' => ['required', 'max:30'],
+                'nombreDA' => ['required', 'max:30'],
+                'numActivoFijo' => ['required', 'max:30'],
+            ]);
+        }
 
         $equipo = Equipos::create([
             'dispositivo' => $request->dispositivo,
@@ -200,21 +280,25 @@ class MantenimientoController extends Controller
     public function destroy($id)
     {
         $registro = Equipos::findOrFail($id);
+
         $registro->delete();
 
         return redirect()->route('dashboard')->with('success', 'Registro eliminado correctamente');
     }
 
-    public function pdf_generator_get(Request $request)
+    public function pdf_generator_get($dispositivo, $id)
     {
-        $registros = Equipos::get();
+        $registro = Equipos::where('dispositivo', $dispositivo)->where('id', $id)->firstOrFail();
+        $mantenimiento = Mantenimiento::where('id', $registro->id)->first();
 
         $data = [
-            'date' => date('m/d/Y'),
-            'registros' => $registros,
+            'date' => date('d/m/Y'),
+            'registro' => $registro,
+            'mantenimiento' => $mantenimiento,
         ];
 
         $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-equipoComputo', $data);
-        return $pdf->download('Reporte_general_mantenimientos.pdf');
+
+        return $pdf->download('Reporte_equipo_' . $registro->id . '.pdf');
     }
 }

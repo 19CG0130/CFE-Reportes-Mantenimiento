@@ -1,29 +1,35 @@
 <x-app-layout>
     <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
+
         <!---------- Mantenimiento de Otro Dispositivo ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento de Otro Dispositivo">
             <x-slot name="slot">
                 <!-- Uso que se le da al equipo -->
                 <div class="pr-2 pb-1 w-1/4">
-                    <label for="input-usoQueSeLeDa" class="block text-base font-medium text-gray-900">Uso que se le
+                    <label class="block text-base font-medium text-gray-900">Uso que se le
                         da al equipo</label>
                     <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
                         class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected>Seleccionar</option>
-                        <option value="Operativo">Operativo</option>
-                        <option value="Capacitación">Capacitación</option>
-                        <option value="Stock">Stock</option>
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="Operativo" {{ old('usoQueSeLeDa') == 'Operativo' ? 'selected' : '' }}>Operativo
+                        </option>
+                        <option value="Capacitación" {{ old('usoQueSeLeDa') == 'Capacitación' ? 'selected' : '' }}>
+                            Capacitación</option>
+                        <option value="Stock" {{ old('usoQueSeLeDa') == 'Stock' ? 'selected' : '' }}>Stock</option>
                     </select>
+                    <x-input-error :messages="$errors->get('usoQueSeLeDa')" class="mt-2" />
                 </div>
             </x-slot>
             <x-slot name="otroDispositivo">
                 <!-- Tipo de Dispositivo -->
                 <div class="pr-2 w-1/4">
-                    <label for="input-dispositivo" class="block text-base font-medium text-gray-900">Tipo de
+                    <label class="block text-base font-medium text-gray-900">Tipo de
                         Dispositivo</label>
-                    <input type="text" name="dispositivo" id="dispositivo" placeholder="Router, Switch, etc..."
+                    <input type="text" name="dispositivo" value="{{ old('dispositivo') }}"
+                        placeholder="Router, Switch, etc..."
                         class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    <x-input-error :messages="$errors->get('dispositivo')" class="mt-2" />
                 </div>
             </x-slot>
         </x-formularios.form-mantenimiento>
@@ -34,10 +40,11 @@
             <x-formularios.form-equipo-atendido>
                 <!-- Nombre D.A -->
                 <div>
-                    <label for="input-2" class="block text-base font-medium text-gray-900">Nombre Active
+                    <label class="block text-base font-medium text-gray-900">Nombre Active
                         Directory</label>
-                    <input type="text" id="input-nombreDA" name="nombreDA"
+                    <input type="text" name="nombreDA" value="{{ old('nombreDA') }}"
                         class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    <x-input-error :messages="$errors->get('nombreDA')" class="mt-2" />
                 </div>
             </x-formularios.form-equipo-atendido>
 
@@ -80,7 +87,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="antivirus_actualizado" id="checkbox-antivirus_actualizado"
-                                                type="checkbox" value="1" 
+                                                type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-antivirus_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antivirus
@@ -119,7 +126,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="equipo_en_red" id="checkbox-equipo_en_red" type="checkbox" value="1"
+                                            <input name="equipo_en_red" id="checkbox-equipo_en_red" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipo_en_red"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
@@ -129,7 +137,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="equipo_operando_post_servicio"
-                                                id="checkbox-equipo_operando_post_servicio" type="checkbox" value="1"
+                                                id="checkbox-equipo_operando_post_servicio" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -149,7 +158,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_alimentacion_papel"
-                                                id="checkbox-limpieza_alimentacion_papel" type="checkbox" value="1"
+                                                id="checkbox-limpieza_alimentacion_papel" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_alimentacion_papel"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -199,7 +209,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_sopleteado_int_ext"
-                                                id="checkbox-limpieza_sopleteado_int_ext" type="checkbox" value="1"
+                                                id="checkbox-limpieza_sopleteado_int_ext" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_sopleteado_int_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -209,7 +220,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_tarjeta_principal"
-                                                id="checkbox-limpieza_tarjeta_principal" type="checkbox" value="1"
+                                                id="checkbox-limpieza_tarjeta_principal" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_tarjeta_principal"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -294,7 +306,8 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="validar_touch" id="checkbox-validar_touch" type="checkbox" value="1"
+                                            <input name="validar_touch" id="checkbox-validar_touch" type="checkbox"
+                                                value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-validar_touch"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
@@ -364,6 +377,4 @@
         </x-formularios.form-bottom>
 
     </form>
-
-
 </x-app-layout>

@@ -2,6 +2,7 @@
     <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
         <input type="hidden" name="dispositivo" value="equipoComputo">
+
         <!---------- Mantenimiento Equipo de Computo ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Equipo de Computo">
             <!-- Uso que se le da al equipo -->
@@ -10,10 +11,13 @@
                     da al equipo</label>
                 <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
                     class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Seleccionar</option>
-                    <option value="Informatica">Operativo</option>
-                    <option value="Superintendencia">Capacitación</option>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="Operativo" {{ old('usoQueSeLeDa') == 'Operativo' ? 'selected' : '' }}>Operativo
+                    </option>
+                    <option value="Capacitación" {{ old('usoQueSeLeDa') == 'Capacitación' ? 'selected' : '' }}>
+                        Capacitación</option>
                 </select>
+                <x-input-error :messages="$errors->get('usoQueSeLeDa')" class="mt-2" />
             </div>
         </x-formularios.form-mantenimiento>
 
@@ -25,8 +29,9 @@
                 <div>
                     <label for="input-2" class="block text-base font-medium text-gray-900">Nombre Active
                         Directory</label>
-                    <input type="text" id="input-nombreDA" name="nombreDA"
+                    <input type="text" id="input-nombreDA" name="nombreDA" value="{{ old('nombreDA') }}"
                         class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                    <x-input-error :messages="$errors->get('nombreDA')" class="mt-2" />
                 </div>
             </x-formularios.form-equipo-atendido>
 
@@ -58,65 +63,71 @@
                     <div class="p-1 text-gray-900 text-xl font-bold">
                         <span class="text-2xl font-extrabold">Software</span>
                     </div>
-                </div> 
+                </div>
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">
                             Sistema Operativo</label>
-                        <select id="select-sistemaOperativo" name="sistemaOperativo" value="{{ old('sistemaOperativo') }}"
+                        <select id="select-sistemaOperativo" name="sistemaOperativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Windows">Windows</option>
-                            <option value="MacOS">MacOS</option>
-                            <option value="Linux">Linux</option>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="Windows" {{ old('sistemaOperativo') == 'Windows' ? 'selected' : '' }}>Windows
+                            </option>
+                            <option value="MacOS" {{ old('sistemaOperativo') == 'MacOS' ? 'selected' : '' }}>MacOS
+                            </option>
+                            <option value="Linux" {{ old('sistemaOperativo') == 'Linux' ? 'selected' : '' }}>Linux
+                            </option>
                         </select>
                         <x-input-error :messages="$errors->get('sistemaOperativo')" class="mt-2" />
                     </div>
                     <!-- Arquitectura -->
                     <div class="flex pr-2 mt-3.5 items-center">
-                        <label for="arquitectura" class="text-sm font-medium text-gray-900 dark:text-gray-300 pr-3">Arquitectura:</label>
+                        <label for="arquitectura"
+                            class="text-sm font-medium text-gray-900 dark:text-gray-300 pr-3">Arquitectura:</label>
                         <div class="relative">
-                            <select id="arquitectura" name="Arquitectura" value="{{ old('Arquitectura') }}"
+                            <select id="arquitectura" name="Arquitectura"
                                 class="block appearance-none w-36 bg-white border border-gray-300 text-gray-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300">
-                                <option value="x32">x32</option>
-                                <option value="x64">x64</option>
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option value="x32" {{ old('Arquitectura') == 'x32' ? 'selected' : '' }}>x32</option>
+                                <option value="x64" {{ old('Arquitectura') == 'x64' ? 'selected' : '' }}>x64</option>
                             </select>
                             <x-input-error :messages="$errors->get('Arquitectura')" class="mt-2" />
-
-                            
                         </div>
                     </div>
-                    
-                    
+
                     <!-- Versión Sistema Operativo -->
                     <div class="pr-2 w-1/4">
                         <label for="input-versionSistemaOpertativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
-                        <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo" value="{{ old('versionSistemaOpertativo') }}"
+                        <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo"
+                            value="{{ old('versionSistemaOpertativo') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                         <x-input-error :messages="$errors->get('versionSistemaOpertativo')" class="mt-2" />
                     </div>
                     <!-- Office -->
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="inputOffice" class="block text-base font-medium text-gray-900">Office</label>
-                        <select id="select-office" name="office" value="{{ old('office') }}"
+                        <select id="select-office" name="office"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Office 365">Office 365</option>
-                            <option value="Office 2016">Office 2016</option>
-                            <option value="Office 2019">Office 2019</option>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="Office 365" {{ old('office') == 'Office 365' ? 'selected' : '' }}>Office 365
+                            </option>
+                            <option value="Office 2016" {{ old('office') == 'Office 2016' ? 'selected' : '' }}>Office
+                                2016</option>
+                            <option value="Office 2019" {{ old('office') == 'Office 2019' ? 'selected' : '' }}>Office
+                                2019</option>
                         </select>
                         <x-input-error :messages="$errors->get('office')" class="mt-2" />
-
                     </div>
                     <!-- Antivirus -->
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="input-Antivirus" class="block text-base font-medium text-gray-900">Antivirus</label>
-                        <select id="select-antivirus" name="antivirus" value="{{ old('antivirus') }}"
+                        <select id="select-antivirus" name="antivirus"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Institucional">Institucional</option>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="Institucional" {{ old('antivirus') == 'Institucional' ? 'selected' : '' }}>
+                                Institucional</option>
                         </select>
                         <x-input-error :messages="$errors->get('antivirus')" class="mt-2" />
                     </div>
@@ -124,7 +135,8 @@
                     <div class="pr-2 w-1/4">
                         <label for="input-antivirusVersion" class="block text-base font-medium text-gray-900">Antivirus
                             Versión</label>
-                        <input type="text" name="antivirusVersion" id="input-antivirusVersion" value="{{ old('antivirusVersion') }}"
+                        <input type="text" name="antivirusVersion" id="input-antivirusVersion"
+                            value="{{ old('antivirusVersion') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                         <x-input-error :messages="$errors->get('antivirusVersion')" class="mt-2" />
                     </div>
@@ -353,6 +365,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="desarmar_equipo" id="checkbox-desarmar_equipo"
                                                 type="checkbox" value="1"
+                                                {{ old('desarmar_equipo') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-desarmar_equipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
@@ -364,6 +377,7 @@
                                             <input name="limpieza_sopleteado_interno_externo"
                                                 id="checkbox-limpieza_sopleteado_interno_externo" type="checkbox"
                                                 value="1"
+                                                {{ old('limpieza_sopleteado_interno_externo') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_sopleteado_interno_externo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -374,6 +388,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_pantalla" id="checkbox-limpieza_pantalla"
                                                 type="checkbox" value="1"
+                                                {{ old('limpieza_pantalla') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_pantalla"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -384,6 +399,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_teclado" id="checkbox-limpieza_teclado"
                                                 type="checkbox" value="1"
+                                                {{ old('limpieza_teclado') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_teclado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -394,6 +410,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_ventiladores" id="checkbox-limpieza_ventiladores"
                                                 type="checkbox" value="1"
+                                                {{ old('limpieza_ventiladores') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_ventiladores"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -405,6 +422,7 @@
                                             <input name="limpieza_tarjeta_principal"
                                                 id="checkbox-limpieza_tarjeta_principal" type="checkbox"
                                                 value="1"
+                                                {{ old('limpieza_tarjeta_principal') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_tarjeta_principal"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -415,6 +433,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_fuente_poder" id="checkbox-limpieza_fuente_poder"
                                                 type="checkbox" value="1"
+                                                {{ old('limpieza_fuente_poder') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_fuente_poder"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -432,6 +451,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificacion_bateria" id="checkbox-verificacion_bateria"
                                                 type="checkbox" value="1"
+                                                {{ old('verificacion_bateria') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificacion_bateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificación
@@ -443,6 +463,7 @@
                                             <input name="verificar_conexiones_electricas"
                                                 id="checkbox-verificar_conexiones_electricas" type="checkbox"
                                                 value="1"
+                                                {{ old('verificar_conexiones_electricas') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_conexiones_electricas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -453,6 +474,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_post_servicio"
                                                 id="checkbox-verificar_post_servicio" type="checkbox" value="1"
+                                                {{ old('verificar_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -463,6 +485,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="antivirus_actualizado" id="checkbox-antivirus_actualizado"
                                                 type="checkbox" value="1"
+                                                {{ old('antivirus_actualizado') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-antivirus_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antivirus
@@ -473,6 +496,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="ejecucion_defrag" id="checkbox-ejecucion_defrag"
                                                 type="checkbox" value="1"
+                                                {{ old('ejecucion_defrag') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-ejecucion_defrag"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ejecución
@@ -484,6 +508,7 @@
                                             <input name="estado_servicio_escritorio_remoto"
                                                 id="checkbox-estado_servicio_escritorio_remoto" type="checkbox"
                                                 value="1"
+                                                {{ old('estado_servicio_escritorio_remoto') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-estado_servicio_escritorio_remoto"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado
@@ -494,6 +519,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="asignacion_ip_dhcp" id="checkbox-asignacion_ip_dhcp"
                                                 type="checkbox" value="1"
+                                                {{ old('asignacion_ip_dhcp') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-asignacion_ip_dhcp"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asignación
@@ -513,5 +539,4 @@
         </x-formularios.form-bottom>
 
     </form>
-
 </x-app-layout>

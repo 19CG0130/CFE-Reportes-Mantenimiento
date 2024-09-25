@@ -2,7 +2,8 @@
     <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
         <input type="hidden" name="dispositivo" value="tablet">
-        <!------------- Mantenimiento Tablet ------------->
+
+        <!---------- Mantenimiento Tablet ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Tablet">
             <!-- Uso que se le da al equipo -->
             <div class="pr-2 pb-1 w-1/4">
@@ -10,15 +11,18 @@
                     da al equipo</label>
                 <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
                     class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Seleccionar</option>
-                    <option value="Informatica">Operativo</option>
-                    <option value="Superintendencia">Capacitación</option>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="Operativo" {{ old('usoQueSeLeDa') == 'Operativo' ? 'selected' : '' }}>Operativo
+                    </option>
+                    <option value="Capacitación" {{ old('usoQueSeLeDa') == 'Capacitación' ? 'selected' : '' }}>
+                        Capacitación</option>
                 </select>
+                <x-input-error :messages="$errors->get('usoQueSeLeDa')" class="mt-2" />
             </div>
         </x-formularios.form-mantenimiento>
 
-        <!------------- Equipo Atendido y Conectividad ------------->
-        <div class="flex grid max-w-7xl mx-auto gap-6 pb-6 lg:grid-cols-2 sm:px-6 lg:px-8">
+        <!---------- Equipo Atendido y Conectividad ---------->
+        <div class="grid max-w-7xl mx-auto gap-6 pb-6 lg:grid-cols-2 sm:px-6 lg:px-8">
             <!-- Equipo Atendido -->
             <x-formularios.form-equipo-atendido>
             </x-formularios.form-equipo-atendido>
@@ -38,7 +42,7 @@
             </div>
         </div>
 
-        <!------------- Software ------------->
+        <!---------- Software ---------->
         <div class="pb-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
@@ -53,16 +57,20 @@
                             Operativo</label>
                         <select id="select-sistemaOperativo" name="sistemaOperativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccionar</option>
-                            <option value="Windows">Android</option>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="Android" {{ old('sistemaOperativo') == 'Android' ? 'selected' : '' }}>Android
+                            </option>
                         </select>
+                        <x-input-error :messages="$errors->get('sistemaOperativo')" class="mt-2" />
                     </div>
                     <!-- Versión Sistema Operativo -->
                     <div class="pr-2 w-1/4">
                         <label for="input-versionSistemaOpertativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
                         <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo"
+                            value="{{ old('versionSistemaOpertativo') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                        <x-input-error :messages="$errors->get('versionSistemaOpertativo')" class="mt-2" />
                     </div>
                 </div>
                 <!-- Otros Softwares Checkbox -->
@@ -138,7 +146,7 @@
             </div>
         </div>
 
-        <!------------- Mantenimiento Ejecutado ------------->
+        <!---------- Mantenimiento Ejecutado ---------->
         <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
                 <div class="flex justify-between">
@@ -157,6 +165,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_sopleteado_ext"
                                                 id="checkbox-limpieza_sopleteado_ext" type="checkbox" value="1"
+                                                {{ old('limpieza_sopleteado_ext') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_sopleteado_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -166,7 +175,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="validar_touch" id="checkbox-validar_touch" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('validar_touch') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-validar_touch"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
@@ -177,6 +186,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="revision_bateria" id="checkbox-revision_bateria"
                                                 type="checkbox" value="1"
+                                                {{ old('revision_bateria') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-revision_bateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revision
@@ -187,6 +197,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_sw_actualizado"
                                                 id="checkbox-verificar_sw_actualizado" type="checkbox" value="1"
+                                                {{ old('verificar_sw_actualizado') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_sw_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -203,6 +214,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_conector_datos"
                                                 id="checkbox-verificar_conector_datos" type="checkbox" value="1"
+                                                {{ old('verificar_conector_datos') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_conector_datos"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -213,6 +225,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="validar_teclado" id="checkbox-validar_teclado"
                                                 type="checkbox" value="1"
+                                                {{ old('validar_teclado') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-validar_teclado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
@@ -223,6 +236,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_post_servicio"
                                                 id="checkbox-verificar_post_servicio" type="checkbox" value="1"
+                                                {{ old('verificar_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -237,11 +251,9 @@
             </div>
         </div>
 
-        <!------------- bottom ------------->
+        <!---------- bottom ---------->
         <x-formularios.form-bottom>
         </x-formularios.form-bottom>
 
     </form>
-
-
 </x-app-layout>
