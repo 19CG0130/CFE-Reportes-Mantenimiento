@@ -1,7 +1,7 @@
 <x-app-layout>
     <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
         @csrf
-        <input type="hidden" name="dispositivo" value="terminalPortatil">
+        <input type="hidden" name="dispositivo" value="Terminal Portatil">
 
         <!---------- Mantenimiento Terminal Portatil ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Terminal Portatil">

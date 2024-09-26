@@ -301,22 +301,22 @@
                     <thead
                         class="text-xs text-gray-200 uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400 rounded-lg">
                         <tr class="divide-x divide-gray-500">
-                            <th scope="col" class="px-6 py-3 text-center">
+                            <th scope="col" class="px-3 py-3 text-center">
                                 Fecha
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            <th scope="col" class="px-3 py-3 text-center">
                                 Dispositivo
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            <th scope="col" class="px-3 py-3 text-center">
                                 Responsable del Mantenimiento
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            <th scope="col" class="px-3 py-3 text-center">
                                 Número de Serie
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            <th scope="col" class="px-3 py-3 text-center">
                                 RPE
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center">
+                            <th scope="col" class="px-3 py-3 text-center">
                                 Acciones
                             </th>
                         </tr>
@@ -326,23 +326,23 @@
                         <!-- Registro -->
                         @foreach ($registros as $registro)
                             <tr
-                                class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="px-6 py-4 text-center">
+                                class="even:bg-gray-100 odd:bg-white bg-white dark:bg-gray-800 dark:border-gray-700">
+                                <td class="px-3 py-3 text-center">
                                     {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
                                 </td>
-                                <td class="px-6 py-4 text-center uppercase">
+                                <td class="px-3 py-3 text-center uppercase">
                                     {{ $registro->dispositivo }}
                                 </td>
-                                <td class="px-6 py-4 text-center uppercase">
+                                <td class="px-3 py-3 text-center uppercase">
                                     {{ $registro->responsable_mantenimiento }}
                                 </td>
-                                <td class="px-6 py-4 text-center uppercase">
+                                <td class="px-3 py-3 text-center uppercase">
                                     {{ $registro->serie }}
                                 </td>
-                                <td class="px-6 py-4 text-center uppercase">
+                                <td class="px-3 py-3 text-center uppercase">
                                     {{ $registro->rpe }}
                                 </td>
-                                <td class="px-6 py-4 flex justify-center space-x-2">
+                                <td class="flex px-3 py-3 items-center justify-center space-x-2">
                                     <div class="flex justify-center space-x-2">
                                         <!-- Editar registro -->
                                         <a href="{{ route('editar', [$registro->dispositivo, $registro->id]) }}"
@@ -430,10 +430,8 @@
                                             stroke-width="2"
                                             d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
-                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Estas
-                                        seguro que quieres eliminar el registro realizado en
-                                        {{ $registro->dispositivo }} el dia
-                                        {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}?</h3>
+                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Eliminar el registro de <strong>{{ $registro->dispositivo }}</strong> del día
+                                        {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}</h3>
                                     <form action="{{ route('registro.destroy', $registro->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')

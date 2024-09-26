@@ -67,7 +67,7 @@ class MantenimientoController extends Controller
 
         $tipoFormulario = $request->input('dispositivo');
 
-        if ($tipoFormulario === 'equipoComputo') {
+        if ($tipoFormulario === 'PC Escritorio' || $tipoFormulario === 'Laptop') {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
@@ -79,6 +79,7 @@ class MantenimientoController extends Controller
                 'responsable_equipo' => ['required'],
                 'puesto' => ['required', 'max:30'],
                 'RPE' => ['required', 'max:30'],
+                'dispositivo' => ['required'],
                 'servicio' => ['required'],
                 'marca' => ['required', 'max:30'],
                 'modelo' => ['required', 'max:30'],
@@ -92,7 +93,7 @@ class MantenimientoController extends Controller
                 'antivirus' => ['required'],
                 'antivirusVersion' => ['required'],
             ]);
-        } elseif ($tipoFormulario === 'terminalPortatil') {
+        } elseif ($tipoFormulario === 'Terminal Portatil') {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
@@ -112,7 +113,7 @@ class MantenimientoController extends Controller
                 'sistemaOperativo' => ['required'],
                 'versionSistemaOpertativo' => ['required'],
             ]);
-        } elseif ($tipoFormulario === 'tablet') {
+        } elseif ($tipoFormulario === 'Tablet') {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
@@ -132,7 +133,7 @@ class MantenimientoController extends Controller
                 'sistemaOperativo' => ['required'],
                 'versionSistemaOpertativo' => ['required'],
             ]);
-        } elseif ($tipoFormulario === 'impresora') {
+        } elseif ($tipoFormulario === 'Impresora') {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
