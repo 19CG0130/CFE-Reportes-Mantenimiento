@@ -87,10 +87,10 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <input type="time" name="horaInicio" value="{{ old('horaInicio') }}"
+                                <input type="time" name="hora_inicio" value="{{ old('hora_inicio') }}"
                                     class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
                             </div>
-                            <x-input-error :messages="$errors->get('horaInicio')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('hora_inicio')" class="mt-2" />
                         </div>
                         <div class="w-1/2 pr-2">
                             <label class="block text-base font-medium text-gray-900">Fin</label>
@@ -103,10 +103,10 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <input type="time" name="horaFin" value="{{ old('horaFin') }}"
+                                <input type="time" name="hora_fin" value="{{ old('hora_fin') }}"
                                     class="block w-full pr-5 p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
                             </div>
-                            <x-input-error :messages="$errors->get('horaFin')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('hora_fin')" class="mt-2" />
                         </div>
                     </div>
 
@@ -187,10 +187,10 @@
 
                     <!---------- RPE ---------->
                     <div class="pr-2 w-1/4">
-                        <label class="block text-base font-medium text-gray-900">RPE</label>
-                        <input type="text" name="RPE" value="{{ old('RPE') }}"
+                        <label class="block text-base font-medium text-gray-900">rpe</label>
+                        <input type="text" name="rpe" value="{{ old('rpe') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                        <x-input-error :messages="$errors->get('RPE')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('rpe')" class="mt-2" />
                     </div>
 
                     <!---------- Tipo de Dispositivo ---------->

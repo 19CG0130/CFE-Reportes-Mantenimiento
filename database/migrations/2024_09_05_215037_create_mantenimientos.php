@@ -38,8 +38,7 @@ return new class extends Migration
             $table->integer('validar_touch')->nullable();
             $table->integer('verificacion_bateria')->nullable();
             $table->integer('verificar_conector_datos')->nullable();
-            $table->integer('verificar_conexiones')->nullable();
-            $table->integer('verificar_post_servicio')->nullable();
+            $table->integer('verificar_conexiones_electricas')->nullable();
             $table->integer('verificar_sw_actualizado')->nullable();
             $table->timestamps();
         });

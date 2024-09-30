@@ -2,7 +2,7 @@
     <div>
         <label for="input-2" class="block text-base font-medium text-gray-900">IP
             Inalámbrica</label>
-        <input type="hidden" id="input-IpInalambrica" name="IpInalambrica">
+        <input type="hidden" id="input-ip_inalambrica" name="ip_inalambrica">
 
         <style>
             .ip-container3 {
@@ -42,11 +42,11 @@
             <span class="dot">.</span>
             <input type="text"  name="ii4" value="{{ old('ii4') }}"class="ip-segmentI" maxlength="3" id="segI4" />
         </div>
-        <x-input-error :messages="$errors->get('IpInalambrica')" class="mt-2" />
+        <x-input-error :messages="$errors->get('ip_inalambrica')" class="mt-2" />
     </div>
     <script>
         const segmentsI = document.querySelectorAll('.ip-segmentI');
-        const fullIpInputIP = document.getElementById('input-IpInalambrica');
+        const fullIpInputIP = document.getElementById('input-ip_inalambrica');
 
         segmentsI.forEach((segment, index) => {
             segment.addEventListener('input', function() {
@@ -93,7 +93,7 @@
 </div>
 <!-- MAC Inalámbrica -->
 <div>
-    <input type="hidden" id="input-macInalambrica" name="macInalambrica">
+    <input type="hidden" id="input-mac_inalambrica" name="mac_inalambrica">
     <style>
         .ip-container4 {
             display: inline-flex;
@@ -144,12 +144,12 @@
             <span class="dot">:</span>
             <input type="text" name="mi6" value="{{ old('mi6') }}" class="Mac-segmentI small-input" maxlength="2" id="segmI6" />
         </div>
-        <x-input-error :messages="$errors->get('macInalambrica')" class="mt-2" />
+        <x-input-error :messages="$errors->get('mac_inalambrica')" class="mt-2" />
     </div>
 
     <script>
         const segmentsMI = document.querySelectorAll('.Mac-segmentI');
-        const fullIpInputMI = document.getElementById('input-macInalambrica');
+        const fullIpInputMI = document.getElementById('input-mac_inalambrica');
 
         segmentsMI.forEach((segment, index) => {
             segment.addEventListener('input', function() {
@@ -200,7 +200,7 @@
 <!-- Bluetooth -->
 <div>
     <label for="input-2" class="block text-base font-medium text-gray-900">MAC Bluetooth</label>
-    <input type="hidden" id="input-macBluetooth" name="macBluetooth">
+    <input type="hidden" id="input-mac_bluetooth" name="mac_bluetooth">
     
     <style>
         .ip-container5 {
@@ -250,10 +250,10 @@
         <span class="dot">:</span>
         <input type="text" name="mb6" value="{{ old('mb6') }}" class="Mac-segmentB small-input" maxlength="2" id="segmB6" />
     </div>
-    <x-input-error :messages="$errors->get('macBluetooth')" class="mt-2" />
+    <x-input-error :messages="$errors->get('mac_bluetooth')" class="mt-2" />
     <script>
         const segmentsMB = document.querySelectorAll('.Mac-segmentB');
-        const fullMacInputMB = document.getElementById('input-macBluetooth');
+        const fullMacInputMB = document.getElementById('input-mac_bluetooth');
 
         segmentsMB.forEach((segment, index) => {
             segment.addEventListener('input', function() {

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('serie');
             $table->string('active_directory')->nullable();
             $table->string('num_activo_fijo')->nullable();
-            $table->string('observaciones');
+            $table->text('observaciones');
             $table->timestamps();
         });
     }

@@ -9,16 +9,16 @@
                 <div class="pr-2 pb-1 w-1/4">
                     <label class="block text-base font-medium text-gray-900">Uso que se le
                         da al equipo</label>
-                    <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
+                    <select id="select-uso" name="uso"
                         class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="" disabled selected>Seleccionar</option>
-                        <option value="Operativo" {{ old('usoQueSeLeDa') == 'Operativo' ? 'selected' : '' }}>Operativo
+                        <option value="Operativo" {{ old('uso') == 'Operativo' ? 'selected' : '' }}>Operativo
                         </option>
-                        <option value="Capacitación" {{ old('usoQueSeLeDa') == 'Capacitación' ? 'selected' : '' }}>
+                        <option value="Capacitación" {{ old('uso') == 'Capacitación' ? 'selected' : '' }}>
                             Capacitación</option>
-                        <option value="Stock" {{ old('usoQueSeLeDa') == 'Stock' ? 'selected' : '' }}>Stock</option>
+                        <option value="Stock" {{ old('uso') == 'Stock' ? 'selected' : '' }}>Stock</option>
                     </select>
-                    <x-input-error :messages="$errors->get('usoQueSeLeDa')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('uso')" class="mt-2" />
                 </div>
             </x-slot>
             <x-slot name="otroDispositivo">
@@ -42,9 +42,9 @@
                 <div>
                     <label class="block text-base font-medium text-gray-900">Nombre Active
                         Directory</label>
-                    <input type="text" name="nombreDA" value="{{ old('nombreDA') }}"
+                    <input type="text" name="active_directory" value="{{ old('active_directory') }}"
                         class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    <x-input-error :messages="$errors->get('nombreDA')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('active_directory')" class="mt-2" />
                 </div>
             </x-formularios.form-equipo-atendido>
 
@@ -336,20 +336,20 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_conexiones" id="checkbox-verificar_conexiones"
+                                            <input name="verificar_conexiones_electricas" id="checkbox-verificar_conexiones_electricas"
                                                 type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_conexiones"
+                                            <label for="checkbox-verificar_conexiones_electricas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Conexiones Eléctricas en Buen Estado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_post_servicio"
-                                                id="checkbox-verificar_post_servicio" type="checkbox" value="1"
+                                            <input name="equipo_operando_post_servicio"
+                                                id="checkbox-equipo_operando_post_servicio" type="checkbox" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_post_servicio"
+                                            <label for="checkbox-equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 que Funcione Correctamente Después del Servicio</label>
                                         </div>

@@ -16,8 +16,8 @@
             <select name="servicio" value="{{ old('servicio') }}"
                 class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="" disabled selected>Seleccionar</option>
-                <option value="Informatica" {{ old('servicio') == 'Informatica' ? 'selected' : '' }}>Preventivo</option>
-                <option value="Superintendencia" {{ old('servicio') == 'Superintendencia' ? 'selected' : '' }}>
+                <option value="Preventivo" {{ old('servicio') == 'Preventivo' ? 'selected' : '' }}>Preventivo</option>
+                <option value="Correctivo" {{ old('servicio') == 'Correctivo' ? 'selected' : '' }}>
                     Correctivo</option>
             </select>
             <x-input-error :messages="$errors->get('servicio')" class="mt-2" />
@@ -54,7 +54,7 @@
         <div>
             <label class="block text-base font-medium text-gray-900">Numero Activo
                 fijo</label>
-            <input type="text" name="numActivoFijo" value="{{ old('serie') }}"
+            <input type="text" name="num_activo_fijo" value="{{ old('serie') }}"
                 class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
             <x-input-error :messages="$errors->get('serie')" class="mt-2" />
         </div>

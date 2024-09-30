@@ -39,15 +39,15 @@
     <span class="dot">.</span>
     <input type="text" name="i4" class="ip-segment" value="{{ old('i4') }}" maxlength="3" id="seg4" />
 </div>
-<x-input-error :messages="$errors->get('IpEthernet')" class="mt-2" />
+<x-input-error :messages="$errors->get('ip_ethernet')" class="mt-2" />
 
 <div>
-    <input type="hidden" id="input-IpEthernet" name="IpEthernet" readonly />
+    <input type="hidden" id="input-ip_ethernet" name="ip_ethernet" readonly />
 </div>
 
 <script>
     const segments = document.querySelectorAll('.ip-segment');
-    const fullIpInput = document.getElementById('input-IpEthernet');
+    const fullIpInput = document.getElementById('input-ip_ethernet');
 
     segments.forEach((segment, index) => {
         segment.addEventListener('input', function() {
@@ -94,7 +94,7 @@
 <div>
     <label for="input-2" class="block text-base font-medium text-gray-900">MAC
         Ethernet</label>
-    <input type="hidden" id="input-macEthernet" name="macEthernet">
+    <input type="hidden" id="input-mac_ethernet" name="mac_ethernet">
     
     <style>
         .ip-container2 {
@@ -144,11 +144,11 @@
         <span class="dot">:</span>
         <input type="text" name="m6" value="{{ old('m6') }}" class="Mac-segment small-input" maxlength="2" id="segm4" />
     </div>
-    <x-input-error :messages="$errors->get('macEthernet')" class="mt-2" />
+    <x-input-error :messages="$errors->get('mac_ethernet')" class="mt-2" />
 
     <script>
         const segmentsM = document.querySelectorAll('.Mac-segment');
-        const fullIpInputI = document.getElementById('input-macEthernet');
+        const fullIpInputI = document.getElementById('input-mac_ethernet');
 
         segmentsM.forEach((segment, index) => {
             segment.addEventListener('input', function() {

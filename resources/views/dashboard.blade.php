@@ -314,7 +314,7 @@
                                 Número de Serie
                             </th>
                             <th scope="col" class="px-3 py-3 text-center">
-                                RPE
+                                rpe
                             </th>
                             <th scope="col" class="px-3 py-3 text-center">
                                 Acciones

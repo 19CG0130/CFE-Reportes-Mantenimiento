@@ -18,6 +18,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Barryvdh\DomPDF\Options;
+use Illuminate\View\View;
 
 class MantenimientoController extends Controller
 {
@@ -27,6 +28,13 @@ class MantenimientoController extends Controller
         $registros = Equipos::all();
 
         return view('dashboard', compact('registros'));
+    }
+
+    public function edit(Request $request): View
+    {
+        return view('registroMantenimientos.acciones.editar-ver-equipoComputo', [
+            'user' => $request->user(),
+        ]);
     }
 
     public function show($id)
@@ -60,8 +68,6 @@ class MantenimientoController extends Controller
         return view('dashboard', compact('registros', 'search'));
     }
 
-
-
     public function store(Request $request): RedirectResponse
     {
 
@@ -72,103 +78,103 @@ class MantenimientoController extends Controller
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
-                'usoQueSeLeDa' => ['required'],
-                'horaInicio' => ['required'],
-                'horaFin' => ['required'],
+                'uso' => ['required'],
+                'hora_inicio' => ['required'],
+                'hora_fin' => ['required'],
                 'responsable_mantenimiento' => ['required'],
                 'responsable_equipo' => ['required'],
                 'puesto' => ['required', 'max:30'],
-                'RPE' => ['required', 'max:30'],
+                'rpe' => ['required', 'max:30'],
                 'dispositivo' => ['required'],
                 'servicio' => ['required'],
                 'marca' => ['required', 'max:30'],
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
-                'nombreDA' => ['required', 'max:30'],
-                'numActivoFijo' => ['required', 'max:30'],
-                'sistemaOperativo' => ['required'],
+                'active_directory' => ['required', 'max:30'],
+                'num_activo_fijo' => ['required', 'max:30'],
+                'sistema_operativo' => ['required'],
                 'Arquitectura' => ['required'],
-                'versionSistemaOpertativo' => ['required'],
+                'version_sistema_operativo' => ['required'],
                 'office' => ['required'],
                 'antivirus' => ['required'],
-                'antivirusVersion' => ['required'],
+                'antivirus_version' => ['required'],
             ]);
         } elseif ($tipoFormulario === 'Terminal Portatil') {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
-                'usoQueSeLeDa' => ['required'],
-                'horaInicio' => ['required'],
-                'horaFin' => ['required'],
+                'uso' => ['required'],
+                'hora_inicio' => ['required'],
+                'hora_fin' => ['required'],
                 'responsable_mantenimiento' => ['required'],
                 'responsable_equipo' => ['required'],
                 'puesto' => ['required', 'max:30'],
-                'RPE' => ['required', 'max:30'],
+                'rpe' => ['required', 'max:30'],
                 'servicio' => ['required'],
                 'marca' => ['required', 'max:30'],
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
-                'numActivoFijo' => ['required', 'max:30'],
-                'sistemaOperativo' => ['required'],
-                'versionSistemaOpertativo' => ['required'],
+                'num_activo_fijo' => ['required', 'max:30'],
+                'sistema_operativo' => ['required'],
+                'version_sistema_operativo' => ['required'],
             ]);
         } elseif ($tipoFormulario === 'Tablet') {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
-                'usoQueSeLeDa' => ['required'],
-                'horaInicio' => ['required'],
-                'horaFin' => ['required'],
+                'uso' => ['required'],
+                'hora_inicio' => ['required'],
+                'hora_fin' => ['required'],
                 'responsable_mantenimiento' => ['required'],
                 'responsable_equipo' => ['required'],
                 'puesto' => ['required', 'max:30'],
-                'RPE' => ['required', 'max:30'],
+                'rpe' => ['required', 'max:30'],
                 'servicio' => ['required'],
                 'marca' => ['required', 'max:30'],
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
-                'numActivoFijo' => ['required', 'max:30'],
-                'sistemaOperativo' => ['required'],
-                'versionSistemaOpertativo' => ['required'],
+                'num_activo_fijo' => ['required', 'max:30'],
+                'sistema_operativo' => ['required'],
+                'version_sistema_operativo' => ['required'],
             ]);
         } elseif ($tipoFormulario === 'Impresora') {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
-                'horaInicio' => ['required'],
-                'horaFin' => ['required'],
+                'hora_inicio' => ['required'],
+                'hora_fin' => ['required'],
                 'responsable_mantenimiento' => ['required'],
                 'responsable_equipo' => ['required'],
                 'puesto' => ['required', 'max:30'],
-                'RPE' => ['required', 'max:30'],
+                'rpe' => ['required', 'max:30'],
                 'servicio' => ['required'],
                 'marca' => ['required', 'max:30'],
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
-                'numActivoFijo' => ['required', 'max:30'],
+                'num_activo_fijo' => ['required', 'max:30'],
             ]);
         } else {
             $request->validate([
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
-                'usoQueSeLeDa' => ['required'],
-                'horaInicio' => ['required'],
-                'horaFin' => ['required'],
+                'uso' => ['required'],
+                'hora_inicio' => ['required'],
+                'hora_fin' => ['required'],
                 'responsable_mantenimiento' => ['required'],
                 'responsable_equipo' => ['required'],
                 'puesto' => ['required', 'max:30'],
-                'RPE' => ['required', 'max:30'],
+                'rpe' => ['required', 'max:30'],
                 'dispositivo' => ['required'],
                 'servicio' => ['required'],
                 'marca' => ['required', 'max:30'],
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
-                'nombreDA' => ['required', 'max:30'],
-                'numActivoFijo' => ['required', 'max:30'],
+                'active_directory' => ['required', 'max:30'],
+                'num_activo_fijo' => ['required', 'max:30'],
             ]);
         }
 
@@ -177,28 +183,28 @@ class MantenimientoController extends Controller
             'fecha' => $request->fecha,
             'zona' => $request->zona,
             'departamento' => $request->departamento,
-            'uso' => $request->usoQueSeLeDa,
-            'hora_inicio' => $request->horaInicio,
-            'hora_fin' => $request->horaFin,
+            'uso' => $request->uso,
+            'hora_inicio' => $request->hora_inicio,
+            'hora_fin' => $request->hora_fin,
             'responsable_mantenimiento' => $request->responsable_mantenimiento,
             'responsable_equipo' => $request->responsable_equipo,
             'puesto' => $request->puesto,
-            'rpe' => $request->RPE,
+            'rpe' => $request->rpe,
             'servicio' => $request->servicio,
             'marca' => $request->marca,
             'modelo' => $request->modelo,
             'serie' => $request->serie,
-            'active_directory' => $request->nombreDA,
-            'num_activo_fijo' => $request->numActivoFijo,
+            'active_directory' => $request->active_directory,
+            'num_activo_fijo' => $request->num_activo_fijo,
             'observaciones' => $request->observaciones ?? '',
         ]);
 
         $conectividad = Conectividad::create([
-            'ip_ethernet' => $request->IpEthernet,
-            'mac_ethernet' => $request->macEthernet,
-            'ip_inalambrica' => $request->IpInalambrica,
-            'mac_inalambrica' => $request->macInalambrica,
-            'mac_bluetooth' => $request->macBluetooth,
+            'ip_ethernet' => $request->ip_ethernet,
+            'mac_ethernet' => $request->mac_ethernet,
+            'ip_inalambrica' => $request->ip_inalambrica,
+            'mac_inalambrica' => $request->mac_inalambrica,
+            'mac_bluetooth' => $request->mac_bluetooth,
         ]);
 
         EquiposConectividad::create([
@@ -207,13 +213,13 @@ class MantenimientoController extends Controller
         ]);
 
         $software = Software::create([
-            'sistema_operativo' => $request->sistemaOperativo,
-            'version_sistema_operativo' => $request->versionSistemaOpertativo,
+            'sistema_operativo' => $request->sistema_operativo,
+            'version_sistema_operativo' => $request->version_sistema_operativo,
             'office' => $request->office,
             'antivirus' => $request->antivirus,
-            'antivirus_version' => $request->antivirusVersion,
-            'visual_appeal' => $request->visualAppeal,
-            'mysap_r3' => $request->mysapR3,
+            'antivirus_version' => $request->antivirus_version,
+            'visual_appeal' => $request->visual_appeal,
+            'mysap_r3' => $request->mysap_r3,
             'facthor' => $request->facthor,
             'siad' => $request->siad,
             'autocad' => $request->autocad,
@@ -230,8 +236,8 @@ class MantenimientoController extends Controller
         $hardware = Hardware::create([
             'microfono' => $request->microfono,
             'bocina' => $request->bocina,
-            'hub_usb' => $request->hubUSB,
-            'camara_web' => $request->camaraWeb
+            'hub_usb' => $request->hub_usb,
+            'camara_web' => $request->camara_web
         ]);
 
         EquipoHardware::create([
@@ -245,14 +251,14 @@ class MantenimientoController extends Controller
             'desarmar_limpieza_interna' => $request->desarmar_limpieza_interna,
             'ejecucion_defrag' => $request->ejecucion_defrag,
             'equipo_en_red' => $request->equipo_en_red,
-            'equipo_operando_post_servicio' => $request->verificar_post_servicio,
-            'estado_escritorio_remoto' => $request->estado_servicio_escritorio_remoto,
+            'equipo_operando_post_servicio' => $request->equipo_operando_post_servicio,
+            'estado_escritorio_remoto' => $request->estado_escritorio_remoto,
             'limpieza_alimentacion_papel' => $request->limpieza_alimentacion_papel,
             'limpieza_bandejas' => $request->limpieza_bandejas,
             'limpieza_fuente_poder' => $request->limpieza_fuente_poder,
             'limpieza_pantalla' => $request->limpieza_pantalla,
             'limpieza_sopleteado_ext' => $request->limpieza_sopleteado_ext,
-            'limpieza_sopleteado_int_ext' => $request->limpieza_sopleteado_interno_externo,
+            'limpieza_sopleteado_int_ext' => $request->limpieza_sopleteado_int_ext,
             'limpieza_tarjeta_principal' => $request->limpieza_tarjeta_principal,
             'limpieza_unidad_fusion' => $request->limpieza_unidad_fusion,
             'limpieza_unidad_laser' => $request->limpieza_unidad_laser,
@@ -265,8 +271,7 @@ class MantenimientoController extends Controller
             'validar_touch' => $request->validar_touch,
             'verificacion_bateria' => $request->verificacion_bateria,
             'verificar_conector_datos' => $request->verificar_conector_datos,
-            'verificar_conexiones' => $request->verificar_conexiones_electricas,
-            'verificar_post_servicio' => $request->equipo_operando_post_servicio,
+            'verificar_conexiones_electricas' => $request->verificar_conexiones_electricas_electricas,
             'verificar_sw_actualizado' => $request->verificar_sw_actualizado,
         ]);
 
@@ -298,7 +303,26 @@ class MantenimientoController extends Controller
             'mantenimiento' => $mantenimiento,
         ];
 
-        $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-equipoComputo', $data);
+        switch($dispositivo){
+            case 'PC Escritorio':
+                $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-equipoComputo', $data);
+                break;
+            case 'Laptop':
+                $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-equipoComputo', $data);
+                break;
+            case 'Terminal Portatil':
+                $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-terminalPortatil', $data);
+                break;
+            case 'Tablet':
+                $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-tablet', $data);
+                break;
+            case 'Impresora':
+                $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-impresora', $data);
+                break;
+            default:
+                $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-otroDispositivo', $data);
+                break;
+        }
 
         return $pdf->download('Reporte_equipo_' . $registro->id . '.pdf');
     }

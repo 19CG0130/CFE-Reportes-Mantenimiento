@@ -7,17 +7,17 @@
         <x-formularios.form-mantenimiento titulo="Mantenimiento Terminal Portatil">
             <!-- Uso que se le da al equipo -->
             <div class="pr-2 pb-1 w-1/4">
-                <label for="input-usoQueSeLeDa" class="block text-base font-medium text-gray-900">Uso que se le
+                <label for="input-uso" class="block text-base font-medium text-gray-900">Uso que se le
                     da al equipo</label>
-                <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
+                <select id="select-uso" name="uso"
                     class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value="" disabled selected>Seleccionar</option>
-                    <option value="Informatica" {{ old('usoQueSeLeDa') == 'Informatica' ? 'selected' : '' }}>Operativo
+                    <option value="Informatica" {{ old('uso') == 'Informatica' ? 'selected' : '' }}>Operativo
                     </option>
-                    <option value="Superintendencia" {{ old('usoQueSeLeDa') == 'Superintendencia' ? 'selected' : '' }}>
+                    <option value="Superintendencia" {{ old('uso') == 'Superintendencia' ? 'selected' : '' }}>
                         Capacitación</option>
                 </select>
-                <x-input-error :messages="$errors->get('usoQueSeLeDa')" class="mt-2" />
+                <x-input-error :messages="$errors->get('uso')" class="mt-2" />
             </div>
         </x-formularios.form-mantenimiento>
 
@@ -53,23 +53,23 @@
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
                     <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">Sistema
+                        <label for="input-sistema_operativo" class="block text-base font-medium text-gray-900">Sistema
                             Operativo</label>
-                        <select id="select-sistemaOperativo" name="sistemaOperativo"
+                        <select id="select-sistema_operativo" name="sistema_operativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Android" {{ old('Android') == 'Android' ? 'selected' : '' }}>Android</option>
                         </select>
-                        <x-input-error :messages="$errors->get('sistemaOperativo')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Versión Sistema Operativo -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-versionSistemaOpertativo"
+                        <label for="input-version_sistema_operativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
-                        <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo"
-                            value="{{ old('versionSistemaOpertativo') }}"
+                        <input type="text" name="version_sistema_operativo" id="input-version_sistema_operativo"
+                            value="{{ old('version_sistema_operativo') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                        <x-input-error :messages="$errors->get('versionSistemaOpertativo')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('version_sistema_operativo')" class="mt-2" />
                     </div>
                 </div>
                 <!-- Otros Softwares Checkbox -->
@@ -234,11 +234,11 @@
                                     </li>
                                     <li class="w-full">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_post_servicio"
-                                                id="checkbox-verificar_post_servicio" type="checkbox" value="1"
-                                                {{ old('verificar_post_servicio') == '1' ? 'checked' : '' }}
+                                            <input name="equipo_operando_post_servicio"
+                                                id="checkbox-equipo_operando_post_servicio" type="checkbox" value="1"
+                                                {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_post_servicio"
+                                            <label for="checkbox-equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Funcionamiento del Equipo Después del Servicio</label>
                                         </div>

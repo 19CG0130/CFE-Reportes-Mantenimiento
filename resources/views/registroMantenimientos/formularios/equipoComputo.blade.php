@@ -6,17 +6,17 @@
         <x-formularios.form-mantenimiento titulo="Mantenimiento Equipo de Computo">
             <!-- Uso que se le da al equipo -->
             <div class="pr-2 pb-1 w-1/4">
-                <label for="input-usoQueSeLeDa" class="block text-base font-medium text-gray-900">Uso que se le
+                <label for="input-uso" class="block text-base font-medium text-gray-900">Uso que se le
                     da al equipo</label>
-                <select id="select-usoQueSeLeDa" name="usoQueSeLeDa"
+                <select id="select-uso" name="uso"
                     class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value="" disabled selected>Seleccionar</option>
-                    <option value="Operativo" {{ old('usoQueSeLeDa') == 'Operativo' ? 'selected' : '' }}>Operativo
+                    <option value="Operativo" {{ old('uso') == 'Operativo' ? 'selected' : '' }}>Operativo
                     </option>
-                    <option value="Capacitación" {{ old('usoQueSeLeDa') == 'Capacitación' ? 'selected' : '' }}>
+                    <option value="Capacitación" {{ old('uso') == 'Capacitación' ? 'selected' : '' }}>
                         Capacitación</option>
                 </select>
-                <x-input-error :messages="$errors->get('usoQueSeLeDa')" class="mt-2" />
+                <x-input-error :messages="$errors->get('uso')" class="mt-2" />
             </div>
             <x-slot name="otroDispositivo">
                 <!-- Tipo de Dispositivo -->
@@ -43,9 +43,9 @@
                 <div>
                     <label for="input-2" class="block text-base font-medium text-gray-900">Nombre Active
                         Directory</label>
-                    <input type="text" id="input-nombreDA" name="nombreDA" value="{{ old('nombreDA') }}"
+                    <input type="text" id="input-active_directory" name="active_directory" value="{{ old('active_directory') }}"
                         class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    <x-input-error :messages="$errors->get('nombreDA')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('active_directory')" class="mt-2" />
                 </div>
             </x-formularios.form-equipo-atendido>
 
@@ -81,19 +81,19 @@
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
                     <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-sistemaOperativo" class="block text-base font-medium text-gray-900">
+                        <label for="input-sistema_operativo" class="block text-base font-medium text-gray-900">
                             Sistema Operativo</label>
-                        <select id="select-sistemaOperativo" name="sistemaOperativo"
+                        <select id="select-sistema_operativo" name="sistema_operativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>Seleccionar</option>
-                            <option value="Windows" {{ old('sistemaOperativo') == 'Windows' ? 'selected' : '' }}>Windows
+                            <option value="Windows" {{ old('sistema_operativo') == 'Windows' ? 'selected' : '' }}>Windows
                             </option>
-                            <option value="MacOS" {{ old('sistemaOperativo') == 'MacOS' ? 'selected' : '' }}>MacOS
+                            <option value="MacOS" {{ old('sistema_operativo') == 'MacOS' ? 'selected' : '' }}>MacOS
                             </option>
-                            <option value="Linux" {{ old('sistemaOperativo') == 'Linux' ? 'selected' : '' }}>Linux
+                            <option value="Linux" {{ old('sistema_operativo') == 'Linux' ? 'selected' : '' }}>Linux
                             </option>
                         </select>
-                        <x-input-error :messages="$errors->get('sistemaOperativo')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Arquitectura -->
                     <div class="flex pr-2 mt-3.5 items-center">
@@ -114,12 +114,12 @@
 
                     <!-- Versión Sistema Operativo -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-versionSistemaOpertativo"
+                        <label for="input-version_sistema_operativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
-                        <input type="text" name="versionSistemaOpertativo" id="input-versionSistemaOpertativo"
-                            value="{{ old('versionSistemaOpertativo') }}"
+                        <input type="text" name="version_sistema_operativo" id="input-version_sistema_operativo"
+                            value="{{ old('version_sistema_operativo') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                        <x-input-error :messages="$errors->get('versionSistemaOpertativo')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('version_sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Office -->
                     <div class="pr-2 pb-1 w-1/4">
@@ -149,12 +149,12 @@
                     </div>
                     <!-- Antivirus Versión -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-antivirusVersion" class="block text-base font-medium text-gray-900">Antivirus
+                        <label for="input-antivirus_version" class="block text-base font-medium text-gray-900">Antivirus
                             Versión</label>
-                        <input type="text" name="antivirusVersion" id="input-antivirusVersion"
-                            value="{{ old('antivirusVersion') }}"
+                        <input type="text" name="antivirus_version" id="input-antivirus_version"
+                            value="{{ old('antivirus_version') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                        <x-input-error :messages="$errors->get('antivirusVersion')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('antivirus_version')" class="mt-2" />
                     </div>
                 </div>
                 <!-- Otros Softwares Checkbox -->
@@ -167,10 +167,10 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="visualAppeal" id="checkbox-visualAppeal" type="checkbox"
+                                            <input name="visual_appeal" id="checkbox-visual_appeal" type="checkbox"
                                                 value="1" value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-visualAppeal" title="SICOM, SICOSS, SIMED"
+                                            <label for="checkbox-visual_appeal" title="SICOM, SICOSS, SIMED"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Visual
                                                 Appeal</label>
                                         </div>
@@ -234,10 +234,10 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="mysapR3" id="checkbox-mysapR3" type="checkbox"
+                                            <input name="mysap_r3" id="checkbox-mysap_r3" type="checkbox"
                                                 value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-mysapR3"
+                                            <label for="checkbox-mysap_r3"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">MySAP
                                                 R3</label>
                                         </div>
@@ -318,20 +318,20 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="hubUSB" id="checkbox-hubUSB" type="checkbox"
+                                            <input name="hub_usb" id="checkbox-hub_usb" type="checkbox"
                                                 value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-hubUSB"
+                                            <label for="checkbox-hub_usb"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hub
                                                 USB</label>
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="camaraWeb" id="checkbox-camaraWeb" type="checkbox"
+                                            <input name="camara_web" id="checkbox-camara_web" type="checkbox"
                                                 value="1"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-camaraWeb"
+                                            <label for="checkbox-camara_web"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Camara
                                                 Web</label>
                                         </div>
@@ -390,12 +390,12 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="limpieza_sopleteado_interno_externo"
-                                                id="checkbox-limpieza_sopleteado_interno_externo" type="checkbox"
+                                            <input name="limpieza_sopleteado_int_ext"
+                                                id="checkbox-limpieza_sopleteado_int_ext" type="checkbox"
                                                 value="1"
-                                                {{ old('limpieza_sopleteado_interno_externo') == '1' ? 'checked' : '' }}
+                                                {{ old('limpieza_sopleteado_int_ext') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-limpieza_sopleteado_interno_externo"
+                                            <label for="checkbox-limpieza_sopleteado_int_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
                                         </div>
@@ -476,23 +476,23 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_conexiones_electricas"
-                                                id="checkbox-verificar_conexiones_electricas" type="checkbox"
+                                            <input name="verificar_conexiones_electricas_electricas"
+                                                id="checkbox-verificar_conexiones_electricas_electricas" type="checkbox"
                                                 value="1"
-                                                {{ old('verificar_conexiones_electricas') == '1' ? 'checked' : '' }}
+                                                {{ old('verificar_conexiones_electricas_electricas') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_conexiones_electricas"
+                                            <label for="checkbox-verificar_conexiones_electricas_electricas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Conexiones Eléctricas en Buen Estado</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_post_servicio"
-                                                id="checkbox-verificar_post_servicio" type="checkbox" value="1"
-                                                {{ old('verificar_post_servicio') == '1' ? 'checked' : '' }}
+                                            <input name="equipo_operando_post_servicio"
+                                                id="checkbox-equipo_operando_post_servicio" type="checkbox" value="1"
+                                                {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_post_servicio"
+                                            <label for="checkbox-equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 que Funcione Correctamente Después del Servicio</label>
                                         </div>
@@ -521,12 +521,12 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="estado_servicio_escritorio_remoto"
-                                                id="checkbox-estado_servicio_escritorio_remoto" type="checkbox"
+                                            <input name="estado_escritorio_remoto"
+                                                id="checkbox-estado_escritorio_remoto" type="checkbox"
                                                 value="1"
-                                                {{ old('estado_servicio_escritorio_remoto') == '1' ? 'checked' : '' }}
+                                                {{ old('estado_escritorio_remoto') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-estado_servicio_escritorio_remoto"
+                                            <label for="checkbox-estado_escritorio_remoto"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado
                                                 de Servicio de Escritorio Remoto</label>
                                         </div>

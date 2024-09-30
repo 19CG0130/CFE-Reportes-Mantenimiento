@@ -47,12 +47,14 @@ Route::middleware('auth')->group(function () {
 
         //EDITAR
         Route::get('/editar/{dispositivo}/{id}', function () {
-            return view('registroMantenimientos.acciones.editar-equipoComputo');
+            return view('registroMantenimientos.acciones.editar-ver-equipoComputo')
+            ->with('action',value: 'editar');;
         })->name('editar');
 
         //VISUALIZAR
         Route::get('/visualizar/{dispositivo}/{id}', function () {
-            return view('registroMantenimientos.acciones.editar-equipoComputo');
+            return view('registroMantenimientos.acciones.editar-ver-equipoComputo')
+                ->with('action','ver');
         })->name('visualizar');
 
         //EXPORTAR A PDF

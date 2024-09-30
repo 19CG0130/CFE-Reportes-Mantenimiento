@@ -63,12 +63,12 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox_limpieza_sopleteado_interno_externo"
-                                                name="limpieza_sopleteado_interno_externo" type="checkbox"
+                                            <input id="checkbox_limpieza_sopleteado_int_ext"
+                                                name="limpieza_sopleteado_int_ext" type="checkbox"
                                                 value="1"
-                                                {{ old('limpieza_sopleteado_interno_externo') == '1' ? 'checked' : '' }}
+                                                {{ old('limpieza_sopleteado_int_ext') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox_limpieza_sopleteado_interno_externo"
+                                            <label for="checkbox_limpieza_sopleteado_int_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
                                         </div>
@@ -157,11 +157,11 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input id="checkbox_verificar_post_servicio"
-                                                name="verificar_post_servicio" type="checkbox" value="1"
-                                                {{ old('verificar_post_servicio') == '1' ? 'checked' : '' }}
+                                            <input id="checkbox_equipo_operando_post_servicio"
+                                                name="equipo_operando_post_servicio" type="checkbox" value="1"
+                                                {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox_verificar_post_servicio"
+                                            <label for="checkbox_equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
                                                 Operando Después del Servicio</label>
                                         </div>

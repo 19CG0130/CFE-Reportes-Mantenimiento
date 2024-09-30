@@ -35,8 +35,8 @@ class Mantenimiento extends Model
         'validar_touch',
         'verificacion_bateria',
         'verificar_conector_datos',
-        'verificar_conexiones',
-        'verificar_post_servicio',
+        'verificar_conexiones_electricas',
+        'equipo_operando_post_servicio',
         'verificar_sw_actualizado',
     ];
 }
