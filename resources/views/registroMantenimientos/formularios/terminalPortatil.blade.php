@@ -83,6 +83,7 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="kavi" id="checkbox-kavi" type="checkbox" value="1"
+                                                {{ old('kavi') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-kavi" title="SICOM, SICOSS, SIMED"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">KAVI</label>
@@ -98,6 +99,7 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="facthor" id="checkbox-facthor" type="checkbox" value="1"
+                                                {{ old('facthor') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-facthor"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">FACTHOR</label>
@@ -113,6 +115,7 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="tpa" id="checkbox-tpa" type="checkbox" value="1"
+                                                {{ old('tpa') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-tpa"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">TPA</label>
@@ -235,7 +238,8 @@
                                     <li class="w-full">
                                         <div class="flex items-center ps-3">
                                             <input name="equipo_operando_post_servicio"
-                                                id="checkbox-equipo_operando_post_servicio" type="checkbox" value="1"
+                                                id="checkbox-equipo_operando_post_servicio" type="checkbox"
+                                                value="1"
                                                 {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipo_operando_post_servicio"

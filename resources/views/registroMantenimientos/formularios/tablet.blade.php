@@ -58,7 +58,8 @@
                         <select id="select-sistema_operativo" name="sistema_operativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>Seleccionar</option>
-                            <option value="Android" {{ old('sistema_operativo') == 'Android' ? 'selected' : '' }}>Android
+                            <option value="Android" {{ old('sistema_operativo') == 'Android' ? 'selected' : '' }}>
+                                Android
                             </option>
                         </select>
                         <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
@@ -84,6 +85,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="amobile" id="checkbox-amobile" type="checkbox" value="1"
+                                                {{ old('amobile') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-amobile"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Amobile</label>
@@ -92,6 +94,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="lmobile" id="checkbox-lmobile" type="checkbox" value="1"
+                                                {{ old('lmobile') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-lmobile"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Lmobile</label>
@@ -107,6 +110,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="lhmobile" id="checkbox-lhmobile" type="checkbox" value="1"
+                                                {{ old('lhmobile') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-lhmobile"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LHmobile</label>
@@ -115,6 +119,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="tpa" id="checkbox-tpa" type="checkbox" value="1"
+                                                {{ old('tpa') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-tpa"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">TPA</label>
@@ -235,7 +240,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="equipo_operando_post_servicio"
-                                                id="checkbox-equipo_operando_post_servicio" type="checkbox" value="1"
+                                                id="checkbox-equipo_operando_post_servicio" type="checkbox"
+                                                value="1"
                                                 {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipo_operando_post_servicio"
