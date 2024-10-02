@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('sistema_operativo')->nullable();
             $table->string('version_sistema_operativo')->nullable();
             $table->string('office')->nullable();
-            $table->string('Arquitectura')->nullable();
+            $table->string('arquitectura')->nullable();
             $table->string('antivirus')->nullable();
             $table->string('antivirus_version')->nullable();
             $table->integer('visual_appeal')->nullable();

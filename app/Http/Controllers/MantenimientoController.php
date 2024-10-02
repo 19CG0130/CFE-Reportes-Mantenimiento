@@ -25,24 +25,41 @@ class MantenimientoController extends Controller
 
     public function index()
     {
-        $registros = Equipos::all();
+        $registros = Equipos::latest()->paginate(10);
 
         return view('dashboard', compact('registros'));
     }
 
-    public function edit(Request $request): View
+    public function edit($dispositivo, $id)
     {
-        return view('registroMantenimientos.acciones.editar-ver-equipoComputo', [
-            'user' => $request->user(),
-        ]);
+        $equipo = Equipos::findOrFail($id);
+
+        $action = '';
+
+        switch ($dispositivo) {
+            case 'PC Escritorio':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-equipoComputo';
+                break;
+            case 'Laptop':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-equipoComputo';
+                break;
+            case 'Terminal Portatil':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-terminalPortatil';
+                break;
+            case 'Tablet':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-tablet';
+                break;
+            case 'Impresora':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-impresora';
+                break;
+            default:
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-otroDispositivo';
+                break;
+        }
+
+        return view($view, compact('equipo', 'action', 'dispositivo'));
     }
 
-    public function show($id)
-    {
-        $datos = Equipos::findOrFail($id);
-
-        return view('registroMantenimientos.formularios.impresora', ['datos' => $datos]);
-    }
 
     public function search(Request $request)
     {
@@ -93,7 +110,7 @@ class MantenimientoController extends Controller
                 'active_directory' => ['required', 'max:30'],
                 'num_activo_fijo' => ['required', 'max:30'],
                 'sistema_operativo' => ['required'],
-                'Arquitectura' => ['required'],
+                'arquitectura' => ['required'],
                 'version_sistema_operativo' => ['required'],
                 'office' => ['required'],
                 'antivirus' => ['required'],
@@ -215,6 +232,7 @@ class MantenimientoController extends Controller
         $software = Software::create([
             'sistema_operativo' => $request->sistema_operativo,
             'version_sistema_operativo' => $request->version_sistema_operativo,
+            'arquitectura' => $request->arquitectura,
             'office' => $request->office,
             'antivirus' => $request->antivirus,
             'antivirus_version' => $request->antivirus_version,
@@ -306,7 +324,7 @@ class MantenimientoController extends Controller
             'mantenimiento' => $mantenimiento,
         ];
 
-        switch($dispositivo){
+        switch ($dispositivo) {
             case 'PC Escritorio':
                 $pdf = Pdf::loadview('registroMantenimientos.PDF.PDF-equipoComputo', $data);
                 break;
