@@ -310,16 +310,35 @@
         </tbody>
     </table>
 
+    <table class="w-full shadow-md pt-2">
+        <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
+            <tr class="divide-x divide-gray-500">
+                <th scope="col" class="px-1 py-1 text-center">
+                    Uso que se le da al equipo 
+                </th>
+            </tr>
+        </thead>    
+        <tbody  class="divide-y divide-gray-200">
+            <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-1 py-1 text-center uppercase">
+                    {{ $registro->uso }}
+                </td>
+            </tr>
+        
+        
+        </tbody>     
+    </table>
+
     <!-- Mantenimientos -->
     <section class="pt-6">
         <table class="table-auto border-collapse">
             <thead class="text-xs uppercase rounded-lg">
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Desarmar Equipo para su Limpieza Interna
+                        Limpieza y sopleteado Externo del equipo. 
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->desarmar_limpieza_interna == 1)
+                        @if ($mantenimiento->limpieza_sopleteado_ext == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -328,10 +347,10 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza y Sopleteado Interno y Externo del Equipo
+                        Validar Touch Pantalla
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->limpieza_sopleteado_int_ext == 1)
+                        @if ($mantenimiento->validar_touch == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -340,10 +359,10 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza de Bandejas o Charolas
+                        Revision de Bateria 
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->limpieza_bandejas == 1)
+                        @if ($mantenimiento->revision_bateria == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -352,10 +371,10 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza y Revisión del Mecanismo de Alimentación del Papel
+                        Verificar Software Institucional Actualizado 
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->limpieza_alimentacion_papel == 1)
+                        @if ($mantenimiento->verificar_sw_actualizado == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -364,10 +383,10 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza y Revisión de la Unidad de Fusión
+                        Verificar estado del conector de datos 
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->limpieza_unidad_fusion == 1)
+                        @if ($mantenimiento->verificar_conector_datos == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -376,10 +395,10 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza y Revisión de la Unidad Láser
+                        Validar estado del Teclado 
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->limpieza_unidad_laser == 1)
+                        @if ($mantenimiento->validar_teclado == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -388,43 +407,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Validar Estado de Consumibles
-                    </th>
-                    <td class="text-center px-2">
-                        @if ($mantenimiento->validar_consumibles == 1)
-                            <div class="check">
-                                <img src="{{ public_path('img/check.png') }}" />
-                            </div>
-                        @endif
-                    </td>
-                </tr>
-                <tr class="divide-x divide-gray-500">
-                    <th scope="col" class="text-left px-1 py-1">
-                        Equipo en Red
-                    </th>
-                    <td class="text-center px-2">
-                        @if ($mantenimiento->equipo_en_red == 1)
-                            <div class="check">
-                                <img src="{{ public_path('img/check.png') }}" />
-                            </div>
-                        @endif
-                    </td>
-                </tr>
-                <tr class="divide-x divide-gray-500">
-                    <th scope="col" class="text-left px-1 py-1">
-                        Realizar Auto Prueba
-                    </th>
-                    <td class="text-center px-2">
-                        @if ($mantenimiento->realizar_auto_prueba == 1)
-                            <div class="check">
-                                <img src="{{ public_path('img/check.png') }}" />
-                            </div>
-                        @endif
-                    </td>
-                </tr>
-                <tr class="divide-x divide-gray-500">
-                    <th scope="col" class="text-left px-1 py-1">
-                        Equipo Operando Después del Servicio
+                        Verificar funcionamiento del equipo despues del Servicio 
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->equipo_operando_post_servicio == 1)

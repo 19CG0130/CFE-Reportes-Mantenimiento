@@ -379,9 +379,9 @@
                                     class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="desarmar_equipo" id="checkbox-desarmar_equipo"
+                                            <input name="desarmar_limpieza_interna" id="checkbox-desarmar_equipo"
                                                 type="checkbox" value="1"
-                                                {{ old('desarmar_equipo') == '1' ? 'checked' : '' }}
+                                                {{ old('desarmar_limpieza_interna') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-desarmar_equipo"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
@@ -445,7 +445,7 @@
                                                 y Sopleteado de la Tarjeta Principal</label>
                                         </div>
                                     </li>
-                                    <li class="w-full dark:border-gray-600">
+                                    <li class="w-full border-b dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_fuente_poder" id="checkbox-limpieza_fuente_poder"
                                                 type="checkbox" value="1"
@@ -454,6 +454,30 @@
                                             <label for="checkbox-limpieza_fuente_poder"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Fuente de Poder</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="equipo_dentro_dominio" id="checkbox-equipo_dentro_dominio"
+                                                type="checkbox" value="1"
+                                                {{ old('equipo_dentro_dominio') == '1' ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-equipo_dentro_dominio"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                Equipo dentro de dominio
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="verificar_sw_actualizado" id="checkbox-verificar_sw_actualizado"
+                                                type="checkbox" value="1"
+                                                {{ old('verificar_sw_actualizado') == '1' ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-verificar_sw_actualizado"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                Sistema operativo actualizado
+                                            </label>
                                         </div>
                                     </li>
                                 </ul>
@@ -531,7 +555,7 @@
                                                 de Servicio de Escritorio Remoto</label>
                                         </div>
                                     </li>
-                                    <li class="w-full border-gray-200 dark:border-gray-600">
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="asignacion_ip_dhcp" id="checkbox-asignacion_ip_dhcp"
                                                 type="checkbox" value="1"
@@ -540,6 +564,30 @@
                                             <label for="checkbox-asignacion_ip_dhcp"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asignación
                                                 de IP por DHCP</label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="complementos_plugins_desabilitar_auto" id="checkbox-complementos_plugins_desabilitar_auto"
+                                                type="checkbox" value="1"
+                                                {{ old('complementos_plugins_desabilitar_auto') == '1' ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-complementos_plugins_desabilitar_auto"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                Complementos Plugins (Java, SilverLigth), Desabilitar Auto
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="w-full border-gray-200 dark:border-gray-600">
+                                        <div class="flex items-center ps-3">
+                                            <input name="eliminar_aplicaciones_innecesarias" id="checkbox-eliminar_aplicaciones_innecesarias"
+                                                type="checkbox" value="1"
+                                                {{ old('eliminar_aplicaciones_innecesarias') == '1' ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-eliminar_aplicaciones_innecesarias"
+                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                Eliminar aplicaciones innecesarias 
+                                            </label>
                                         </div>
                                     </li>
                                 </ul>

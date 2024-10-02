@@ -273,6 +273,9 @@ class MantenimientoController extends Controller
             'verificar_conector_datos' => $request->verificar_conector_datos,
             'verificar_conexiones_electricas' => $request->verificar_conexiones_electricas_electricas,
             'verificar_sw_actualizado' => $request->verificar_sw_actualizado,
+            'complementos_plugins_desabilitar_auto' => $request->complementos_plugins_desabilitar_auto,
+            'eliminar_aplicaciones_innecesarias' => $request->eliminar_aplicaciones_innecesarias,
+            'equipo_dentro_dominio' => $request->equipo_dentro_dominio
         ]);
 
         EquipoMantenimiento::create([
