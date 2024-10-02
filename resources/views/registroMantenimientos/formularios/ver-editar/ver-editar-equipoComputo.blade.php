@@ -43,16 +43,11 @@
                 <div>
                     <label for="input-2" class="block text-base font-medium text-gray-900">Nombre Active
                         Directory</label>
-                    @if ($action == 'ver')
-                        <input type="text" id="input-active_directory" name="active_directory"
-                            value="{{ old('active_directory', $registro->active_directory) }}"
-                            {{ $action == 'ver' ? 'disabled' : '' }}
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    @else
-                        <input type="text" id="input-active_directory" name="active_directory"
-                            value="{{ old('active_directory', $registro->active_directory) }}"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                    @endif
+                    <input type="text" id="input-active_directory" name="active_directory"
+                        value="{{ old('active_directory', $equipo->active_directory) }}"
+                        class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                        @if ($action == 'ver') disabled @endif>
+                    <x-input-error :messages="$errors->get('active_directory')" class="mt-2" />
                 </div>
 
             </x-formularios.form-equipo-atendido>
@@ -107,17 +102,17 @@
                     <!-- Arquitectura -->
                     <div class="flex pr-2 mt-3.5 items-center">
                         <label for="arquitectura"
-                            class="text-sm font-medium text-gray-900 dark:text-gray-300 pr-3">Arquitectura:</label>
+                            class="text-sm font-medium text-gray-900 dark:text-gray-300 pr-3">arquitectura:</label>
                         <div class="relative">
-                            <select id="arquitectura" name="Arquitectura"
+                            <select id="arquitectura" name="arquitectura"
                                 class="block appearance-none w-36 bg-white border border-gray-300 text-gray-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300">
                                 <option value="" disabled selected>Seleccionar</option>
-                                <option value="x32" {{ old('Arquitectura') == 'x32' ? 'selected' : '' }}>x32
+                                <option value="x32" {{ old('arquitectura') == 'x32' ? 'selected' : '' }}>x32
                                 </option>
-                                <option value="x64" {{ old('Arquitectura') == 'x64' ? 'selected' : '' }}>x64
+                                <option value="x64" {{ old('arquitectura') == 'x64' ? 'selected' : '' }}>x64
                                 </option>
                             </select>
-                            <x-input-error :messages="$errors->get('Arquitectura')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('arquitectura')" class="mt-2" />
                         </div>
                     </div>
 
@@ -158,8 +153,7 @@
                     </div>
                     <!-- Antivirus Versión -->
                     <div class="pr-2 w-1/4">
-                        <label for="input-antivirus_version"
-                            class="block text-base font-medium text-gray-900">Antivirus
+                        <label for="input-antivirus_version" class="block text-base font-medium text-gray-900">Antivirus
                             Versión</label>
                         <input type="text" name="antivirus_version" id="input-antivirus_version"
                             value="{{ old('antivirus_version') }}"
@@ -179,6 +173,7 @@
                                         <div class="flex items-center ps-3">
                                             <input name="visual_appeal" id="checkbox-visual_appeal" type="checkbox"
                                                 value="1" value="1"
+                                                {{ old('visual_appeal') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-visual_appeal" title="SICOM, SICOSS, SIMED"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Visual
@@ -188,7 +183,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="facthor" id="checkbox-facthor" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('facthor') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-facthor"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">FACTHOR</label>
@@ -197,6 +192,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="vpn" id="checkbox-vpn" type="checkbox" value="1"
+                                                {{ old('vpn') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-vpn"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">VPN</label>
@@ -212,6 +208,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="siad" id="checkbox-siad" type="checkbox" value="1"
+                                                {{ old('siad') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-siad"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SIAD</label>
@@ -220,7 +217,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="autocad" id="checkbox-autocad" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('autocad') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-autocad"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">AUTOCAD</label>
@@ -229,7 +226,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="sinergy" id="checkbox-sinergy" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('sinergy') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-sinergy"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">SINERGY</label>
@@ -245,7 +242,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="mysap_r3" id="checkbox-mysap_r3" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('mysap_r3') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-mysap_r3"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">MySAP
@@ -255,6 +252,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="lotus" id="checkbox-lotus" type="checkbox" value="1"
+                                                {{ old('lotus') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-lotus"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">LOTUS</label>
@@ -304,7 +302,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="microfono" id="checkbox-microfono" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('microfono') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-microfono"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Microfono</label>
@@ -313,7 +311,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="bocina" id="checkbox-bocina" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('bocina') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-bocina"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Bocina</label>
@@ -329,7 +327,7 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="hub_usb" id="checkbox-hub_usb" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('hub_usb') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-hub_usb"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hub
@@ -339,7 +337,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="camara_web" id="checkbox-camara_web" type="checkbox"
-                                                value="1"
+                                                value="1" {{ old('camara_web') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-camara_web"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Camara

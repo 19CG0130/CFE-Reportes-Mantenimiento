@@ -45,27 +45,23 @@ Route::middleware('auth')->group(function () {
         //REGISTRAR
         Route::post('/', [MantenimientoController::class, 'store'])->name("registro_mantenimiento.post");
 
-        //EDITAR
-        Route::get('/editar/{dispositivo}/{id}', function () {
-            return view('registroMantenimientos.acciones.editar-ver-equipoComputo')
-            ->with('action',value: 'editar');;
-        })->name('editar');
+        // EDITAR
+        Route::get('/editar/{dispositivo}/{id}', [MantenimientoController::class, 'edit'])->name('editar');
+
 
         //VISUALIZAR
         Route::get('/visualizar/{dispositivo}/{id}', function () {
-            return view('registroMantenimientos.acciones.editar-ver-equipoComputo')
-                ->with('action','ver');
+            return view('registroMantenimientos.formularios.equipoComputo')
+                ->with('action', 'ver');
         })->name('visualizar');
 
         //EXPORTAR A PDF
         Route::get('/exportar_a_PDF/{dispositivo}/{id}', [MantenimientoController::class, 'pdf_generator_get'])
             ->name('exportar_a_PDF');
-            
     });
 
     //Ruta Busqueda Dashboard
     Route::get('/search', [MantenimientoController::class, 'search']);
-
 });
 
 //Rutas Administrador

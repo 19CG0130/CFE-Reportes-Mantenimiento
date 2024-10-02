@@ -13,7 +13,7 @@ class Software extends Model
         'sistema_operativo',
         'version_sistema_operativo',
         'office',
-        'Arquitectura',
+        'arquitectura',
         'antivirus',
         'antivirus_version',
         'visual_appeal',

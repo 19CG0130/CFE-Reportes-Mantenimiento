@@ -187,7 +187,7 @@
 
                     <!---------- RPE ---------->
                     <div class="pr-2 w-1/4">
-                        <label class="block text-base font-medium text-gray-900">rpe</label>
+                        <label class="block text-base font-medium text-gray-900">RPE</label>
                         <input type="text" name="rpe" value="{{ old('rpe') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
                         <x-input-error :messages="$errors->get('rpe')" class="mt-2" />
