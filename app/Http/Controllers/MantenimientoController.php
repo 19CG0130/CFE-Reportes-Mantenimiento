@@ -25,7 +25,7 @@ class MantenimientoController extends Controller
 
     public function index()
     {
-        $registros = Equipos::all();
+        $registros = Equipos::latest()->paginate(10);
 
         return view('dashboard', compact('registros'));
     }

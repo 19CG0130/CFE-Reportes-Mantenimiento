@@ -449,6 +449,11 @@
                     </div>
                 @endforeach
 
+                <!-- Pagination -->
+                <div class="mt-3">
+                    {{ $registros->links() }}
+                </div>
+
             </div>
         </div>
     </div>
