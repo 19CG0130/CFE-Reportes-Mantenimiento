@@ -77,6 +77,11 @@
                         </tbody>
                     </table>
 
+                    <!-- Pagination -->
+                    <div class="mt-3">
+                        {{ $users->links() }}
+                    </div>
+
                     <!---------- foreach modal editar y eliminar ---------->
                     @foreach ($users as $user)
                         <!-- Editar Usuario modal -->
