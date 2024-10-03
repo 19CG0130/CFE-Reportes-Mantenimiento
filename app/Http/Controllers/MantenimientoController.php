@@ -266,8 +266,11 @@ class MantenimientoController extends Controller
         $mantenimiento = Mantenimiento::create([
             'antivirus_actualizado' => $request->antivirus_actualizado,
             'asignacion_ip_dhcp' => $request->asignacion_ip_dhcp,
+            'complementos_plugins_desabilitar_auto' => $request->complementos_plugins_desabilitar_auto,
             'desarmar_limpieza_interna' => $request->desarmar_limpieza_interna,
             'ejecucion_defrag' => $request->ejecucion_defrag,
+            'eliminar_aplicaciones_innecesarias' => $request->eliminar_aplicaciones_innecesarias,
+            'equipo_dentro_dominio' => $request->equipo_dentro_dominio,
             'equipo_en_red' => $request->equipo_en_red,
             'equipo_operando_post_servicio' => $request->equipo_operando_post_servicio,
             'estado_escritorio_remoto' => $request->estado_escritorio_remoto,
@@ -282,6 +285,7 @@ class MantenimientoController extends Controller
             'limpieza_unidad_laser' => $request->limpieza_unidad_laser,
             'limpieza_ventiladores' => $request->limpieza_ventiladores,
             'limpieza_teclado' => $request->limpieza_teclado,
+            'sistema_operativo_actualizado' => $request->sistema_operativo_actualizado,
             'realizar_auto_prueba' => $request->realizar_auto_prueba,
             'revision_bateria' => $request->revision_bateria,
             'validar_consumibles' => $request->validar_consumibles,
@@ -291,9 +295,9 @@ class MantenimientoController extends Controller
             'verificar_conector_datos' => $request->verificar_conector_datos,
             'verificar_conexiones_electricas' => $request->verificar_conexiones_electricas_electricas,
             'verificar_sw_actualizado' => $request->verificar_sw_actualizado,
-            'complementos_plugins_desabilitar_auto' => $request->complementos_plugins_desabilitar_auto,
-            'eliminar_aplicaciones_innecesarias' => $request->eliminar_aplicaciones_innecesarias,
-            'equipo_dentro_dominio' => $request->equipo_dentro_dominio
+            
+            
+            
         ]);
 
         EquipoMantenimiento::create([

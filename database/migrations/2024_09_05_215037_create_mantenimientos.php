@@ -41,6 +41,7 @@ return new class extends Migration
             $table->integer('verificar_conexiones_electricas')->nullable();
             $table->integer('equipo_dentro_dominio')->nullable();
             $table->integer('verificar_sw_actualizado')->nullable();
+            $table->integer('sistema_operativo_actualizado')->nullable();
             $table->integer('complementos_plugins_desabilitar_auto')->nullable();
             $table->integer('eliminar_aplicaciones_innecesarias')->nullable();
             $table->timestamps();

@@ -38,6 +38,7 @@ class Mantenimiento extends Model
         'verificar_conexiones_electricas',
         'equipo_operando_post_servicio',
         'verificar_sw_actualizado',
+        'sistema_operativo_actualizado',
         'equipo_dentro_dominio',
         'complementos_plugins_desabilitar_auto',
         'eliminar_aplicaciones_innecesarias'
