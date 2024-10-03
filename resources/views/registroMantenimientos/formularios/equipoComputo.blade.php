@@ -483,11 +483,11 @@
                                     </li>
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_sw_actualizado" id="checkbox-verificar_sw_actualizado"
+                                            <input name="sistema_operativo_actualizado" id="checkbox-sistema_operativo_actualizado"
                                                 type="checkbox" value="1"
-                                                {{ old('verificar_sw_actualizado') == '1' ? 'checked' : '' }}
+                                                {{ old('sistema_operativo_actualizado') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_sw_actualizado"
+                                            <label for="checkbox-sistema_operativo_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                 Sistema operativo actualizado
                                             </label>
@@ -513,12 +513,12 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_conexiones_electricas"
-                                                id="checkbox-verificar_conexiones_electricas"
+                                            <input name="verificar_conexiones_electricas_electricas"
+                                                id="checkbox-verificar_conexiones_electricas_electricas"
                                                 type="checkbox" value="1"
                                                 {{ old('verificar_conexiones_electricas') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-verificar_conexiones_electricas"
+                                            <label for="checkbox-verificar_conexiones_electricas_electricas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Conexiones Eléctricas en Buen Estado</label>
                                         </div>

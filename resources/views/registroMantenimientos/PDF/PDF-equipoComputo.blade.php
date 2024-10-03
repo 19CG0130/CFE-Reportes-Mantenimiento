@@ -517,7 +517,7 @@
                         Sistema operativo actualizado                    
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->verificar_sw_actualizado == 1)
+                        @if ($mantenimiento->sistema_operativo_actualizado == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
