@@ -77,6 +77,15 @@
         ;
     }
 
+    .py-3 {
+        padding-top: 0.75rem
+            /* 12px */
+        ;
+        padding-bottom: 0.75rem
+            /* 12px */
+        ;
+    }
+
     .px-2 {
         padding-left: 0.5rem
             /* 8px */
@@ -335,7 +344,7 @@
             <thead class="text-xs uppercase rounded-lg">
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza y sopleteado Externo del equipo. 
+                        Limpieza y Sopleteado Externo del Equipo
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->limpieza_sopleteado_ext == 1)
@@ -383,7 +392,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Verificar estado del conector de datos 
+                        Verificar Estado del Conector de Datos
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->verificar_conector_datos == 1)
@@ -395,7 +404,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Validar estado del Teclado 
+                        Validar Estado del Teclado
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->validar_teclado == 1)
@@ -407,7 +416,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Verificar funcionamiento del equipo despues del Servicio 
+                        Verificar Funcionamiento del Equipo Después del Servicio
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->equipo_operando_post_servicio == 1)
@@ -434,7 +443,7 @@
             <tbody class="divide-y divide-gray-200">
                 <!-- Registro -->
                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-                    <td class="px-1 py-1">
+                    <td class="px-1 py-3">
                         {{ $registro->observaciones }}
                     </td>
                 </tr>

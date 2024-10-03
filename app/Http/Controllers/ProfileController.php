@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -66,4 +69,48 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function destroyUser($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect()->route('usuarios')->with('success', 'Usuario eliminado correctamente');   
+    }
+
+    public function editUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+    
+        // Validar los datos
+        $request->validate([
+            'usertype' => ['required'], // Aquí asegúrate que 'usertype' está siendo enviado
+            'username' => ['required', 'string', 'lowercase', 'max:255', 'unique:'.User::class.',username,'.$user->id, 'regex:/^[a-z0-9_]+$/u'],
+            'name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class.',email,'.$user->id],
+            'password' => ['nullable', 'confirmed', Password::defaults()],
+        ]);
+    
+        // Actualizar el usuario
+        $user->update([
+            'usertype' => $request->usertype,
+            'username' => $request->username,
+            'name' => $request->name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+        ]);
+    
+        // Si se proporciona una nueva contraseña, actualizarla
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+            $user->save();  // Guardar la nueva contraseña
+        }
+    
+        // Redirigir después de la actualización
+        return redirect()->route('usuarios')->with('success', 'Usuario actualizado correctamente');
+    }
+    
+
 }

@@ -52,6 +52,6 @@ class RegisteredUserController extends Controller
         // Iniciar sesión automáticamente tras el registro (no usar)
         //Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('usuarios', absolute: false));
     }
 }
