@@ -77,6 +77,15 @@
         ;
     }
 
+    .py-3 {
+        padding-top: 0.75rem
+            /* 12px */
+        ;
+        padding-bottom: 0.75rem
+            /* 12px */
+        ;
+    }
+
     .px-2 {
         padding-left: 0.5rem
             /* 8px */
@@ -451,7 +460,7 @@
             <tbody class="divide-y divide-gray-200">
                 <!-- Registro -->
                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-                    <td class="px-1 py-1">
+                    <td class="px-1 py-3">
                         {{ $registro->observaciones }}
                     </td>
                 </tr>
