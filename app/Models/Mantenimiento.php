@@ -29,7 +29,6 @@ class Mantenimiento extends Model
         'limpieza_unidad_laser',
         'limpieza_ventiladores',
         'realizar_auto_prueba',
-        'revision_bateria',
         'validar_consumibles',
         'validar_teclado',
         'validar_touch',

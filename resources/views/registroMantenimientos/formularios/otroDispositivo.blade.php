@@ -289,17 +289,6 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="revision_bateria" id="checkbox-revision_bateria"
-                                                type="checkbox" value="1"
-                                                {{ old('revision_bateria') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-revision_bateria"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revision
-                                                de Bateria</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
                                             <input name="validar_consumibles" id="checkbox-validar_consumibles"
                                                 type="checkbox" value="1"
                                                 {{ old('validar_consumibles') == '1' ? 'checked' : '' }}
@@ -354,7 +343,7 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="verificar_conexiones_electricas_electricas"
+                                            <input name="verificar_conexiones_electricas"
                                                 id="checkbox-verificar_conexiones_electricas" type="checkbox"
                                                 value="1" {{ old('verificar_conexiones_electricas') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
@@ -382,7 +371,7 @@
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-complementos_plugins_desabilitar_auto"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
-                                                Complementos Plugins (Java, SilverLigth), Desabilitar AutoP    </label>
+                                                Complementos Plugins (Java, SilverLigth), Desabilitar Auto</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
@@ -393,7 +382,7 @@
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-eliminar_aplicaciones_innecesarias"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
-                                                Eliminar aplicaciones inncesarias   </label>
+                                                Eliminar Aplicaciones Inncesarias   </label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
@@ -404,7 +393,7 @@
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipo_dentro_dominio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
-                                                Equipo dentro de dominio   </label>
+                                                Equipo Dentro de Dominio   </label>
                                         </div>
                                     </li>
                                 </ul>

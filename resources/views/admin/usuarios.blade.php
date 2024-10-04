@@ -97,12 +97,13 @@
                                             </div>
                                         @else
                                             <a title="Perfil" href="{{ route('profile.edit') }}">
-                                                <svg class="text-themeColor-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200"
-                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                                    <circle cx="8.5" cy="7" r="4" />
+                                                <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <circle cx="12" cy="7" r="4" />
+                                                    <path d="M5.5 21v-2a4 4 0 0 1 4 -4h5a4 4 0 0 1 4 4v2" />
                                                 </svg>
                                             </a>
                                         @endif

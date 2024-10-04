@@ -453,7 +453,7 @@
             <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="px-1 py-1 text-center">
-                        OBSERVACIÓNES
+                        OBSERVACIONES
                     </th>
                 </tr>
             </thead>
@@ -469,7 +469,7 @@
     </section>
 
     <!-- Sección de Firmas -->
-    <section class="pt-10">
+    <section class="pt-2">
         <table class="w-full shadow-md">
             <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
                 <tr class="divide-x divide-gray-500">
@@ -489,12 +489,15 @@
                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
                     <td class="px-1 py-1 text-center">
                         {{ $registro->responsable_mantenimiento }}
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                     <td class="px-1 py-1 text-center">
                         {{ $registro->responsable_equipo }}
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                     <td class="px-1 py-1 text-center">
                         Ramiro Bejarano Raygoza
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                 </tr>
             </tbody>

@@ -323,19 +323,19 @@
         <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
             <tr class="divide-x divide-gray-500">
                 <th scope="col" class="px-1 py-1 text-center">
-                    Uso que se le da al equipo 
+                    Uso que se le da al equipo
                 </th>
             </tr>
-        </thead>    
-        <tbody  class="divide-y divide-gray-200">
+        </thead>
+        <tbody class="divide-y divide-gray-200">
             <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
                 <td class="px-1 py-1 text-center uppercase">
                     {{ $registro->uso }}
                 </td>
             </tr>
-        
-        
-        </tbody>     
+
+
+        </tbody>
     </table>
 
     <!-- Mantenimientos -->
@@ -368,10 +368,10 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Revision de Bateria 
+                        Revision de Bateria
                     </th>
                     <td class="text-center px-2">
-                        @if ($mantenimiento->revision_bateria == 1)
+                        @if ($mantenimiento->verificacion_bateria == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -380,7 +380,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Verificar Software Institucional Actualizado 
+                        Verificar Software Institucional Actualizado
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->verificar_sw_actualizado == 1)
@@ -436,7 +436,7 @@
             <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="px-1 py-1 text-center">
-                        OBSERVACIÓNES
+                        OBSERVACIONES
                     </th>
                 </tr>
             </thead>
@@ -452,7 +452,7 @@
     </section>
 
     <!-- Sección de Firmas -->
-    <section class="pt-10">
+    <section class="pt-2">
         <table class="w-full shadow-md">
             <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
                 <tr class="divide-x divide-gray-500">
@@ -472,12 +472,15 @@
                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
                     <td class="px-1 py-1 text-center">
                         {{ $registro->responsable_mantenimiento }}
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                     <td class="px-1 py-1 text-center">
                         {{ $registro->responsable_equipo }}
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                     <td class="px-1 py-1 text-center">
                         Ramiro Bejarano Raygoza
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                 </tr>
             </tbody>

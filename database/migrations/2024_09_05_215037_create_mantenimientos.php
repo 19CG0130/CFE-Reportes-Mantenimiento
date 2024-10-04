@@ -32,7 +32,7 @@ return new class extends Migration
             $table->integer('limpieza_unidad_laser')->nullable();
             $table->integer('limpieza_ventiladores')->nullable();
             $table->integer('realizar_auto_prueba')->nullable();
-            $table->integer('revision_bateria')->nullable();
+            $table->integer('verificacion_bateria')->nullable();
             $table->integer('validar_consumibles')->nullable();
             $table->integer('validar_teclado')->nullable();
             $table->integer('validar_touch')->nullable();

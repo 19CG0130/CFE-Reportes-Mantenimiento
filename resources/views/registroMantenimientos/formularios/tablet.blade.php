@@ -189,11 +189,11 @@
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="revision_bateria" id="checkbox-revision_bateria"
+                                            <input name="verificacion_bateria" id="checkbox-verificacion_bateria"
                                                 type="checkbox" value="1"
-                                                {{ old('revision_bateria') == '1' ? 'checked' : '' }}
+                                                {{ old('verificacion_bateria') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-revision_bateria"
+                                            <label for="checkbox-verificacion_bateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revision
                                                 de Bateria</label>
                                         </div>

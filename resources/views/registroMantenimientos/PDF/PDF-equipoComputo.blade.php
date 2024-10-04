@@ -77,6 +77,15 @@
         ;
     }
 
+    .py-3 {
+        padding-top: 0.75rem
+            /* 12px */
+        ;
+        padding-bottom: 0.75rem
+            /* 12px */
+        ;
+    }
+
     .px-2 {
         padding-left: 0.5rem
             /* 8px */
@@ -188,6 +197,10 @@
         background-color: rgb(107 114 128 / var(--tw-bg-opacity))
             /* #6b7280 */
         ;
+    }
+
+    .border-t {
+        border-top-width: 1px;
     }
 </style>
 
@@ -314,19 +327,19 @@
         <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
             <tr class="divide-x divide-gray-500">
                 <th scope="col" class="px-1 py-1 text-center">
-                    Uso que se le da al equipo 
+                    Uso que se le da al equipo
                 </th>
             </tr>
-        </thead>    
-        <tbody  class="divide-y divide-gray-200">
+        </thead>
+        <tbody class="divide-y divide-gray-200">
             <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
                 <td class="px-1 py-1 text-center uppercase">
                     {{ $registro->uso }}
                 </td>
             </tr>
-        
-        
-        </tbody>     
+
+
+        </tbody>
     </table>
 
     <!-- Mantenimientos -->
@@ -335,7 +348,7 @@
             <thead class="text-xs uppercase rounded-lg">
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Desarmar equipo para su limpieza interna.
+                        Desarmar Equipo Para su Limpieza Interna
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->desarmar_limpieza_interna == 1)
@@ -347,7 +360,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza y sopleteado Interna y Externa del equipo.                     </th>
+                        Limpieza y Sopleteado Interno y Externo del Equipo </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->limpieza_sopleteado_int_ext == 1)
                             <div class="check">
@@ -358,7 +371,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza de Pantalla    
+                        Limpieza de Pantalla
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->limpieza_pantalla == 1)
@@ -370,7 +383,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza de Teclado 
+                        Limpieza de Teclado
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->limpieza_teclado == 1)
@@ -382,7 +395,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza ventiladores 
+                        Limpieza de Ventiladores
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->limpieza_ventiladores == 1)
@@ -394,7 +407,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Limpieza y sopleteado de la tarjeta Principal 
+                        Limpieza y Sopleteado de la Tarjeta Principal
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->limpieza_tarjeta_principal == 1)
@@ -406,19 +419,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Verificar funcionamiento del equipo despues del Servicio 
-                    </th>
-                    <td class="text-center px-2">
-                        @if ($mantenimiento->equipo_operando_post_servicio == 1)
-                            <div class="check">
-                                <img src="{{ public_path('img/check.png') }}" />
-                            </div>
-                        @endif
-                    </td>
-                </tr>
-                <tr class="divide-x divide-gray-500">
-                    <th scope="col" class="text-left px-1 py-1">
-                        Limpieza de Fuente de Poder 
+                        Limpieza de Fuente de Poder
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->limpieza_fuente_poder == 1)
@@ -430,7 +431,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Verificación de la Bateria                    
+                        Verificación de la Bateria
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->verificacion_bateria == 1)
@@ -442,7 +443,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Verificar conexiones electricas en buen estado.                   
+                        Verificar Conexiones Eléctricas en Buen Estado
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->verificar_conexiones_electricas == 1)
@@ -454,7 +455,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Verificar que funcione correctamente despues del Servicio                    
+                        Verificar que Funcione Correctamente Después del Servicio
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->equipo_operando_post_servicio == 1)
@@ -466,7 +467,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Antivirus Institucional Actualizado                     
+                        Antivirus Institucional Actualizado
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->antivirus_actualizado == 1)
@@ -478,7 +479,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Ejecución de Defrag                    
+                        Ejecución de Defrag
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->ejecucion_defrag == 1)
@@ -490,7 +491,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Estado de Servicio de Escritorio Remoto 
+                        Equipo dentro del Dominio
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->estado_escritorio_remoto == 1)
@@ -502,19 +503,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Asignacion de IP por DHCP                    
-                    </th>
-                    <td class="text-center px-2">
-                        @if ($mantenimiento->asignacion_ip_dhcp == 1)
-                            <div class="check">
-                                <img src="{{ public_path('img/check.png') }}" />
-                            </div>
-                        @endif
-                    </td>
-                </tr>
-                <tr class="divide-x divide-gray-500">
-                    <th scope="col" class="text-left px-1 py-1">
-                        Sistema operativo actualizado                    
+                        Sistema Operativo Actualizado
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->sistema_operativo_actualizado == 1)
@@ -526,19 +515,7 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Equipo dentro del dominio                    
-                    </th>
-                    <td class="text-center px-2">
-                        @if ($mantenimiento->equipo_dentro_dominio == 1)
-                            <div class="check">
-                                <img src="{{ public_path('img/check.png') }}" />
-                            </div>
-                        @endif
-                    </td>
-                </tr>
-                <tr class="divide-x divide-gray-500">
-                    <th scope="col" class="text-left px-1 py-1">
-                        Complementos Plugins (Java, SilverLigth), Desabilitar Auto                      
+                        Complementos Plugins (Java, SilverLigth), Desabilitar Auto
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->complementos_plugins_desabilitar_auto == 1)
@@ -550,10 +527,34 @@
                 </tr>
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="text-left px-1 py-1">
-                        Eliminar aplicaciones innecesarias                  
+                        Eliminar Aplicaciones Innecesarias
                     </th>
                     <td class="text-center px-2">
                         @if ($mantenimiento->eliminar_aplicaciones_innecesarias == 1)
+                            <div class="check">
+                                <img src="{{ public_path('img/check.png') }}" />
+                            </div>
+                        @endif
+                    </td>
+                </tr>
+                <tr class="divide-x divide-gray-500">
+                    <th scope="col" class="text-left px-1 py-1">
+                        Estado de Servicio de Escritorio Remoto
+                    </th>
+                    <td class="text-center px-2">
+                        @if ($mantenimiento->estado_escritorio_remoto == 1)
+                            <div class="check">
+                                <img src="{{ public_path('img/check.png') }}" />
+                            </div>
+                        @endif
+                    </td>
+                </tr>
+                <tr class="divide-x divide-gray-500">
+                    <th scope="col" class="text-left px-1 py-1">
+                        Asignacion de IP por DHCP
+                    </th>
+                    <td class="text-center px-2">
+                        @if ($mantenimiento->asignacion_ip_dhcp == 1)
                             <div class="check">
                                 <img src="{{ public_path('img/check.png') }}" />
                             </div>
@@ -565,19 +566,19 @@
     </section>
 
     <!-- Observaciones -->
-    <section class="pt-10">
+    <section class="pt-2">
         <table class="w-full shadow-md">
             <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
                 <tr class="divide-x divide-gray-500">
                     <th scope="col" class="px-1 py-1 text-center">
-                        OBSERVACIÓNES
+                        OBSERVACIONES
                     </th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
                 <!-- Registro -->
                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
-                    <td class="px-1 py-1">
+                    <td class="px-1 py-3">
                         {{ $registro->observaciones }}
                     </td>
                 </tr>
@@ -586,7 +587,7 @@
     </section>
 
     <!-- Sección de Firmas -->
-    <section class="pt-10">
+    <section class="pt-2">
         <table class="w-full shadow-md">
             <thead class="text-xs text-gray-200 uppercase bg-gray-500 rounded-lg">
                 <tr class="divide-x divide-gray-500">
@@ -606,17 +607,21 @@
                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
                     <td class="px-1 py-1 text-center">
                         {{ $registro->responsable_mantenimiento }}
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                     <td class="px-1 py-1 text-center">
                         {{ $registro->responsable_equipo }}
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                     <td class="px-1 py-1 text-center">
                         Ramiro Bejarano Raygoza
+                        <hr class="border-t pt-10 border-gray-500">
                     </td>
                 </tr>
             </tbody>
         </table>
     </section>
+
 
 </body>
 

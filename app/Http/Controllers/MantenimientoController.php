@@ -287,13 +287,12 @@ class MantenimientoController extends Controller
             'limpieza_teclado' => $request->limpieza_teclado,
             'sistema_operativo_actualizado' => $request->sistema_operativo_actualizado,
             'realizar_auto_prueba' => $request->realizar_auto_prueba,
-            'revision_bateria' => $request->revision_bateria,
             'validar_consumibles' => $request->validar_consumibles,
             'validar_teclado' => $request->validar_teclado,
             'validar_touch' => $request->validar_touch,
             'verificacion_bateria' => $request->verificacion_bateria,
             'verificar_conector_datos' => $request->verificar_conector_datos,
-            'verificar_conexiones_electricas' => $request->verificar_conexiones_electricas_electricas,
+            'verificar_conexiones_electricas' => $request->verificar_conexiones_electricas,
             'verificar_sw_actualizado' => $request->verificar_sw_actualizado,
             
             
