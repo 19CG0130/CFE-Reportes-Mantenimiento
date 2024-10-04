@@ -325,8 +325,7 @@
                     <tbody class="divide-y divide-gray-200">
                         <!-- Registro -->
                         @foreach ($registros as $registro)
-                            <tr
-                                class="even:bg-gray-100 odd:bg-white bg-white dark:bg-gray-800 dark:border-gray-700">
+                            <tr class="even:bg-gray-100 odd:bg-white bg-white dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-3 py-3 text-center">
                                     {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
                                 </td>
@@ -342,12 +341,12 @@
                                 <td class="px-3 py-3 text-center uppercase">
                                     {{ $registro->rpe }}
                                 </td>
-                                    <td class="flex px-3 py-3 items-center justify-center space-x-2">
-                                        <div class="flex justify-center space-x-2">
+                                <td class="flex px-3 py-3 items-center justify-center space-x-2">
+                                    <div class="flex justify-center space-x-2">
                                         <!-- Editar registro -->
                                         <a href="{{ route('editar', [$registro->dispositivo, $registro->id]) }}"
-                                            title="editar">
-                                            <svg class="text-gray-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
+                                            title="Editar">
+                                            <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                                 stroke="currentColor" fill="none" stroke-linecap="round"
                                                 stroke-linejoin="round">
@@ -359,8 +358,8 @@
                                         </a>
                                         <!-- Ver registro -->
                                         <a href="{{ route('visualizar', [$registro->dispositivo, $registro->id]) }}"
-                                            title="ver">
-                                            <svg class="text-green-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
+                                            title="Ver">
+                                            <svg class="text-green-500 w-8 h-8 hover:text-green-700 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24" fill="none" viewBox="0 0 24 24"
                                                 stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -371,8 +370,8 @@
                                         </a>
                                         <!-- Exportar a PDF -->
                                         <a href="{{ route('exportar_a_PDF', [$registro->dispositivo, $registro->id]) }}"
-                                            title="imprimir">
-                                            <svg class="text-blue-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
+                                            title="Exportar a PDF">
+                                            <svg class="text-blue-500 w-8 h-8 hover:text-blue-900 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24" viewBox="0 0 20 20"
                                                 fill="currentColor">
                                                 <path fill-rule="evenodd"
@@ -381,10 +380,10 @@
                                             </svg>
                                         </a>
                                         <!-- Eliminar registro -->
-                                        <button type="submit" title="eliminar"
+                                        <button type="submit" title="Eliminar"
                                             data-modal-target="eliminar-modal-{{ $registro->id }}"
                                             data-modal-toggle="eliminar-modal-{{ $registro->id }}">
-                                            <svg class="text-red-500 w-8 h-8 hover:text-red-700"
+                                            <svg class="text-red-500 w-8 h-8 hover:text-red-700 transition-colors duration-200"
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -429,7 +428,8 @@
                                             stroke-width="2"
                                             d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
-                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Eliminar el registro de <strong>{{ $registro->dispositivo }}</strong> del día
+                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Eliminar el
+                                        registro de <strong>{{ $registro->dispositivo }}</strong> del día
                                         {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}</h3>
                                     <form action="{{ route('registro.destroy', $registro->id) }}" method="POST">
                                         @csrf

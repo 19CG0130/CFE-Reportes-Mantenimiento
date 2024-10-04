@@ -83,9 +83,8 @@ class ProfileController extends Controller
     {
         $user = User::findOrFail($id);
     
-        // Validar los datos
         $request->validate([
-            'usertype' => ['required'], // Aquí asegúrate que 'usertype' está siendo enviado
+            'usertype' => ['required'],
             'username' => ['required', 'string', 'lowercase', 'max:255', 'unique:'.User::class.',username,'.$user->id, 'regex:/^[a-z0-9_]+$/u'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -93,7 +92,6 @@ class ProfileController extends Controller
             'password' => ['nullable', 'confirmed', Password::defaults()],
         ]);
     
-        // Actualizar el usuario
         $user->update([
             'usertype' => $request->usertype,
             'username' => $request->username,
@@ -102,13 +100,11 @@ class ProfileController extends Controller
             'email' => $request->email,
         ]);
     
-        // Si se proporciona una nueva contraseña, actualizarla
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
-            $user->save();  // Guardar la nueva contraseña
+            $user->save();
         }
     
-        // Redirigir después de la actualización
         return redirect()->route('usuarios')->with('success', 'Usuario actualizado correctamente');
     }
     

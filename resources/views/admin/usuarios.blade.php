@@ -56,41 +56,57 @@
                                         {{ $user->email }}
                                     </td>
                                     <td class="flex px-3 py-3 items-center justify-center space-x-2">
-                                        <div class="flex justify-center space-x-2">
-                                            <!-- Modal Editar -->
-                                            <button data-modal-target="editar-modal-{{ $user->id }}"
-                                                data-modal-toggle="editar-modal-{{ $user->id }}">
-                                                <svg class="text-gray-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                    stroke="currentColor" fill="none" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                                    <path
-                                                        d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                                    <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                                    <line x1="16" y1="5" x2="19" y2="8" />
-                                                </svg>
-                                            </button>
+                                        @if (Auth::id() !== $user->id)
+                                            <div class="flex justify-center space-x-2">
+                                                <!-- Modal Editar -->
+                                                <button title="Editar"
+                                                    data-modal-target="editar-modal-{{ $user->id }}"
+                                                    data-modal-toggle="editar-modal-{{ $user->id }}">
+                                                    <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200"
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                                        <path
+                                                            d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                                                        <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                                                        <line x1="16" y1="5" x2="19"
+                                                            y2="8" />
+                                                    </svg>
+                                                </button>
 
-                                            <!-- Eliminar registro -->
-                                            <button type="submit" title="eliminar"
-                                                data-modal-target="eliminar-modal-{{ $user->id }}"
-                                                data-modal-toggle="eliminar-modal-{{ $user->id }}">
-                                                <svg class="text-red-500 w-8 h-8 hover:text-red-700"
+                                                <!-- Eliminar registro -->
+                                                <button type="submit" title="Eliminar"
+                                                    data-modal-target="eliminar-modal-{{ $user->id }}"
+                                                    data-modal-toggle="eliminar-modal-{{ $user->id }}">
+                                                    <svg class="text-red-500 w-8 h-8 hover:text-red-700 transition-colors duration-200"
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                                        <line x1="4" y1="7" x2="20"
+                                                            y2="7" />
+                                                        <line x1="10" y1="11" x2="10"
+                                                            y2="17" />
+                                                        <line x1="14" y1="11" x2="14"
+                                                            y2="17" />
+                                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        @else
+                                            <a title="Perfil" href="{{ route('profile.edit') }}">
+                                                <svg class="text-themeColor-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200"
                                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                                    <line x1="4" y1="7" x2="20" y2="7" />
-                                                    <line x1="10" y1="11" x2="10" y2="17" />
-                                                    <line x1="14" y1="11" x2="14" y2="17" />
-                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="8.5" cy="7" r="4" />
                                                 </svg>
-                                            </button>
-                                        </div>
+                                            </a>
+                                        @endif
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
@@ -118,8 +134,9 @@
                                         <button type="button"
                                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                             data-modal-toggle="editar-modal-{{ $user->id }}">
-                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 14 14">
+                                            <svg class="w-3 h-3" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 14 14">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
@@ -169,9 +186,15 @@
                                                 <x-input-label for="usertype" :value="__('Rol')" />
                                                 <select id="usertype" name="usertype"
                                                     class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full">
-                                                    <option value="" disabled {{ is_null($user->usertype) ? 'selected' : '' }}>Seleccionar</option>
-                                                    <option value="admin" {{ (old('usertype', $user->usertype) == 'admin') ? 'selected' : '' }}>admin</option>
-                                                    <option value="usuario" {{ (old('usertype', $user->usertype) == 'usuario') ? 'selected' : '' }}>usuario</option>
+                                                    <option value="" disabled
+                                                        {{ is_null($user->usertype) ? 'selected' : '' }}>Seleccionar
+                                                    </option>
+                                                    <option value="admin"
+                                                        {{ old('usertype', $user->usertype) == 'admin' ? 'selected' : '' }}>
+                                                        admin</option>
+                                                    <option value="usuario"
+                                                        {{ old('usertype', $user->usertype) == 'usuario' ? 'selected' : '' }}>
+                                                        usuario</option>
                                                 </select>
                                                 <x-input-error :messages="$errors->get('usertype')" class="mt-2" />
                                             </div>
