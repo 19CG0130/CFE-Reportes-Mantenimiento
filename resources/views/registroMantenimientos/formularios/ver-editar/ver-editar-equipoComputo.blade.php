@@ -262,24 +262,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Agregar Otro -->
-                    <div>
-                        <label for="input-agregarOtroSoftware"
-                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <div class="relative w-full">
-                            <input type="text" id="input-agregarOtroSoftware" name="agregarOtroSoftware"
-                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                            <button type="submit"
-                                class="absolute top-0 end-0 text-sm p-1 font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                                <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="white" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M5 12h14m-7 7V5" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -346,24 +328,6 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Agregar Otro -->
-                    <div>
-                        <label for="input-agregarOtroHardware"
-                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <div class="relative w-full">
-                            <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
-                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
-                            <button type="submit"
-                                class="absolute top-0 end-0 text-sm p-1 font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                                <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="white" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M5 12h14m-7 7V5" />
-                                </svg>
-                            </button>
                         </div>
                     </div>
                 </div>

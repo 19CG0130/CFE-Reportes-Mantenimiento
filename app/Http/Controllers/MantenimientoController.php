@@ -2,23 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Equipos;
-use App\Models\EquipoSoftware;
-use App\Models\EquipoHardware;
-use App\Models\EquipoMantenimiento;
-use App\Models\Conectividad;
 use App\Models\Software;
-use App\Models\Hardware;
+use App\Models\Conectividad;
+use Illuminate\Http\Request;
 use App\Models\Mantenimiento;
-use App\Models\EquiposConectividad;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rules;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Validation\ValidationException;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Barryvdh\DomPDF\Options;
-use Illuminate\View\View;
+use App\Models\EquipoMantenimiento;
+use App\Models\EquiposConectividad;
+use Illuminate\Http\RedirectResponse;
 
 class MantenimientoController extends Controller
 {
@@ -184,13 +176,11 @@ class MantenimientoController extends Controller
                 'responsable_mantenimiento' => ['required'],
                 'responsable_equipo' => ['required'],
                 'puesto' => ['required', 'max:30'],
-                'rpe' => ['required', 'max:30'],
                 'dispositivo' => ['required'],
                 'servicio' => ['required'],
                 'marca' => ['required', 'max:30'],
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
-                'active_directory' => ['required', 'max:30'],
                 'num_activo_fijo' => ['required', 'max:30'],
             ]);
         }
@@ -246,23 +236,6 @@ class MantenimientoController extends Controller
             'vpn' => $request->vpn
         ]);
 
-        EquipoSoftware::create([
-            'id_equipos' => $equipo->id,
-            'id_software' => $software->id
-        ]);
-
-        $hardware = Hardware::create([
-            'microfono' => $request->microfono,
-            'bocina' => $request->bocina,
-            'hub_usb' => $request->hub_usb,
-            'camara_web' => $request->camara_web
-        ]);
-
-        EquipoHardware::create([
-            'id_equipos' => $equipo->id,
-            'id_hardware' => $hardware->id
-        ]);
-
         $mantenimiento = Mantenimiento::create([
             'antivirus_actualizado' => $request->antivirus_actualizado,
             'asignacion_ip_dhcp' => $request->asignacion_ip_dhcp,
@@ -294,9 +267,9 @@ class MantenimientoController extends Controller
             'verificar_conector_datos' => $request->verificar_conector_datos,
             'verificar_conexiones_electricas' => $request->verificar_conexiones_electricas,
             'verificar_sw_actualizado' => $request->verificar_sw_actualizado,
-            
-            
-            
+
+
+
         ]);
 
         EquipoMantenimiento::create([

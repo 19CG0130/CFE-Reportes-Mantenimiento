@@ -267,110 +267,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Agregar Otro -->
-                    <div>
-                        <label for="input-agregarOtroSoftware"
-                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <div class="relative w-full">
-                            <input type="text" id="input-agregarOtroSoftware" name="agregarOtroSoftware"
-                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
-                            <button type="submit"
-                                class="absolute top-0 end-0 text-sm p-1 font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                                <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="white" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M5 12h14m-7 7V5" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!---------- Hardware ---------->
-        <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
-                <div class="flex justify-between">
-                    <div class="p-2 text-gray-900 text-xl font-bold">
-                        <span class="text-2xl font-extrabold">Hardware</span>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="w-full px-4">
-                        <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
-                            <!-- Columna 1 -->
-                            <div class="pb-2">
-                                <ul
-                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input name="microfono" id="checkbox-microfono" type="checkbox"
-                                                value="1" {{ old('microfono') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-microfono"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Microfono</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input name="bocina" id="checkbox-bocina" type="checkbox"
-                                                value="1" {{ old('bocina') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-bocina"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Bocina</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Columna 2 -->
-                            <div class="pb-2">
-                                <ul
-                                    class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                    <li class="w-full border-b border-gray-200 dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input name="hub_usb" id="checkbox-hub_usb" type="checkbox"
-                                                value="1" {{ old('hub_usb') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-hub_usb"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hub
-                                                USB</label>
-                                        </div>
-                                    </li>
-                                    <li class="w-full dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
-                                            <input name="camara_web" id="checkbox-camara_web" type="checkbox"
-                                                value="1" {{ old('camara_web') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
-                                            <label for="checkbox-camara_web"
-                                                class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Camara
-                                                Web</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Agregar Otro -->
-                    <div>
-                        <label for="input-agregarOtroHardware"
-                            class="block text-base font-medium text-gray-900">Agregar Otro</label>
-                        <div class="relative w-full">
-                            <input type="text" id="input-agregarOtroHardware" name="agregarOtroHardware"
-                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" />
-                            <button type="submit"
-                                class="absolute top-0 end-0 text-sm p-1 font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                                <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="white" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M5 12h14m-7 7V5" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -484,8 +380,8 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_conexiones_electricas"
-                                                id="checkbox-verificar_conexiones_electricas"
-                                                type="checkbox" value="1"
+                                                id="checkbox-verificar_conexiones_electricas" type="checkbox"
+                                                value="1"
                                                 {{ old('verificar_conexiones_electricas') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_conexiones_electricas"
