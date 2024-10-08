@@ -88,13 +88,13 @@
                             Sistema Operativo</label>
                         <select id="select-sistema_operativo" name="sistema_operativo"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" disabled selected>Seleccionar</option>
-                            <option value="Windows" {{ old('sistema_operativo') == 'Windows' ? 'selected' : '' }}>
+                            <option value="" disabled>Seleccionar</option>
+                            <option value="Windows" {{ old('sistema_operativo', $equipo->sistema_operativo) == 'Windows' ? 'selected' : '' }}>
                                 Windows
                             </option>
-                            <option value="MacOS" {{ old('sistema_operativo') == 'MacOS' ? 'selected' : '' }}>MacOS
+                            <option value="MacOS" {{ old('sistema_operativo', $equipo->sistema_operativo)  == 'MacOS' ? 'selected' : '' }}>MacOS
                             </option>
-                            <option value="Linux" {{ old('sistema_operativo') == 'Linux' ? 'selected' : '' }}>Linux
+                            <option value="Linux" {{ old('sistema_operativo', $equipo->sistema_operativo)  == 'Linux' ? 'selected' : '' }}>Linux
                             </option>
                         </select>
                         <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />

@@ -26,7 +26,7 @@ class MantenimientoController extends Controller
     {
         $equipo = Equipos::findOrFail($id);
 
-        $action = '';
+        $action = 'editar';
 
         switch ($dispositivo) {
             case 'PC Escritorio':
@@ -52,6 +52,35 @@ class MantenimientoController extends Controller
         return view($view, compact('equipo', 'action', 'dispositivo'));
     }
 
+    public function ver($dispositivo, $id)
+    {
+        $equipo = Equipos::findOrFail($id);
+
+        $action = 'ver';
+
+        switch ($dispositivo) {
+            case 'PC Escritorio':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-equipoComputo';
+                break;
+            case 'Laptop':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-equipoComputo';
+                break;
+            case 'Terminal Portatil':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-terminalPortatil';
+                break;
+            case 'Tablet':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-tablet';
+                break;
+            case 'Impresora':
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-impresora';
+                break;
+            default:
+                $view = 'registroMantenimientos.formularios.ver-editar.ver-editar-otroDispositivo';
+                break;
+        }
+
+        return view($view, compact('equipo', 'action', 'dispositivo'));
+    }
 
     public function search(Request $request)
     {

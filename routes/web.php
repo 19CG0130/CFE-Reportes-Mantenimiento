@@ -51,13 +51,14 @@ Route::middleware('auth')->group(function () {
 
         // EDITAR
         Route::get('/editar/{dispositivo}/{id}', [MantenimientoController::class, 'edit'])->name('editar');
+        Route::get('/ver/{dispositivo}/{id}', [MantenimientoController::class, 'ver'])->name('ver');
 
 
-        //VISUALIZAR
-        Route::get('/visualizar/{dispositivo}/{id}', function () {
-            return view('registroMantenimientos.formularios.equipoComputo')
+        //ver
+        Route::get('/a/{dispositivo}/{id}', function () {
+            return view('registroMantenimientos.formularios.ver-editar.ver-editar-equipoComputo')
                 ->with('action', 'ver');
-        })->name('visualizar');
+        })->name('a');
 
         //EXPORTAR A PDF
         Route::get('/exportar_a_PDF/{dispositivo}/{id}', [MantenimientoController::class, 'pdf_generator_get'])
