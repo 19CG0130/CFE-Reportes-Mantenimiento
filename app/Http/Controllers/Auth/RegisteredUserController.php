@@ -42,14 +42,16 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'usertype' => $request->usertype,
             'username' => $request->username,
-            'name' => $request->name,
+            'name' => $request->name, 
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $user->sendEmailVerificationNotification();
+        
 
         event(new Registered($user));
-
+        
         // Iniciar sesión automáticamente tras el registro (no usar)
         //Auth::login($user);
 

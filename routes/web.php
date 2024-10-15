@@ -4,12 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MantenimientoController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth','verified')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -73,5 +74,8 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function () {
     //Tabla Usuarios
     Route::get('/usuarios', [ProfileController::class, 'index'])->name('usuarios');
 });
+
+//RUTAS EMAIL VERIFY
+
 
 require __DIR__ . '/auth.php';
