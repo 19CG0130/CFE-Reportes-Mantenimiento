@@ -29,4 +29,7 @@ class Equipos extends Model
         'observaciones',
     ];
     use HasFactory;
+    
 }
+
+

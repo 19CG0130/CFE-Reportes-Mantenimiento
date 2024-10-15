@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('antivirus_version')->nullable();
             $table->integer('visual_appeal')->nullable();
             $table->integer('mysap_r3')->nullable();
+            $table->integer('kavi')->nullable();
             $table->integer('facthor')->nullable();
+            $table->integer('tpa')->nullable();
             $table->integer('siad')->nullable();
             $table->integer('autocad')->nullable();
             $table->integer('sinergy')->nullable();

@@ -357,7 +357,7 @@
                                             </svg>
                                         </a>
                                         <!-- Ver registro -->
-                                        <a href="{{ route('visualizar', [$registro->dispositivo, $registro->id]) }}"
+                                        <a href="{{ route('ver', [$registro->dispositivo, $registro->id]) }}"
                                             title="Ver">
                                             <svg class="text-green-500 w-8 h-8 hover:text-green-700 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24" fill="none" viewBox="0 0 24 24"

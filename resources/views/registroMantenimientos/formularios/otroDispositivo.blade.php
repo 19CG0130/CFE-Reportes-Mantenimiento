@@ -57,14 +57,11 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                     <!--  Ethernets -->
-                    <div>
-                        <x-formularios.ethernet-input>
-                        </x-formularios.ethernet-input>
-                    </div>
+                    <x-formularios.ethernet-input>
+                    </x-formularios.ethernet-input>
                     <!-- Inalámbricos -->
                     <x-formularios.inalambrico-input>
                     </x-formularios.inalambrico-input>
-
                 </div>
             </div>
         </div>
@@ -142,7 +139,8 @@
                                         <div class="flex items-center ps-3">
                                             <input name="equipo_operando_post_servicio"
                                                 id="checkbox-equipo_operando_post_servicio" type="checkbox"
-                                                value="1" {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -164,7 +162,8 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_alimentacion_papel"
                                                 id="checkbox-limpieza_alimentacion_papel" type="checkbox"
-                                                value="1" {{ old('limpieza_alimentacion_papel') == '1' ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('limpieza_alimentacion_papel') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_alimentacion_papel"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -219,7 +218,8 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_sopleteado_int_ext"
                                                 id="checkbox-limpieza_sopleteado_int_ext" type="checkbox"
-                                                value="1" {{ old('limpieza_sopleteado_int_ext') == '1' ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('limpieza_sopleteado_int_ext') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_sopleteado_int_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -230,7 +230,8 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_tarjeta_principal"
                                                 id="checkbox-limpieza_tarjeta_principal" type="checkbox"
-                                                value="1" {{ old('limpieza_tarjeta_principal') == '1' ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('limpieza_tarjeta_principal') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-limpieza_tarjeta_principal"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
@@ -345,7 +346,8 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_conexiones_electricas"
                                                 id="checkbox-verificar_conexiones_electricas" type="checkbox"
-                                                value="1" {{ old('verificar_conexiones_electricas') == '1' ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('verificar_conexiones_electricas') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-verificar_conexiones_electricas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
@@ -366,7 +368,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="complementos_plugins_desabilitar_auto"
-                                                id="checkbox-complementos_plugins_desabilitar_auto" type="checkbox" value="1"
+                                                id="checkbox-complementos_plugins_desabilitar_auto" type="checkbox"
+                                                value="1"
                                                 {{ old('complementos_plugins_desabilitar_auto') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-complementos_plugins_desabilitar_auto"
@@ -377,23 +380,24 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="eliminar_aplicaciones_innecesarias"
-                                                id="checkbox-eliminar_aplicaciones_innecesarias" type="checkbox" value="1"
+                                                id="checkbox-eliminar_aplicaciones_innecesarias" type="checkbox"
+                                                value="1"
                                                 {{ old('eliminar_aplicaciones_innecesarias') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-eliminar_aplicaciones_innecesarias"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
-                                                Eliminar Aplicaciones Inncesarias   </label>
+                                                Eliminar Aplicaciones Inncesarias </label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
-                                            <input name="equipo_dentro_dominio"
-                                                id="checkbox-equipo_dentro_dominio" type="checkbox" value="1"
+                                            <input name="equipo_dentro_dominio" id="checkbox-equipo_dentro_dominio"
+                                                type="checkbox" value="1"
                                                 {{ old('equipo_dentro_dominio') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
                                             <label for="checkbox-equipo_dentro_dominio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
-                                                Equipo Dentro de Dominio   </label>
+                                                Equipo Dentro de Dominio </label>
                                         </div>
                                     </li>
                                 </ul>
