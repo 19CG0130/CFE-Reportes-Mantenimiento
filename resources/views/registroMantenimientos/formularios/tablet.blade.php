@@ -23,19 +23,24 @@
 
         <!---------- Equipo Atendido y Conectividad ---------->
         <div class="grid max-w-7xl mx-auto gap-6 pb-6 lg:grid-cols-2 sm:px-6 lg:px-8">
-            <!-- Equipo Atendido -->
+
+            <!---------- Equipo Atendido ---------->
             <x-formularios.form-equipo-atendido>
             </x-formularios.form-equipo-atendido>
 
-            <!-- Conectividad -->
+            <!------ Conectividad ------>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
+
+                <!---------- Titulo ---------->
                 <div class="flex justify-between">
                     <div class="p-2 text-gray-900 text-xl font-bold">
                         <span class="text-2xl font-extrabold">Conectividad</span>
                     </div>
                 </div>
+
+                <!---------- Sección ---------->
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    <!-- IP Inalámbrica -->
+                    <!-- Inalámbricos -->
                     <x-formularios.inalambrico-input>
                     </x-formularios.inalambrico-input>
                 </div>

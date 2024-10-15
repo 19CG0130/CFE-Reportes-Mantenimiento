@@ -52,22 +52,24 @@
 
             <!------ Conectividad ------>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
+
+                <!---------- Titulo ---------->
                 <div class="flex justify-between">
                     <div class="p-2 text-gray-900 text-xl font-bold">
                         <span class="text-2xl font-extrabold">Conectividad</span>
                     </div>
                 </div>
+
+                <!---------- Sección ---------->
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                     <!--  Ethernets -->
-                    <div>
-                        <x-formularios.ethernet-input>
-                        </x-formularios.ethernet-input>
-                    </div>
+                    <x-formularios.ethernet-input>
+                    </x-formularios.ethernet-input>
                     <!-- Inalámbricos -->
                     <x-formularios.inalambrico-input>
                     </x-formularios.inalambrico-input>
-
                 </div>
+
             </div>
         </div>
 

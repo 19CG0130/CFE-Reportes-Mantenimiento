@@ -53,13 +53,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/editar/{dispositivo}/{id}', [MantenimientoController::class, 'edit'])->name('editar');
         Route::get('/ver/{dispositivo}/{id}', [MantenimientoController::class, 'ver'])->name('ver');
 
-
-        //ver
-        Route::get('/a/{dispositivo}/{id}', function () {
-            return view('registroMantenimientos.formularios.ver-editar.ver-editar-equipoComputo')
-                ->with('action', 'ver');
-        })->name('a');
-
         //EXPORTAR A PDF
         Route::get('/exportar_a_PDF/{dispositivo}/{id}', [MantenimientoController::class, 'pdf_generator_get'])
             ->name('exportar_a_PDF');

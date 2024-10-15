@@ -11,6 +11,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\EquipoMantenimiento;
 use App\Models\EquiposConectividad;
 use Illuminate\Http\RedirectResponse;
+use App\Models\EquipoSoftware;
 
 class MantenimientoController extends Controller
 {
@@ -25,6 +26,7 @@ class MantenimientoController extends Controller
     public function edit($dispositivo, $id)
     {
         $equipo = Equipos::findOrFail($id);
+        $software = EquipoSoftware::where('id_equipos', $id)->first();
 
         $action = 'editar';
 
@@ -49,12 +51,13 @@ class MantenimientoController extends Controller
                 break;
         }
 
-        return view($view, compact('equipo', 'action', 'dispositivo'));
+        return view($view, compact('equipo', 'software','action', 'dispositivo'));
     }
 
     public function ver($dispositivo, $id)
     {
         $equipo = Equipos::findOrFail($id);
+        $software = EquipoSoftware::where('id_equipos', $id)->first();
 
         $action = 'ver';
 
@@ -79,7 +82,7 @@ class MantenimientoController extends Controller
                 break;
         }
 
-        return view($view, compact('equipo', 'action', 'dispositivo'));
+        return view($view, compact('equipo', 'software', 'action', 'dispositivo'));
     }
 
     public function search(Request $request)
@@ -108,7 +111,6 @@ class MantenimientoController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-
         $tipoFormulario = $request->input('dispositivo');
 
         if ($tipoFormulario === 'PC Escritorio' || $tipoFormulario === 'Laptop') {
@@ -136,6 +138,11 @@ class MantenimientoController extends Controller
                 'office' => ['required'],
                 'antivirus' => ['required'],
                 'antivirus_version' => ['required'],
+                'ip_ethernet' => ['nullable', 'ip'],
+                'mac_ethernet' => ['nullable', 'mac_address'],
+                'ip_inalambrica' => ['nullable', 'ip'],
+                'mac_inalambrica' => ['nullable', 'mac_address'],
+                'mac_bluetooth' => ['nullable', 'mac_address'],
             ]);
         } elseif ($tipoFormulario === 'Terminal Portatil') {
             $request->validate([
@@ -154,6 +161,9 @@ class MantenimientoController extends Controller
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
                 'num_activo_fijo' => ['required', 'max:30'],
+                'ip_inalambrica' => ['nullable', 'ip'],
+                'mac_inalambrica' => ['nullable', 'mac_address'],
+                'mac_bluetooth' => ['nullable', 'mac_address'],
                 'sistema_operativo' => ['required'],
                 'version_sistema_operativo' => ['required'],
             ]);
@@ -174,6 +184,9 @@ class MantenimientoController extends Controller
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
                 'num_activo_fijo' => ['required', 'max:30'],
+                'ip_inalambrica' => ['nullable', 'ip'],
+                'mac_inalambrica' => ['nullable', 'mac_address'],
+                'mac_bluetooth' => ['nullable', 'mac_address'],
                 'sistema_operativo' => ['required'],
                 'version_sistema_operativo' => ['required'],
             ]);
@@ -193,9 +206,15 @@ class MantenimientoController extends Controller
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
                 'num_activo_fijo' => ['required', 'max:30'],
+                'ip_ethernet' => ['nullable', 'ip'],
+                'mac_ethernet' => ['nullable', 'mac_address'],
+                'ip_inalambrica' => ['nullable', 'ip'],
+                'mac_inalambrica' => ['nullable', 'mac_address'],
+                'mac_bluetooth' => ['nullable', 'mac_address'],
             ]);
         } else {
             $request->validate([
+                
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
@@ -211,6 +230,11 @@ class MantenimientoController extends Controller
                 'modelo' => ['required', 'max:30'],
                 'serie' => ['required', 'max:30'],
                 'num_activo_fijo' => ['required', 'max:30'],
+                'ip_ethernet' => ['nullable', 'ip'],
+                'mac_ethernet' => ['nullable', 'mac_address'],
+                'ip_inalambrica' => ['nullable', 'ip'],
+                'mac_inalambrica' => ['nullable', 'mac_address'],
+                'mac_bluetooth' => ['nullable', 'mac_address'],
             ]);
         }
 
@@ -257,12 +281,19 @@ class MantenimientoController extends Controller
             'antivirus_version' => $request->antivirus_version,
             'visual_appeal' => $request->visual_appeal,
             'mysap_r3' => $request->mysap_r3,
+            'kavi' => $request->kavi,
             'facthor' => $request->facthor,
+            'tpa' => $request->tpa,
             'siad' => $request->siad,
             'autocad' => $request->autocad,
             'sinergy' => $request->sinergy,
             'lotus' => $request->lotus,
             'vpn' => $request->vpn
+        ]);
+
+        EquipoSoftware::create([
+            'id_equipos' => $equipo->id,
+            'id_software' => $software->id
         ]);
 
         $mantenimiento = Mantenimiento::create([
@@ -297,8 +328,6 @@ class MantenimientoController extends Controller
             'verificar_conexiones_electricas' => $request->verificar_conexiones_electricas,
             'verificar_sw_actualizado' => $request->verificar_sw_actualizado,
 
-
-
         ]);
 
         EquipoMantenimiento::create([
@@ -306,7 +335,7 @@ class MantenimientoController extends Controller
             'id_equipos' => $equipo->id
         ]);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('dashboard','action', absolute: false));
     }
 
     public function destroy($id)
