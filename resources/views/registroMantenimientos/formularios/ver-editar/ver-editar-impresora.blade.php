@@ -1,6 +1,7 @@
 <x-app-layout>
-    <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
+    <form method="POST" action="{{ route('registro_mantenimiento.update', $equipo->id) }}">
         @csrf
+        @method('PUT')
         <input type="hidden" name="dispositivo" value="Impresora">
 
         <!--------- Mantenimiento ---------->
@@ -292,7 +293,7 @@
                                     Preventivo
                                 </option>
                                 <option value="Correctivo"
-                                    {{ old('servicio', $equipo->servicio ?? '') == 'Correctivo' ? 'selected' : '' }}>
+                                    {{ old('servicio', $equipo->servicio ?? '') == 'Preventivo' ? 'selected' : '' }}>
                                     Correctivo
                                 </option>
                             </select>
@@ -353,18 +354,20 @@
                     <!---------- IP Ethernet ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">IP Ethernet</label>
-                        <input type="text" name="ip_ethernet" value="{{ old('ip_ethernet') }}"
+                        <input type="text" name="ip_ethernet"
+                            value="{{ old('ip_ethernet', $conectividad->ip_ethernet) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('ip_ethernet') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                            maxlength="15">
+                            maxlength="15" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('ip_ethernet')" class="mt-2" />
                     </div>
 
                     <!---------- MAC Ethernet ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">MAC Ethernet</label>
-                        <input type="text" name="mac_ethernet" value="{{ old('mac_ethernet') }}"
+                        <input type="text" name="mac_ethernet"
+                            value="{{ old('mac_ethernet', $conectividad->mac_ethernet) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_ethernet') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                            maxlength="17">
+                            maxlength="17" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('mac_ethernet')" class="mt-2" />
                     </div>
 
@@ -423,27 +426,30 @@
                     <!---------- IP Inalámbrica ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">IP Inalámbrica</label>
-                        <input type="text" name="ip_inalambrica" value="{{ old('ip_inalambrica') }}"
+                        <input type="text" name="ip_inalambrica"
+                            value="{{ old('ip_inalambrica', $conectividad->ip_inalambrica) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('ip_inalambrica') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                            maxlength="15" @disabled($action == 'ip_inalambrica')>
+                            maxlength="15" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('ip_inalambrica')" class="mt-2" />
                     </div>
 
                     <!---------- MAC Inalámbrica ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">MAC Inalámbrica</label>
-                        <input type="text" name="mac_inalambrica" value="{{ old('mac_inalambrica') }}"
+                        <input type="text" name="mac_inalambrica"
+                            value="{{ old('mac_inalambrica', $conectividad->mac_inalambrica) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_inalambrica') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                            maxlength="17">
+                            maxlength="17" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('mac_inalambrica')" class="mt-2" />
                     </div>
 
                     <!---------- MAC Bluetooth ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">MAC Bluetooth</label>
-                        <input type="text" name="mac_bluetooth" value="{{ old('mac_bluetooth') }}"
+                        <input type="text" name="mac_bluetooth"
+                            value="{{ old('mac_bluetooth', $conectividad->mac_bluetooth) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_bluetooth') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                            maxlength="17">
+                            maxlength="17" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('mac_bluetooth')" class="mt-2" />
                     </div>
 
@@ -523,8 +529,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_desarmar_limpieza_interna"
                                                 name="desarmar_limpieza_interna" type="checkbox" value="1"
-                                                {{ old('desarmar_limpieza_interna') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('desarmar_limpieza_interna', $mantenimiento->desarmar_limpieza_interna) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_desarmar_limpieza_interna"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Desarmar
                                                 Equipo para su Limpieza Interna</label>
@@ -534,8 +541,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_limpieza_sopleteado_int_ext"
                                                 name="limpieza_sopleteado_int_ext" type="checkbox" value="1"
-                                                {{ old('limpieza_sopleteado_int_ext') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('limpieza_sopleteado_int_ext', $mantenimiento->limpieza_sopleteado_int_ext) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_limpieza_sopleteado_int_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Interno y Externo del Equipo</label>
@@ -545,8 +553,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_limpieza_bandejas" name="limpieza_bandejas"
                                                 type="checkbox" value="1"
-                                                {{ old('limpieza_bandejas') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('limpieza_bandejas', $mantenimiento->limpieza_bandejas) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_limpieza_bandejas"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 de Bandejas o Charolas</label>
@@ -556,8 +565,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_limpieza_alimentacion_papel"
                                                 name="limpieza_alimentacion_papel" type="checkbox" value="1"
-                                                {{ old('limpieza_alimentacion_papel') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('limpieza_alimentacion_papel', $mantenimiento->limpieza_alimentacion_papel) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_limpieza_alimentacion_papel"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Revisión del Mecanismo de Alimentación del Papel</label>
@@ -567,8 +577,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_limpieza_unidad_fusion" name="limpieza_unidad_fusion"
                                                 type="checkbox" value="1"
-                                                {{ old('limpieza_unidad_fusion') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('limpieza_unidad_fusion', $mantenimiento->limpieza_unidad_fusion) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_limpieza_unidad_fusion"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Revisión de la Unidad de Fusión</label>
@@ -584,8 +595,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_limpieza_unidad_laser" name="limpieza_unidad_laser"
                                                 type="checkbox" value="1"
-                                                {{ old('limpieza_unidad_laser') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('limpieza_unidad_laser', $mantenimiento->limpieza_unidad_laser) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_limpieza_unidad_laser"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Revisión de la Unidad Láser</label>
@@ -595,8 +607,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_validar_consumibles" name="validar_consumibles"
                                                 type="checkbox" value="1"
-                                                {{ old('validar_consumibles') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('validar_consumibles', $mantenimiento->validar_consumibles) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_validar_consumibles"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
                                                 Estado de Consumibles</label>
@@ -605,8 +618,10 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_equipo_en_red" name="equipo_en_red" type="checkbox"
-                                                value="1" {{ old('equipo_en_red') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                value="1"
+                                                {{ old('equipo_en_red', $mantenimiento->equipo_en_red) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_equipo_en_red"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
                                                 en Red</label>
@@ -616,8 +631,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_realizar_auto_prueba" name="realizar_auto_prueba"
                                                 type="checkbox" value="1"
-                                                {{ old('realizar_auto_prueba') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('realizar_auto_prueba', $mantenimiento->realizar_auto_prueba) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_realizar_auto_prueba"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Realizar
                                                 Auto Prueba</label>
@@ -627,8 +643,9 @@
                                         <div class="flex items-center ps-3">
                                             <input id="checkbox_equipo_operando_post_servicio"
                                                 name="equipo_operando_post_servicio" type="checkbox" value="1"
-                                                {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('equipo_operando_post_servicio', $mantenimiento->equipo_operando_post_servicio) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox_equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Equipo
                                                 Operando Después del Servicio</label>
@@ -643,8 +660,35 @@
         </div>
 
         <!---------- bottom ---------->
-        <x-formularios.form-bottom>
-        </x-formularios.form-bottom>
+        <!---------- Observaciones ---------->
+        <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
+                <div class="flex justify-between">
+                    <div class="p-2 text-gray-900 text-xl font-bold">
+                        <span class="text-2xl font-extrabold">Observaciones</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-2">
+                    <!-- Observaciones -->
+                    <div class="p-2 w-full">
+                        <textarea name="observaciones"
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            rows="4" @disabled($action == 'ver')>
+                            {{ old('observaciones', $equipo->observaciones) }}</textarea>
+                        <x-input-error :messages="$errors->get('observaciones')" class="mt-2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---------- Botón Guardar ---------->
+        <div class="flex justify-center pb-6">
+            <button type="submit"
+                class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">
+                Guardar Registro
+            </button>
+        </div>
+
 
     </form>
 </x-app-layout>

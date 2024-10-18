@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mantenimiento extends Model
 {
+    public function equipos_mantenimiento()
+    {
+        return $this->hasMany(EquipoMantenimiento::class, 'id_mantenimientos', 'id');
+    }
     use HasFactory;
     protected $table = 'mantenimientos';
     protected $fillable = [

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Software extends Model
 {
+    public function equipos_software()
+    {
+        return $this->hasMany(EquipoSoftware::class, 'id_software', 'id');
+    }
+
     use HasFactory;
     protected $table = 'software';
     protected $fillable = [
@@ -25,6 +30,9 @@ class Software extends Model
         'autocad',
         'sinergy',
         'lotus',
-        'vpn'
+        'vpn',
+        'amobile',
+        'lmobile',
+        'lhmobile'
     ];
 }

@@ -1,6 +1,7 @@
 <x-app-layout>
-    <form method="POST" action="{{ route('registro_mantenimiento.post') }}">
+    <form method="POST" action="{{ route('registro_mantenimiento.update', $equipo->id) }}">
         @csrf
+        @method('PUT')
         <input type="hidden" name="dispositivo" value="Terminal Portatil">
 
         <!--------- Mantenimiento ---------->
@@ -105,7 +106,7 @@
 
                     <!---------- Uso que se le da al equipo ---------->
                     <div class="pr-2 pb-1 w-1/4">
-                        <label for="input-uso" class="block text-base font-medium text-gray-900">U  so que se le da al
+                        <label for="input-uso" class="block text-base font-medium text-gray-900">U so que se le da al
                             equipo</label>
                         @if ($action == 'ver')
                             <input type="text" name="uso" value="{{ old('uso', $equipo->uso ?? '') }}"
@@ -362,17 +363,102 @@
                 </div>
             </div>
 
-            <!---------- Conectividad ---------->
+            <!------ Conectividad ------>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
+
+                <!---------- Titulo ---------->
                 <div class="flex justify-between">
                     <div class="p-2 text-gray-900 text-xl font-bold">
                         <span class="text-2xl font-extrabold">Conectividad</span>
                     </div>
                 </div>
+
+                <!---------- Sección ---------->
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    <!-- IP Inalámbrica -->
-                    <x-formularios.inalambrico-input>
-                    </x-formularios.inalambrico-input>
+                    <!-- Inalámbricos -->
+                    <!---------- IP Inalámbrica ---------->
+                    <div>
+                        <label class="block text-base font-medium text-gray-900">IP Inalámbrica</label>
+                        <input type="text" name="ip_inalambrica"
+                            value="{{ old('ip_inalambrica', $conectividad->ip_inalambrica) }}"
+                            class="block w-full p-1 text-gray-900 border {{ $errors->has('ip_inalambrica') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            maxlength="15" @disabled($action == 'ver')>
+                        <x-input-error :messages="$errors->get('ip_inalambrica')" class="mt-2" />
+                    </div>
+
+                    <!---------- MAC Inalámbrica ---------->
+                    <div>
+                        <label class="block text-base font-medium text-gray-900">MAC Inalámbrica</label>
+                        <input type="text" name="mac_inalambrica"
+                            value="{{ old('mac_inalambrica', $conectividad->mac_inalambrica) }}"
+                            class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_inalambrica') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            maxlength="17" @disabled($action == 'ver')>
+                        <x-input-error :messages="$errors->get('mac_inalambrica')" class="mt-2" />
+                    </div>
+
+                    <!---------- MAC Bluetooth ---------->
+                    <div>
+                        <label class="block text-base font-medium text-gray-900">MAC Bluetooth</label>
+                        <input type="text" name="mac_bluetooth"
+                            value="{{ old('mac_bluetooth', $conectividad->mac_bluetooth) }}"
+                            class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_bluetooth') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            maxlength="17" @disabled($action == 'ver')>
+                        <x-input-error :messages="$errors->get('mac_bluetooth')" class="mt-2" />
+                    </div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            var ipPattern =
+                                /\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/;
+
+                            var macPattern = /^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$/;
+
+                            const ipInput = document.querySelector('input[name="ip_inalambrica"]');
+                            if (ipInput) {
+                                ipInput.addEventListener('input', function() {
+                                    if (this.value === '') {
+                                        this.classList.remove('border-red-500', 'bg-red-200');
+                                    } else if (!ipPattern.test(this.value)) {
+                                        this.classList.add('border-red-500', 'bg-red-200');
+                                    } else {
+                                        this.classList.remove('border-red-500', 'bg-red-200');
+                                    }
+                                });
+                            }
+
+                            function formatMac(input) {
+                                let value = input.value.replace(/[^0-9A-Fa-f]/g, '');
+                                let mac = '';
+                                for (let i = 0; i < value.length; i++) {
+                                    mac += value[i];
+                                    if ((i % 2 === 1) && i < value.length - 1) {
+                                        mac += ':';
+                                    }
+                                }
+                                input.value = mac.toUpperCase();
+                            }
+
+                            function validateMac(input) {
+                                if (input.value === '') {
+                                    input.classList.remove('border-red-500', 'bg-red-200');
+                                } else if (!macPattern.test(input.value)) {
+                                    input.classList.add('border-red-500', 'bg-red-200');
+                                } else {
+                                    input.classList.remove('border-red-500', 'bg-red-200');
+                                }
+                            }
+
+                            const macInputs = document.querySelectorAll(
+                                'input[name="mac_inalambrica"], input[name="mac_bluetooth"]');
+                            macInputs.forEach(function(macInput) {
+                                macInput.addEventListener('input', function() {
+                                    formatMac(macInput);
+                                    validateMac(macInput);
+                                });
+                            });
+                        });
+                    </script>
+
                 </div>
             </div>
         </div>
@@ -390,21 +476,32 @@
                     <div class="pr-2 pb-1 w-1/4">
                         <label for="input-sistema_operativo" class="block text-base font-medium text-gray-900">Sistema
                             Operativo</label>
-                        <select id="select-sistema_operativo" name="sistema_operativo"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" disabled selected>Seleccionar</option>
-                            <option value="Android" {{ old('Android') == 'Android' ? 'selected' : '' }}>Android
-                            </option>
-                        </select>
+                        @if ($action == 'ver')
+                            <input type="text" name="sistema_operativo"
+                                value="{{ old('sistema_operativo', $software_->sistema_operativo ?? '') }}"
+                                class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                disabled>
+                        @else
+                            <select id="select-sistema_operativo" name="sistema_operativo"
+                                class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option value="Android"
+                                    {{ old('sistema_operativo', $software_->sistema_operativo ?? '') == 'Android' ? 'selected' : '' }}>
+                                    Android
+                                </option>
+                            </select>
+                        @endif
                         <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
+
                     </div>
                     <!-- Versión Sistema Operativo -->
                     <div class="pr-2 w-1/4">
                         <label for="input-version_sistema_operativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
                         <input type="text" name="version_sistema_operativo" id="input-version_sistema_operativo"
-                            value="{{ old('version_sistema_operativo') }}"
-                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">
+                            value="{{ old('version_sistema_operativo', $software_->version_sistema_operativo) }}"
+                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('version_sistema_operativo')" class="mt-2" />
                     </div>
                 </div>
@@ -419,8 +516,9 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="kavi" id="checkbox-kavi" type="checkbox" value="1"
-                                                {{ old('kavi') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            {{ old('kavi', $software_->kavi) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-kavi" title="SICOM, SICOSS, SIMED"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">KAVI</label>
                                         </div>
@@ -435,8 +533,9 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="facthor" id="checkbox-facthor" type="checkbox"
-                                                value="1" {{ old('facthor') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                value="1"  {{ old('facthor', $software_->facthor) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-facthor"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">FACTHOR</label>
                                         </div>
@@ -451,8 +550,9 @@
                                     <li class="w-full border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="tpa" id="checkbox-tpa" type="checkbox" value="1"
-                                                {{ old('tpa') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                            {{ old('tpa', $software_->tpa) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-tpa"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">TPA</label>
                                         </div>
@@ -484,8 +584,9 @@
                                         <div class="flex items-center ps-3">
                                             <input name="limpieza_sopleteado_ext"
                                                 id="checkbox-limpieza_sopleteado_ext" type="checkbox" value="1"
-                                                {{ old('limpieza_sopleteado_ext') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('limpieza_sopleteado_ext', $mantenimiento->limpieza_sopleteado_ext) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-limpieza_sopleteado_ext"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limpieza
                                                 y Sopleteado Externo del Equipo</label>
@@ -494,8 +595,9 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="validar_touch" id="checkbox-validar_touch" type="checkbox"
-                                                value="1" {{ old('validar_touch') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                value="1" {{ old('validar_touch', $mantenimiento->validar_touch) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-validar_touch"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
                                                 Touch Pantalla</label>
@@ -505,8 +607,9 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificacion_bateria" id="checkbox-verificacion_bateria"
                                                 type="checkbox" value="1"
-                                                {{ old('verificacion_bateria') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('verificacion_bateria', $mantenimiento->verificacion_bateria) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-verificacion_bateria"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revision
                                                 de Bateria</label>
@@ -516,8 +619,9 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_sw_actualizado"
                                                 id="checkbox-verificar_sw_actualizado" type="checkbox" value="1"
-                                                {{ old('verificar_sw_actualizado') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('verificar_sw_actualizado', $mantenimiento->verificar_sw_actualizado) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-verificar_sw_actualizado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Software Institucional Actualizado</label>
@@ -533,8 +637,9 @@
                                         <div class="flex items-center ps-3">
                                             <input name="verificar_conector_datos"
                                                 id="checkbox-verificar_conector_datos" type="checkbox" value="1"
-                                                {{ old('verificar_conector_datos') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('verificar_conector_datos', $mantenimiento->verificar_conector_datos) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-verificar_conector_datos"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Estado del Conector de Datos</label>
@@ -544,8 +649,9 @@
                                         <div class="flex items-center ps-3">
                                             <input name="validar_teclado" id="checkbox-validar_teclado"
                                                 type="checkbox" value="1"
-                                                {{ old('validar_teclado') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('validar_teclado', $mantenimiento->validar_teclado) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-validar_teclado"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Validar
                                                 Estado del Teclado</label>
@@ -556,8 +662,9 @@
                                             <input name="equipo_operando_post_servicio"
                                                 id="checkbox-equipo_operando_post_servicio" type="checkbox"
                                                 value="1"
-                                                {{ old('equipo_operando_post_servicio') == '1' ? 'checked' : '' }}
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
+                                                {{ old('equipo_operando_post_servicio', $mantenimiento->equipo_operando_post_servicio) ? 'checked' : '' }}
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                                @disabled($action == 'ver')>
                                             <label for="checkbox-equipo_operando_post_servicio"
                                                 class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Verificar
                                                 Funcionamiento del Equipo Después del Servicio</label>
@@ -572,8 +679,33 @@
         </div>
 
         <!---------- bottom ---------->
-        <x-formularios.form-bottom>
-        </x-formularios.form-bottom>
+        <!---------- Observaciones ---------->
+        <div class="max-w-7xl pb-6 mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
+                <div class="flex justify-between">
+                    <div class="p-2 text-gray-900 text-xl font-bold">
+                        <span class="text-2xl font-extrabold">Observaciones</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-2">
+                    <!-- Observaciones -->
+                    <div class="p-2 w-full">
+                        <textarea name="observaciones"
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            rows="4" @disabled($action == 'ver')>
+                            {{ old('observaciones', $equipo->observaciones) }}</textarea>
+                        <x-input-error :messages="$errors->get('observaciones')" class="mt-2" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!---------- Botón Guardar ---------->
+        <div class="flex justify-center pb-6">
+            <button type="submit"
+                class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">
+                Guardar Registro
+            </button>
+        </div>
     </form>
 </x-app-layout>

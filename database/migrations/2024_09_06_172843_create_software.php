@@ -22,6 +22,9 @@ return new class extends Migration
             $table->integer('visual_appeal')->nullable();
             $table->integer('mysap_r3')->nullable();
             $table->integer('kavi')->nullable();
+            $table->integer('amobile')->nullable();
+            $table->integer('lmobile')->nullable();
+            $table->integer('lhmobile')->nullable();
             $table->integer('facthor')->nullable();
             $table->integer('tpa')->nullable();
             $table->integer('siad')->nullable();

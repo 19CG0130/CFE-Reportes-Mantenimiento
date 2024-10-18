@@ -97,7 +97,7 @@
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
-                                        <div class="flex items-center ps-3">
+                                        <div class="flfex items-center ps-3">
                                             <input name="lmobile" id="checkbox-lmobile" type="checkbox" value="1"
                                                 {{ old('lmobile') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">

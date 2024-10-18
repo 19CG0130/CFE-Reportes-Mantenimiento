@@ -50,10 +50,14 @@ Route::middleware('auth','verified')->group(function () {
         //REGISTRAR
         Route::post('/', [MantenimientoController::class, 'store'])->name("registro_mantenimiento.post");
 
+
         // EDITAR
         Route::get('/editar/{dispositivo}/{id}', [MantenimientoController::class, 'edit'])->name('editar');
         Route::get('/ver/{dispositivo}/{id}', [MantenimientoController::class, 'ver'])->name('ver');
-
+        Route::put('/registro-mantenimiento/{id}', [MantenimientoController::class, 'update'])->name("registro_mantenimiento.update");
+        
+        
+        
         //EXPORTAR A PDF
         Route::get('/exportar_a_PDF/{dispositivo}/{id}', [MantenimientoController::class, 'pdf_generator_get'])
             ->name('exportar_a_PDF');
