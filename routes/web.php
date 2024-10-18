@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware('auth','verified')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -22,7 +22,7 @@ Route::middleware('auth','verified')->group(function () {
     //--------------------------registro_mantenimiento--------------------------
     Route::prefix('registro_mantenimiento')->group(function () {
 
-        //LISTA REGISTROS MANNTENIMIENTOS
+        //LISTA REGISTROS
         Route::get('/', [MantenimientoController::class, 'index'])
             ->name('dashboard');
 
@@ -52,6 +52,7 @@ Route::middleware('auth','verified')->group(function () {
 
 
         // EDITAR
+        //EDITAR & VER REGISTTROS
         Route::get('/editar/{dispositivo}/{id}', [MantenimientoController::class, 'edit'])->name('editar');
         Route::get('/ver/{dispositivo}/{id}', [MantenimientoController::class, 'ver'])->name('ver');
         Route::put('/registro-mantenimiento/{id}', [MantenimientoController::class, 'update'])->name("registro_mantenimiento.update");
@@ -74,6 +75,4 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function () {
 });
 
 //RUTAS EMAIL VERIFY
-
-
 require __DIR__ . '/auth.php';
