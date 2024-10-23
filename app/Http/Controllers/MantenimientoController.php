@@ -94,7 +94,8 @@ class MantenimientoController extends Controller
         $search = $request->input('search');
 
         if (empty($search)) {
-            $registros = Equipos::all();
+            $registros = Equipos::latest()->paginate(10);
+            //Equipos::latest()
         } else {
             $registros = Equipos::where(function ($query) use ($search) {
                 $query->where('dispositivo', 'LIKE', "%$search%")
@@ -107,7 +108,7 @@ class MantenimientoController extends Controller
                 //    $query->where('name', 'LIKE', "%$search%");
                 //})
 
-                ->get();
+                ->latest()->paginate(10);
         }
 
         return view('dashboard', compact('registros', 'search'));
