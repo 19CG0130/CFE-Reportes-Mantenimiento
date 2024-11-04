@@ -18,10 +18,16 @@ class MantenimientoController extends Controller
 
     public function index()
     {
-        $registros = Equipos::latest()->paginate(10);
-
+        if (request()->has('days') && request()->days != 0) {
+            $days = (int) request()->days;
+            $registros = Equipos::where('fecha', '>=', now()->subDays($days))->latest()->paginate(10);
+        } else {
+            $registros = Equipos::latest()->paginate(10);
+        }
+    
         return view('dashboard', compact('registros'));
     }
+    
 
     public function edit($dispositivo, $id)
     {

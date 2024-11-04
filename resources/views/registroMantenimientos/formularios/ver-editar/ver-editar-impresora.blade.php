@@ -293,7 +293,7 @@
                                     Preventivo
                                 </option>
                                 <option value="Correctivo"
-                                    {{ old('servicio', $equipo->servicio ?? '') == 'Preventivo' ? 'selected' : '' }}>
+                                    {{ old('servicio', $equipo->servicio ?? '') == 'Correctivo' ? 'selected' : '' }}>
                                     Correctivo
                                 </option>
                             </select>

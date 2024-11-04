@@ -8,73 +8,18 @@
                     <div class="flex flex-wrap items-center justify-between pb-4">
                         <!-- Ordenar por fecha -->
                         <div>
-                            <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio"
-                                class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                                type="button">
-                                <svg class="w-6 h-6 px-1 text-gray-500 dark:text-gray-400 me-3" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
-                                </svg>
-                                Ordenar por fecha
-                                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
+                            <form class="max-w-sm mx-auto">
+                                <select name="days" onchange="this.form.submit()"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="" disabled selected>Ordenar por fecha</option>
+                                    <option value="1" {{ (request()->days && request()->days == 1) ? 'selected' : '' }}>Último día</option>
+                                    <option value="7" {{ (request()->days && request()->days == 7) ? 'selected' : '' }}>Última semana</option>
+                                    <option value="30" {{ (request()->days && request()->days == 30) ? 'selected' : '' }}>Último mes</option>
+                                    <option value="0" {{ (request()->days && request()->days == 0) ? 'selected' : '' }}>Mostrar Todos</option>
+                                </select>
+                            </form>
                         </div>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownRadio"
-                            class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                            data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top"
-                            style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
-                            <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
-                                aria-labelledby="dropdownRadioButton">
-                                <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="dia" type="radio" value="" name="filter-radio"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="dia"
-                                            class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-                                            {{ __('Último día') }}
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input checked="" id="semana" type="radio" value=""
-                                            name="filter-radio"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="semana"
-                                            class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-                                            {{ __('Última semana ') }}
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="mes" type="radio" value="" name="filter-radio"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="mes"
-                                            class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-                                            {{ __('Último mes') }}
-                                        </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="todos" type="radio" value="" name="filter-radio"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="todos"
-                                            class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-                                            {{ __('Todos') }}
-                                        </label>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
+                        
                         <!--Boton Modal Seleccionar dispositivo-->
                         <div>
                             <!-- Modal toggle -->
@@ -346,10 +291,10 @@
                                         <!-- Editar registro -->
                                         <a href="{{ route('editar', [$registro->dispositivo, $registro->id]) }}"
                                             title="Editar">
-                                            <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round">
+                                            <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
                                                 <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
                                                 <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
@@ -359,9 +304,9 @@
                                         <!-- Ver registro -->
                                         <a href="{{ route('ver', [$registro->dispositivo, $registro->id]) }}"
                                             title="Ver">
-                                            <svg class="text-green-500 w-8 h-8 hover:text-green-700 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
+                                            <svg class="text-green-500 w-8 h-8 hover:text-green-700 transition-colors duration-200"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -371,9 +316,9 @@
                                         <!-- Exportar a PDF -->
                                         <a href="{{ route('exportar_a_PDF', [$registro->dispositivo, $registro->id]) }}"
                                             title="Exportar a PDF">
-                                            <svg class="text-blue-500 w-8 h-8 hover:text-blue-900 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="text-blue-500 w-8 h-8 hover:text-blue-900 transition-colors duration-200"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
                                                     clip-rule="evenodd" />
