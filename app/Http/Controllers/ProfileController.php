@@ -20,15 +20,14 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        
+
         $users = User::paginate(10);
-        
+
         return view('admin.usuarios', compact('users'));
     }
 
     public function edit(Request $request): View
     {
-       
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
@@ -78,23 +77,24 @@ class ProfileController extends Controller
 
         $user->delete();
 
-        return redirect()->route('usuarios')->with('success', 'Usuario eliminado correctamente');   
+        return redirect()->route('usuarios')->with('success', 'Usuario eliminado correctamente');
     }
 
+    //Editar demas usuarios
     public function editUser(Request $request, $id)
     {
-       
+
         $user = User::findOrFail($id);
-    
+
         $request->validate([
             'usertype' => ['required'],
-            'username' => ['required', 'string', 'lowercase', 'max:255', 'unique:'.User::class.',username,'.$user->id, 'regex:/^[a-z0-9_]+$/u'],
+            'username' => ['required', 'string', 'lowercase', 'max:255', 'unique:' . User::class . ',username,' . $user->id, 'regex:/^[a-z0-9_]+$/u'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class.',email,'.$user->id],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class . ',email,' . $user->id],
             'password' => ['nullable', 'confirmed', Password::defaults()],
         ]);
-    
+
         $user->update([
             'usertype' => $request->usertype,
             'username' => $request->username,
@@ -102,14 +102,12 @@ class ProfileController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
         ]);
-    
+
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
             $user->save();
         }
-    
+
         return redirect()->route('usuarios')->with('success', 'Usuario actualizado correctamente');
     }
-    
-
 }
