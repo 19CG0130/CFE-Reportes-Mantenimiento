@@ -6,7 +6,7 @@
         <x-formularios.form-mantenimiento titulo="Mantenimiento de Otro Dispositivo">
             <x-slot name="slot">
                 <!-- Uso que se le da al equipo -->
-                <div class="pr-2 pb-1 w-1/4">
+                <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                     <label class="block text-base font-medium text-gray-900">Uso que se le
                         da al equipo</label>
                     <select id="select-uso" name="uso"
@@ -23,7 +23,7 @@
             </x-slot>
             <x-slot name="otroDispositivo">
                 <!-- Tipo de Dispositivo -->
-                <div class="pr-2 w-1/4">
+                <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                     <label class="block text-base font-medium text-gray-900">Tipo de
                         Dispositivo</label>
                     <input type="text" name="dispositivo" value="{{ old('dispositivo') }}"

@@ -6,10 +6,12 @@
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <!---------- Boton Cancelar ---------->
-            <a href="{{ route('dashboard') }}"
-                class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                Cancelar
-            </a>
+            <div class="flex ml-2">
+                <a href="{{ route('dashboard') }}"
+                    class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                    Cancelar
+                </a>
+            </div>
 
             <!---------- Sección ---------->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
@@ -38,7 +40,7 @@
                 <div class="flex flex-wrap">
 
                     <!---------- Zona ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Zona</label>
                         @if ($action == 'ver')
                             <input type="text" name="zona" value="{{ old('zona', $equipo->zona ?? '') }}"
@@ -58,7 +60,7 @@
                     </div>
 
                     <!---------- Departamento ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Departamento</label>
                         @if ($action == 'ver')
                             <input type="text" name="departamento"
@@ -103,7 +105,7 @@
                     </div>
 
                     <!---------- Uso que se le da al equipo ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-uso" class="block text-base font-medium text-gray-900">Uso que se le da al
                             equipo</label>
                         @if ($action == 'ver')
@@ -128,7 +130,7 @@
                     </div>
 
                     <!---------- Hora Inicio / Fin ---------->
-                    <div class="pr-2 pb-1 flex w-1/4">
+                    <div class="pr-2 pb-1 flex w-full sm:w-1/2 md:w-1/4">
                         <!-- Hora de Inicio -->
                         <div class="w-1/2 pr-2">
                             <label class="block text-base font-medium text-gray-900">Inicio</label>
@@ -170,7 +172,7 @@
                     </div>
 
                     <!---------- Responsable del Mantenimiento ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">
                             Responsable del Mantenimiento</label>
                         <div class="relative">
@@ -193,7 +195,7 @@
                     </div>
 
                     <!---------- Responsable del Equipo ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Responsable del Equipo</label>
                         <input type="text" name="responsable_equipo"
                             value="{{ old('responsable_equipo', $equipo->responsable_equipo ?? '') }}"
@@ -203,7 +205,7 @@
                     </div>
 
                     <!---------- Puesto ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Puesto</label>
                         @if ($action == 'ver')
                             <input type="text" name="puesto" value="{{ old('puesto', $equipo->puesto ?? '') }}"
@@ -265,7 +267,7 @@
                     </div>
 
                     <!---------- RPE ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">RPE</label>
                         <input type="text" name="rpe" value="{{ old('rpe', $equipo->rpe ?? '') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
@@ -275,7 +277,7 @@
 
 
                     <!---------- Tipo de Dispositivo ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Tipo de
                             Dispositivo</label>
                         <input type="text" name="dispositivo" value="{{ old('dispositivo', $equipo->dispositivo ?? '') }}"

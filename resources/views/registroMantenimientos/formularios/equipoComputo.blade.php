@@ -5,7 +5,7 @@
         <!---------- Mantenimiento Equipo de Computo ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Equipo de Computo">
             <!-- Uso que se le da al equipo -->
-            <div class="pr-2 pb-1 w-1/4">
+            <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                 <label for="input-uso" class="block text-base font-medium text-gray-900">Uso que se le
                     da al equipo</label>
                 <select id="select-uso" name="uso"
@@ -20,7 +20,7 @@
             </div>
             <x-slot name="otroDispositivo">
                 <!-- Tipo de Dispositivo -->
-                <div class="pr-2 w-1/4">
+                <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                     <label class="block text-base font-medium text-gray-900">Tipo de
                         Dispositivo</label>
                     <select type="text" name="dispositivo" value="{{ old('dispositivo') }}"
@@ -83,7 +83,7 @@
                 </div>
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-sistema_operativo" class="block text-base font-medium text-gray-900">
                             Sistema Operativo</label>
                         <select id="select-sistema_operativo" name="sistema_operativo"
@@ -100,7 +100,7 @@
                         <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Arquitectura -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-sistema_operativo"
                             class="block text-base font-medium text-gray-900">arquitectura</label>
                         <fieldset class="mt-2">
@@ -123,7 +123,7 @@
                     </div>
 
                     <!-- Versión Sistema Operativo -->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-version_sistema_operativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
                         <input type="text" name="version_sistema_operativo" id="input-version_sistema_operativo"
@@ -132,7 +132,7 @@
                         <x-input-error :messages="$errors->get('version_sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Office -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="inputOffice" class="block text-base font-medium text-gray-900">Office</label>
                         <select id="select-office" name="office"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -147,7 +147,7 @@
                         <x-input-error :messages="$errors->get('office')" class="mt-2" />
                     </div>
                     <!-- Antivirus -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-Antivirus" class="block text-base font-medium text-gray-900">Antivirus</label>
                         <select id="select-antivirus" name="antivirus"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -158,7 +158,7 @@
                         <x-input-error :messages="$errors->get('antivirus')" class="mt-2" />
                     </div>
                     <!-- Antivirus Versión -->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-antivirus_version"
                             class="block text-base font-medium text-gray-900">Antivirus
                             Versión</label>

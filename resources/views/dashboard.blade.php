@@ -5,21 +5,29 @@
             <div class="p-6 text-gray-900 dark:text-gray-100">
                 <div class="relative">
                     <!-- Seccion Superior -->
-                    <div class="flex flex-wrap items-center justify-between pb-4">
+                    <div class="flex flex-wrap items-center justify-between pb-4 space-y-4 md:space-y-0">
                         <!-- Ordenar por fecha -->
                         <div>
                             <form class="max-w-sm mx-auto">
                                 <select name="days" onchange="this.form.submit()"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option value="" disabled selected>Ordenar por fecha</option>
-                                    <option value="1" {{ (request()->days && request()->days == 1) ? 'selected' : '' }}>Último día</option>
-                                    <option value="7" {{ (request()->days && request()->days == 7) ? 'selected' : '' }}>Última semana</option>
-                                    <option value="30" {{ (request()->days && request()->days == 30) ? 'selected' : '' }}>Último mes</option>
-                                    <option value="0" {{ (request()->days && request()->days == 0) ? 'selected' : '' }}>Mostrar Todos</option>
+                                    class="bg-gray-50 border px-4 py-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="" disabled selected>ORDENAR POR FECHA</option>
+                                    <option value="1"
+                                        {{ request()->days && request()->days == 1 ? 'selected' : '' }}>Último día
+                                    </option>
+                                    <option value="7"
+                                        {{ request()->days && request()->days == 7 ? 'selected' : '' }}>Última semana
+                                    </option>
+                                    <option value="30"
+                                        {{ request()->days && request()->days == 30 ? 'selected' : '' }}>Último mes
+                                    </option>
+                                    <option value="0"
+                                        {{ request()->days && request()->days == 0 ? 'selected' : '' }}>Mostrar Todos
+                                    </option>
                                 </select>
                             </form>
                         </div>
-                        
+
                         <!--Boton Modal Seleccionar dispositivo-->
                         <div>
                             <!-- Modal toggle -->
@@ -50,7 +58,7 @@
                                                         stroke-linejoin="round" stroke-width="2"
                                                         d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                                 </svg>
-                                                <span class="sr-only">Close modal</span>
+                                                <span class="sr-only">Cerrar</span>
                                             </button>
                                         </div>
                                         <!-- Modal body -->
@@ -242,111 +250,121 @@
                 </div>
 
                 <!-- Tabla Registros -->
-                <table class="w-full shadow-md text-base text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead
-                        class="text-xs text-gray-200 uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400 rounded-lg">
-                        <tr class="divide-x divide-gray-500">
-                            <th scope="col" class="px-3 py-3 text-center">
-                                Fecha
-                            </th>
-                            <th scope="col" class="px-3 py-3 text-center">
-                                Dispositivo
-                            </th>
-                            <th scope="col" class="px-3 py-3 text-center">
-                                Responsable del Mantenimiento
-                            </th>
-                            <th scope="col" class="px-3 py-3 text-center">
-                                Número de Serie
-                            </th>
-                            <th scope="col" class="px-3 py-3 text-center">
-                                rpe
-                            </th>
-                            <th scope="col" class="px-3 py-3 text-center">
-                                Acciones
-                            </th>
-                        </tr>
-                    </thead>
+                <div class="relative overflow-x-auto">
+                    <table
+                        class="w-full shadow-md text-base text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead
+                            class="text-xs text-gray-200 uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400 rounded-lg">
+                            <tr class="divide-x divide-gray-500">
+                                <th scope="col" class="px-3 py-3 text-center">
+                                    Fecha
+                                </th>
+                                <th scope="col" class="px-3 py-3 text-center">
+                                    Dispositivo
+                                </th>
+                                <th scope="col" class="px-3 py-3 text-center">
+                                    Responsable del Mantenimiento
+                                </th>
+                                <th scope="col" class="px-3 py-3 text-center">
+                                    Número de Serie
+                                </th>
+                                <th scope="col" class="px-3 py-3 text-center">
+                                    rpe
+                                </th>
+                                <th scope="col" class="px-3 py-3 text-center">
+                                    Acciones
+                                </th>
+                            </tr>
+                        </thead>
 
-                    <tbody class="divide-y divide-gray-200">
-                        <!-- Registro -->
-                        @foreach ($registros as $registro)
-                            <tr class="even:bg-gray-100 odd:bg-white bg-white dark:bg-gray-800 dark:border-gray-700">
-                                <td class="px-3 py-3 text-center">
-                                    {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
-                                </td>
-                                <td class="px-3 py-3 text-center uppercase">
-                                    {{ $registro->dispositivo }}
-                                </td>
-                                <td class="px-3 py-3 text-center uppercase">
-                                    {{ $registro->responsable_mantenimiento }}
-                                </td>
-                                <td class="px-3 py-3 text-center uppercase">
-                                    {{ $registro->serie }}
-                                </td>
-                                <td class="px-3 py-3 text-center uppercase">
-                                    {{ $registro->rpe }}
-                                </td>
-                                <td class="flex px-3 py-3 items-center justify-center space-x-2">
-                                    <div class="flex justify-center space-x-2">
-                                        <!-- Editar registro -->
-                                        <a href="{{ route('editar', [$registro->dispositivo, $registro->id]) }}"
-                                            title="Editar">
-                                            <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200"
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" />
-                                                <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                                <line x1="16" y1="5" x2="19" y2="8" />
-                                            </svg>
-                                        </a>
-                                        <!-- Ver registro -->
-                                        <a href="{{ route('ver', [$registro->dispositivo, $registro->id]) }}"
-                                            title="Ver">
-                                            <svg class="text-green-500 w-8 h-8 hover:text-green-700 transition-colors duration-200"
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                        </a>
-                                        <!-- Exportar a PDF -->
-                                        <a href="{{ route('exportar_a_PDF', [$registro->dispositivo, $registro->id]) }}"
-                                            title="Exportar a PDF">
-                                            <svg class="text-blue-500 w-8 h-8 hover:text-blue-900 transition-colors duration-200"
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd"
-                                                    d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </a>
-                                        <!-- Eliminar registro -->
-                                        <button type="submit" title="Eliminar"
-                                            data-modal-target="eliminar-modal-{{ $registro->id }}"
-                                            data-modal-toggle="eliminar-modal-{{ $registro->id }}">
-                                            <svg class="text-red-500 w-8 h-8 hover:text-red-700 transition-colors duration-200"
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" />
-                                                <line x1="4" y1="7" x2="20" y2="7" />
-                                                <line x1="10" y1="11" x2="10" y2="17" />
-                                                <line x1="14" y1="11" x2="14" y2="17" />
-                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                            </svg>
-                                        </button>
+                        <tbody class="divide-y divide-gray-200">
+                            <!-- Registro -->
+                            @foreach ($registros as $registro)
+                                <tr
+                                    class="even:bg-gray-100 odd:bg-white bg-white dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-3 py-3 text-center">
+                                        {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
+                                    </td>
+                                    <td class="px-3 py-3 text-center uppercase">
+                                        {{ $registro->dispositivo }}
+                                    </td>
+                                    <td class="px-3 py-3 text-center uppercase">
+                                        {{ $registro->responsable_mantenimiento }}
+                                    </td>
+                                    <td class="px-3 py-3 text-center uppercase">
+                                        {{ $registro->serie }}
+                                    </td>
+                                    <td class="px-3 py-3 text-center uppercase">
+                                        {{ $registro->rpe }}
+                                    </td>
+                                    <td class="flex px-3 py-3 items-center justify-center space-x-2">
+                                        <div class="flex justify-center space-x-2">
+                                            <!-- Editar registro -->
+                                            <a href="{{ route('editar', [$registro->dispositivo, $registro->id]) }}"
+                                                title="Editar">
+                                                <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <path
+                                                        d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                                                    <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                                                    <line x1="16" y1="5" x2="19"
+                                                        y2="8" />
+                                                </svg>
+                                            </a>
+                                            <!-- Ver registro -->
+                                            <a href="{{ route('ver', [$registro->dispositivo, $registro->id]) }}"
+                                                title="Ver">
+                                                <svg class="text-green-500 w-8 h-8 hover:text-green-700 transition-colors duration-200"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                </svg>
+                                            </a>
+                                            <!-- Exportar a PDF -->
+                                            <a href="{{ route('exportar_a_PDF', [$registro->dispositivo, $registro->id]) }}"
+                                                title="Exportar a PDF">
+                                                <svg class="text-blue-500 w-8 h-8 hover:text-blue-900 transition-colors duration-200"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </a>
+                                            <!-- Eliminar registro -->
+                                            <button type="submit" title="Eliminar"
+                                                data-modal-target="eliminar-modal-{{ $registro->id }}"
+                                                data-modal-toggle="eliminar-modal-{{ $registro->id }}">
+                                                <svg class="text-red-500 w-8 h-8 hover:text-red-700 transition-colors duration-200"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <line x1="4" y1="7" x2="20"
+                                                        y2="7" />
+                                                    <line x1="10" y1="11" x2="10"
+                                                        y2="17" />
+                                                    <line x1="14" y1="11" x2="14"
+                                                        y2="17" />
+                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                </svg>
+                                            </button>
 
-                                    </div>
-                                </td>
-                        @endforeach
-                        </tr>
-                    </tbody>
-                </table>
+                                        </div>
+                                    </td>
+                            @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <!---------- foreach modal eliminar ---------->
                 @foreach ($registros as $registro)

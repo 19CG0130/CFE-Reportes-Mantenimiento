@@ -6,10 +6,12 @@
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <!---------- Boton Cancelar ---------->
-            <a href="{{ route('dashboard') }}"
-                class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                Cancelar
-            </a>
+            <div class="flex ml-2">
+                <a href="{{ route('dashboard') }}"
+                    class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                    Cancelar
+                </a>
+            </div>
 
             <!---------- Sección ---------->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
@@ -38,7 +40,7 @@
                 <div class="flex flex-wrap">
 
                     <!---------- Zona ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Zona</label>
                         @if ($action == 'ver')
                             <input type="text" name="zona" value="{{ old('zona', $equipo->zona ?? '') }}"
@@ -58,7 +60,7 @@
                     </div>
 
                     <!---------- Departamento ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Departamento</label>
                         @if ($action == 'ver')
                             <input type="text" name="departamento"
@@ -103,7 +105,7 @@
                     </div>
 
                     <!---------- Uso que se le da al equipo ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-uso" class="block text-base font-medium text-gray-900">Uso que se le da al
                             equipo</label>
                         @if ($action == 'ver')
@@ -128,7 +130,7 @@
                     </div>
 
                     <!---------- Hora Inicio / Fin ---------->
-                    <div class="pr-2 pb-1 flex w-1/4">
+                    <div class="pr-2 pb-1 flex w-full sm:w-1/2 md:w-1/4">
                         <!-- Hora de Inicio -->
                         <div class="w-1/2 pr-2">
                             <label class="block text-base font-medium text-gray-900">Inicio</label>
@@ -171,7 +173,7 @@
                     </div>
 
                     <!---------- Responsable del Mantenimiento ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">
                             Responsable del Mantenimiento</label>
                         <div class="relative">
@@ -194,7 +196,7 @@
                     </div>
 
                     <!---------- Responsable del Equipo ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Responsable del Equipo</label>
                         <input type="text" name="responsable_equipo"
                             value="{{ old('responsable_equipo', $equipo->responsable_equipo ?? '') }}"
@@ -205,7 +207,7 @@
 
 
                     <!---------- Puesto ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Puesto</label>
                         @if ($action == 'ver')
                             <input type="text" name="puesto" value="{{ old('puesto', $equipo->puesto ?? '') }}"
@@ -267,7 +269,7 @@
                     </div>
 
                     <!---------- RPE ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">RPE</label>
                         <input type="text" name="rpe" value="{{ old('rpe', $equipo->rpe ?? '') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
@@ -276,7 +278,7 @@
                     </div>
 
                     <!---------- Tipo de Dispositivo ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Tipo de Dispositivo</label>
                         @if ($action == 'ver')
                             <input type="text" name="dispositivo"
@@ -411,7 +413,8 @@
                         <!---------- IP Ethernet ---------->
                         <div>
                             <label class="block text-base font-medium text-gray-900">IP Ethernet</label>
-                            <input type="text" name="ip_ethernet" value="{{ old('ip_ethernet', $conectividad->ip_ethernet) }}"
+                            <input type="text" name="ip_ethernet"
+                                value="{{ old('ip_ethernet', $conectividad->ip_ethernet) }}"
                                 class="block w-full p-1 text-gray-900 border {{ $errors->has('ip_ethernet') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                                 maxlength="15" @disabled($action == 'ver')>
                             <x-input-error :messages="$errors->get('ip_ethernet')" class="mt-2" />
@@ -420,7 +423,8 @@
                         <!---------- MAC Ethernet ---------->
                         <div>
                             <label class="block text-base font-medium text-gray-900">MAC Ethernet</label>
-                            <input type="text" name="mac_ethernet" value="{{ old('mac_ethernet', $conectividad->mac_ethernet) }}"
+                            <input type="text" name="mac_ethernet"
+                                value="{{ old('mac_ethernet', $conectividad->mac_ethernet) }}"
                                 class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_ethernet') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                                 maxlength="17" @disabled($action == 'ver')>
                             <x-input-error :messages="$errors->get('mac_ethernet')" class="mt-2" />
@@ -483,7 +487,8 @@
                     <!---------- IP Inalámbrica ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">IP Inalámbrica</label>
-                        <input type="text" name="ip_inalambrica" value="{{ old('ip_inalambrica', $conectividad->ip_inalambrica) }}"
+                        <input type="text" name="ip_inalambrica"
+                            value="{{ old('ip_inalambrica', $conectividad->ip_inalambrica) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('ip_inalambrica') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                             maxlength="15" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('ip_inalambrica')" class="mt-2" />
@@ -492,7 +497,8 @@
                     <!---------- MAC Inalámbrica ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">MAC Inalámbrica</label>
-                        <input type="text" name="mac_inalambrica" value="{{ old('mac_inalambrica', $conectividad->mac_inalambrica) }}"
+                        <input type="text" name="mac_inalambrica"
+                            value="{{ old('mac_inalambrica', $conectividad->mac_inalambrica) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_inalambrica') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                             maxlength="17" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('mac_inalambrica')" class="mt-2" />
@@ -501,7 +507,8 @@
                     <!---------- MAC Bluetooth ---------->
                     <div>
                         <label class="block text-base font-medium text-gray-900">MAC Bluetooth</label>
-                        <input type="text" name="mac_bluetooth" value="{{ old('mac_bluetooth',$conectividad->mac_inalambrica) }}"
+                        <input type="text" name="mac_bluetooth"
+                            value="{{ old('mac_bluetooth', $conectividad->mac_inalambrica) }}"
                             class="block w-full p-1 text-gray-900 border {{ $errors->has('mac_bluetooth') ? 'border-red-500 bg-red-200' : 'border-gray-300' }} rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                             maxlength="17" @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('mac_bluetooth')" class="mt-2" />
@@ -575,7 +582,7 @@
                 </div>
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-sistema_operativo" class="block text-base font-medium text-gray-900">
                             Sistema Operativo</label>
                         @if ($action == 'ver')
@@ -585,21 +592,26 @@
                                 disabled>
                         @else
                             <select id="select-sistema_operativo" name="sistema_operativo"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" disabled selected>Seleccionar</option>
-                            <option value="Windows" {{ old('sistema_operativo', $software_->sistema_operativo) == 'Windows' ? 'selected' : '' }}>
-                                Windows
-                            </option>
-                            <option value="MacOS" {{ old('sistema_operativo',$software_->sistema_operativo) == 'MacOS' ? 'selected' : '' }}>MacOS
-                            </option>
-                            <option value="Linux" {{ old('sistema_operativo',$software_->sistema_operativo) == 'Linux' ? 'selected' : '' }}>Linux
-                            </option>
+                                class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option value="Windows"
+                                    {{ old('sistema_operativo', $software_->sistema_operativo) == 'Windows' ? 'selected' : '' }}>
+                                    Windows
+                                </option>
+                                <option value="MacOS"
+                                    {{ old('sistema_operativo', $software_->sistema_operativo) == 'MacOS' ? 'selected' : '' }}>
+                                    MacOS
+                                </option>
+                                <option value="Linux"
+                                    {{ old('sistema_operativo', $software_->sistema_operativo) == 'Linux' ? 'selected' : '' }}>
+                                    Linux
+                                </option>
                             </select>
-                        @endif    
+                        @endif
                         <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Arquitectura -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-sistema_operativo"
                             class="block text-base font-medium text-gray-900">arquitectura</label>
                         <fieldset class="mt-2">
@@ -607,12 +619,14 @@
                             <div class="flex items-center">
                                 <input id="arquitectura-option-1" type="radio" name="arquitectura" value="x32"
                                     class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                                    {{ old('arquitectura', $software_->arquitectura) ? 'checked' : '' }} @disabled($action == 'ver')>
+                                    {{ old('arquitectura', $software_->arquitectura) ? 'checked' : '' }}
+                                    @disabled($action == 'ver')>
                                 <label for="arquitectura-option-1"
                                     class="block ms-1 pr-2 text-sm font-medium text-gray-900 dark:text-gray-300">x32</label>
                                 <input id="arquitectura-option-2" type="radio" name="arquitectura" value="x64"
                                     class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                                    {{ old('arquitectura', $software_->arquitectura) ? 'checked' : '' }} @disabled($action == 'ver')>
+                                    {{ old('arquitectura', $software_->arquitectura) ? 'checked' : '' }}
+                                    @disabled($action == 'ver')>
                                 <label for="arquitectura-option-2"
                                     class="block ms-1 text-sm font-medium text-gray-900 dark:text-gray-300">x64</label>
                             </div>
@@ -621,51 +635,51 @@
                     </div>
 
                     <!-- Versión Sistema Operativo -->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-version_sistema_operativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
-                            <input type="text" name="version_sistema_operativo"
-                                id="input-version_sistema_operativo"
-                                value="{{ old('version_sistema_operativo', $software_->version_sistema_operativo ?? '') }}"
-                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
-                                @disabled($action == 'ver')>
+                        <input type="text" name="version_sistema_operativo" id="input-version_sistema_operativo"
+                            value="{{ old('version_sistema_operativo', $software_->version_sistema_operativo ?? '') }}"
+                            class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                            @disabled($action == 'ver')>
                         <x-input-error :messages="$errors->get('version_sistema_operativo')" class="mt-2" />
                     </div>
 
 
                     <!-- Office -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="inputOffice" class="block text-base font-medium text-gray-900">Office</label>
                         @if ($action == 'ver')
-                            <input type="text" name="office"
-                                id="input-office"
+                            <input type="text" name="office" id="input-office"
                                 value="{{ old('office', $software_->office ?? '') }}"
                                 class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                                 disabled>
                         @else
-                        <select id="select-office" name="office"
-                            class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" disabled selected>Seleccionar</option>
-                            <option value="Office 365" {{ old('office',$software_->office) == 'Office 365' ? 'selected' : '' }}>Office
-                                365
-                            </option>
-                            <option value="Office 2016" {{ old('office',$software_->office) == 'Office 2016' ? 'selected' : '' }}>Office
-                                2016
-                            </option>
-                            <option value="Office 2019" {{ old('office',$software_->office) == 'Office 2019' ? 'selected' : '' }}>Office
-                                2019
-                            </option>
-                        </select>
+                            <select id="select-office" name="office"
+                                class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option value="Office 365"
+                                    {{ old('office', $software_->office) == 'Office 365' ? 'selected' : '' }}>Office
+                                    365
+                                </option>
+                                <option value="Office 2016"
+                                    {{ old('office', $software_->office) == 'Office 2016' ? 'selected' : '' }}>Office
+                                    2016
+                                </option>
+                                <option value="Office 2019"
+                                    {{ old('office', $software_->office) == 'Office 2019' ? 'selected' : '' }}>Office
+                                    2019
+                                </option>
+                            </select>
                         @endif
                         <x-input-error :messages="$errors->get('office')" class="mt-2" />
                     </div>
                     <!-- Antivirus -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-Antivirus"
                             class="block text-base font-medium text-gray-900">Antivirus</label>
                         @if ($action == 'ver')
-                            <input type="text" name="antivirus"
-                                id="input-antivirus"
+                            <input type="text" name="antivirus" id="input-antivirus"
                                 value="{{ old('antivirus', $software->antivirus ?? '') }}"
                                 class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                                 disabled>
@@ -673,18 +687,19 @@
                             <select id="select-antivirus" name="antivirus"
                                 class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="" disabled selected>Seleccionar</option>
-                                <option value="Institucional" {{ old('antivirus',$software_->antivirus) == 'Institucional' ? 'selected' : '' }}>
+                                <option value="Institucional"
+                                    {{ old('antivirus', $software_->antivirus) == 'Institucional' ? 'selected' : '' }}>
                                     Institucional</option>
                             </select>
                         @endif
                         <x-input-error :messages="$errors->get('antivirus')" class="mt-2" />
                     </div>
                     <!-- Antivirus Versión -->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-antivirus_version"
                             class="block text-base font-medium text-gray-900">Antivirus
                             Versión</label>
-                        <input  type="text" name="antivirus_version" id="input-antivirus_version"
+                        <input type="text" name="antivirus_version" id="input-antivirus_version"
                             value="{{ old('antivirus_version', $software_->antivirus_version) }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                             @disabled($action == 'ver')>
@@ -751,7 +766,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="autocad" id="checkbox-autocad" type="checkbox"
-                                                value="1" {{ old('autocad', $software_->autocad) ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('autocad', $software_->autocad) ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
                                                 @disabled($action == 'ver')>
                                             <label for="checkbox-autocad"
@@ -761,7 +777,8 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="sinergy" id="checkbox-sinergy" type="checkbox"
-                                                value="1" {{ old('sinergy', $software_->sinergy) ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('sinergy', $software_->sinergy) ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
                                                 @disabled($action == 'ver')>
                                             <label for="checkbox-sinergy"
@@ -778,7 +795,8 @@
                                     <li class="w-full border-b border-gray-200 dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="mysap_r3" id="checkbox-mysap_r3" type="checkbox"
-                                                value="1" {{ old('mysap_r3', $software_->mysap_r3) ? 'checked' : '' }}
+                                                value="1"
+                                                {{ old('mysap_r3', $software_->mysap_r3) ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
                                                 @disabled($action == 'ver')>
                                             <label for="checkbox-mysap_r3"
@@ -789,7 +807,7 @@
                                     <li class="w-full dark:border-gray-600">
                                         <div class="flex items-center ps-3">
                                             <input name="lotus" id="checkbox-lotus" type="checkbox" value="1"
-                                            {{ old('lotus', $software_->lotus) ? 'checked' : '' }}
+                                                {{ old('lotus', $software_->lotus) ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500"
                                                 @disabled($action == 'ver')>
                                             <label for="checkbox-lotus"

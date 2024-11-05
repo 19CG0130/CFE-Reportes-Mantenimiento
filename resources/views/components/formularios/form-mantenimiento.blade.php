@@ -1,10 +1,12 @@
         <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <!---------- Boton Cancelar ---------->
-            <a href="{{ route('dashboard') }}"
-                class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
-                Cancelar
-            </a>
+            <div class="flex ml-2">
+                <a href="{{ route('dashboard') }}"
+                    class="mb-2 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                    Cancelar
+                </a>
+            </div>
 
             <!---------- Sección ---------->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg relative p-2">
@@ -15,14 +17,16 @@
                         <span class="text-2xl font-extrabold">{{ $titulo }}</span>
                     </div>
 
-                    <!---------- Fecha ---------->
-                    <div class="pl-2">
-                        <div class="relative max-w-sm">
-                            <input type="date" name="fecha" value="{{ date('Y-m-d') }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <x-input-error :messages="$errors->get('fecha')" class="mt-2" />
-                        </div>
-                    </div>
+<!---------- Fecha ---------->
+<div class="pl-2">
+    <div class="relative max-w-sm">
+        <input type="date" name="fecha" 
+            value="{{ old('fecha', date('Y-m-d')) }}" 
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <x-input-error :messages="$errors->get('fecha')" class="mt-2" />
+    </div>
+</div>
+
 
                 </div>
 
@@ -30,7 +34,7 @@
                 <div class="flex flex-wrap">
 
                     <!---------- Zona ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Zona</label>
                         <select name="zona"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -43,24 +47,27 @@
                     </div>
 
                     <!---------- Departamento ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Departamento</label>
                         <select name="departamento"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Administración"
-                                {{ old('departamento') == 'Administración' ? 'selected' : '' }}>Administración</option>
+                                {{ old('departamento') == 'Administración' ? 'selected' : '' }}>Administración
+                            </option>
                             <option
                                 value="Gestión Comercial"{{ old('departamento') == 'Gestión Comercial' ? 'selected' : '' }}>
                                 Gestión Comercial</option>
                             <option value="Informática" {{ old('departamento') == 'Informática' ? 'selected' : '' }}>
                                 Informática</option>
-                            <option value="Jurídico" {{ old('departamento') == 'Jurídico' ? 'selected' : '' }}>Jurídico
+                            <option value="Jurídico" {{ old('departamento') == 'Jurídico' ? 'selected' : '' }}>
+                                Jurídico
                             </option>
                             <option value="Medición, Conexiones y Servicios"
                                 {{ old('departamento') == 'Medición, Conexiones y Servicios' ? 'selected' : '' }}>
                                 Medición, Conexiones y Servicios</option>
-                            <option value="Personal" {{ old('departamento') == 'Personal' ? 'selected' : '' }}>Personal
+                            <option value="Personal" {{ old('departamento') == 'Personal' ? 'selected' : '' }}>
+                                Personal
                             </option>
                             <option value="Planeación" {{ old('departamento') == 'Planeación' ? 'selected' : '' }}>
                                 Planeación</option>
@@ -75,7 +82,7 @@
                     {{ $slot }}
 
                     <!---------- Hora Inicio / Fin ---------->
-                    <div class="pr-2 pb-1 flex w-1/4">
+                    <div class="pr-2 pb-1 flex w-full sm:w-1/2 md:w-1/4">
                         <div class="w-1/2 pr-2">
                             <label class="block text-base font-medium text-gray-900">Inicio</label>
                             <div class="relative">
@@ -111,7 +118,7 @@
                     </div>
 
                     <!---------- Responsable del Mantenimiento ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">
                             Responsable del Mantenimiento</label>
                         <div class="relative">
@@ -124,7 +131,9 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <input type="text" name="responsable_mantenimiento" value="{{ Auth::user()->name }} {{ Auth::user()->last_name }}" title="El Responsable del Mantenimiento es el Usuario que Inicio Sesión"
+                            <input type="text" name="responsable_mantenimiento"
+                                value="{{ Auth::user()->name }} {{ Auth::user()->last_name }}"
+                                title="El Responsable del Mantenimiento es el Usuario que Inicio Sesión"
                                 class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                                 readonly>
                         </div>
@@ -132,7 +141,7 @@
                     </div>
 
                     <!---------- Responsable del Equipo ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Responsable del
                             Equipo</label>
                         <input type="text" name="responsable_equipo" value="{{ old('responsable_equipo') }}"
@@ -141,17 +150,19 @@
                     </div>
 
                     <!---------- Puesto ---------->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">Puesto</label>
                         <select name="puesto"
                             class="block w-full p-1 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Jefe Departamento"
-                                {{ old('puesto') == 'Jefe Departamento' ? 'selected' : '' }}>Jefe Departamento</option>
+                                {{ old('puesto') == 'Jefe Departamento' ? 'selected' : '' }}>Jefe Departamento
+                            </option>
                             <option value="Superintendente"
                                 {{ old('puesto') == 'Superintendente' ? 'selected' : '' }}>
                                 Superintendente</option>
-                            <option value="Jefe Oficina" {{ old('puesto') == 'Jefe Oficina' ? 'selected' : '' }}>Jefe
+                            <option value="Jefe Oficina" {{ old('puesto') == 'Jefe Oficina' ? 'selected' : '' }}>
+                                Jefe
                                 Oficina</option>
                             <option value="Secretaria" {{ old('puesto') == 'Secretaria' ? 'selected' : '' }}>
                                 Secretaria</option>
@@ -160,7 +171,8 @@
                             <option value="Supervisor" {{ old('puesto') == 'Supervisor' ? 'selected' : '' }}>
                                 Supervisor</option>
                             <option value="Agente Comercial"
-                                {{ old('puesto') == 'Agente Comercial' ? 'selected' : '' }}>Agente Comercial</option>
+                                {{ old('puesto') == 'Agente Comercial' ? 'selected' : '' }}>Agente Comercial
+                            </option>
                             <option value="Oficinista" {{ old('puesto') == 'Oficinista' ? 'selected' : '' }}>
                                 Oficinista</option>
                             <option value="Auxiliar Especializado"
@@ -170,7 +182,8 @@
                                 {{ old('puesto') == 'Auxiliar Administrativo' ? 'selected' : '' }}>Auxiliar
                                 Administrativo</option>
                             <option value="Operador Distribución"
-                                {{ old('puesto') == 'Operador Distribución' ? 'selected' : '' }}>Operador Distribución
+                                {{ old('puesto') == 'Operador Distribución' ? 'selected' : '' }}>Operador
+                                Distribución
                             </option>
                             <option value="Técnico" {{ old('puesto') == 'Técnico' ? 'selected' : '' }}>Técnico
                             </option>
@@ -186,7 +199,7 @@
                     </div>
 
                     <!---------- RPE ---------->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label class="block text-base font-medium text-gray-900">RPE</label>
                         <input type="text" name="rpe" value="{{ old('rpe') }}"
                             class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500">

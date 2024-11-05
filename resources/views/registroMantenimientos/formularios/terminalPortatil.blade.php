@@ -6,7 +6,7 @@
         <!---------- Mantenimiento Terminal Portatil ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Terminal Portatil">
             <!-- Uso que se le da al equipo -->
-            <div class="pr-2 pb-1 w-1/4">
+            <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                 <label for="input-uso" class="block text-base font-medium text-gray-900">Uso que se le
                     da al equipo</label>
                 <select id="select-uso" name="uso"
@@ -52,7 +52,7 @@
                 </div>
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-sistema_operativo" class="block text-base font-medium text-gray-900">Sistema
                             Operativo</label>
                         <select id="select-sistema_operativo" name="sistema_operativo"
@@ -63,7 +63,7 @@
                         <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Versión Sistema Operativo -->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-version_sistema_operativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
                         <input type="text" name="version_sistema_operativo" id="input-version_sistema_operativo"

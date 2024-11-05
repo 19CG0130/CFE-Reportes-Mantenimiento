@@ -6,7 +6,7 @@
         <!---------- Mantenimiento Tablet ---------->
         <x-formularios.form-mantenimiento titulo="Mantenimiento Tablet">
             <!-- Uso que se le da al equipo -->
-            <div class="pr-2 pb-1 w-1/4">
+            <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                 <label for="input-uso" class="block text-base font-medium text-gray-900">Uso que se le
                     da al equipo</label>
                 <select id="select-uso" name="uso"
@@ -57,7 +57,7 @@
                 </div>
                 <div class="pb-3 flex flex-wrap">
                     <!-- Sistema Operativo -->
-                    <div class="pr-2 pb-1 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-sistema_operativo" class="block text-base font-medium text-gray-900">Sistema
                             Operativo</label>
                         <select id="select-sistema_operativo" name="sistema_operativo"
@@ -70,7 +70,7 @@
                         <x-input-error :messages="$errors->get('sistema_operativo')" class="mt-2" />
                     </div>
                     <!-- Versión Sistema Operativo -->
-                    <div class="pr-2 w-1/4">
+                    <div class="pr-2 pb-1 w-full sm:w-1/2 md:w-1/4">
                         <label for="input-version_sistema_operativo"
                             class="block text-base font-medium text-gray-900">Versión Sistema Operativo</label>
                         <input type="text" name="version_sistema_operativo" id="input-version_sistema_operativo"
@@ -97,7 +97,7 @@
                                         </div>
                                     </li>
                                     <li class="w-full dark:border-gray-600">
-                                        <div class="flfex items-center ps-3">
+                                        <div class="flex items-center ps-3">
                                             <input name="lmobile" id="checkbox-lmobile" type="checkbox" value="1"
                                                 {{ old('lmobile') == '1' ? 'checked' : '' }}
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:bg-gray-600 dark:border-gray-500">
