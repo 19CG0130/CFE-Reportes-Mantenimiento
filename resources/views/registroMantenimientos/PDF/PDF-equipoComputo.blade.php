@@ -614,7 +614,7 @@
                         <hr class="border-t pt-10 border-gray-500">
                     </td>
                     <td class="px-1 py-1 text-center">
-                        Ramiro Bejarano Raygoza
+                        {{ $jefeInformatica->nombre }}
                         <hr class="border-t pt-10 border-gray-500">
                     </td>
                 </tr>

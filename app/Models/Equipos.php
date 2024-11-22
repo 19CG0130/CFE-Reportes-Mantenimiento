@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipos extends Model
 {
+    use HasFactory;
     protected $table = 'equipos';
     protected $fillable = [
         'dispositivo',
@@ -28,8 +29,6 @@ class Equipos extends Model
         'num_activo_fijo',
         'observaciones',
     ];
-    use HasFactory;
-    
 }
 
 

@@ -1,14 +1,29 @@
 <x-app-layout>
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-end mb-4">
-                <a href="{{ route('register.store') }}"
-                    class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">
-                    Nuevo Usuario
-                </a>
-            </div>
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="flex justify-center space-x-2 mb-2">
+                        <!-- Nuevo Usuario -->
+                        <a href="{{ route('register.store') }}"
+                            class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">
+                            Nuevo Usuario
+                        </a>
+
+                        <!-- Admin Links -->
+                        @if (Auth::user()->usertype == 'admin')
+                            <button title="jefeDepartamento" data-modal-target="modal-jefeDepartamento"
+                                data-modal-toggle="modal-jefeDepartamento"
+                                class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">Jefe
+                                del departamento</button>
+                                @if (session('success'))
+                                <div class="mt-1 text-green-500">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                                <x-input-error :messages="$errors->get('nombre')" class="mt-2" />
+                        @endif
+                    </div>
 
                     <!-- Tabla Usuarios -->
                     <table
@@ -97,10 +112,10 @@
                                             </div>
                                         @else
                                             <a title="Perfil" href="{{ route('profile.edit') }}">
-                                                <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                    stroke="currentColor" fill="none" stroke-linecap="round"
-                                                    stroke-linejoin="round">
+                                                <svg class="text-gray-500 w-8 h-8 hover:text-gray-700 transition-colors duration-200"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" />
                                                     <circle cx="12" cy="7" r="4" />
                                                     <path d="M5.5 21v-2a4 4 0 0 1 4 -4h5a4 4 0 0 1 4 4v2" />
@@ -116,6 +131,175 @@
                     <!-- Pagination -->
                     <div class="mt-3">
                         {{ $users->links() }}
+                    </div>
+
+                    <!-- Modal Jefe del departamento -->
+                    <div id="modal-jefeDepartamento" tabindex="-1" aria-hidden="true"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div
+                                    class="flex items-center justify-between p-3 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                        Jefe del Departamento
+                                    </h3>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                        data-modal-toggle="modal-jefeDepartamento">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Cerrar</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <form method="POST" action="{{ route('jefeInformatica.editJefeInformatica') }}"
+                                    class="p-4 md:p-5">
+                                    @csrf
+                                    @method('post')
+
+                                    <!-- Jefe del departamento -->
+                                    <div class="text-center mb-4">
+                                        <div>
+                                            <x-input-label for="nombre" :value="__('Nombre')" />
+                                            <x-text-input id="nombre" class="block mt-1 w-full" type="text"
+                                                name="nombre" value="{{ old('nombre', $jefeInformatica->nombre ?? '') }}"
+                                                autocomplete="nombre" placeholder="ej. usuario123" />
+                                        </div>
+                                    </div>
+
+                                    <!-- Botones -->
+                                    <div class="flex items-center justify-end mt-4">
+                                        <x-primary-button class="ms-4">
+                                            Confirmar
+                                        </x-primary-button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--- Modal editar Jefe del departamento --->
+                    <!-- Editar Usuario modal -->
+                    <div id="editar-modal-{{ $user->id }}" tabindex="-1" aria-hidden="true"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div
+                                    class="flex items-center justify-between p-3 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                        Usuario
+                                    </h3>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                        data-modal-toggle="editar-modal-{{ $user->id }}">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Cerrar</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <form method="POST" action="{{ route('usuario.editUser', $user->id) }}"
+                                    class="p-4 md:p-5">
+                                    @csrf
+                                    @method('patch')
+
+                                    <!-- Username -->
+                                    <div class="text-center mb-4">
+                                        <div>
+                                            <x-input-label for="username" :value="__('Nombre de Usuario')" />
+                                            <x-text-input id="username" class="block mt-1 w-full" type="text"
+                                                name="username" value="{{ $user->username }}"
+                                                autocomplete="username" placeholder="ej. usuario123" />
+                                            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+                                        <!-- First Name -->
+                                        <div>
+                                            <x-input-label for="name" :value="__('Nombre')" />
+                                            <x-text-input id="name" class="block mt-1 w-full" type="text"
+                                                name="name" value="{{ $user->name }}" autofocus
+                                                autocomplete="name" />
+                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                        </div>
+
+                                        <!-- Last Name -->
+                                        <div>
+                                            <x-input-label for="last_name" :value="__('Apellidos')" />
+                                            <x-text-input id="last_name" class="block mt-1 w-full" type="text"
+                                                name="last_name" value="{{ $user->last_name }}" autofocus
+                                                autocomplete="last_name" />
+                                            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                                        </div>
+
+                                        <!-- Rol -->
+                                        <div>
+                                            <x-input-label for="usertype" :value="__('Rol')" />
+                                            <select id="usertype" name="usertype"
+                                                class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full">
+                                                <option value="" disabled
+                                                    {{ is_null($user->usertype) ? 'selected' : '' }}>Seleccionar
+                                                </option>
+                                                <option value="admin"
+                                                    {{ old('usertype', $user->usertype) == 'admin' ? 'selected' : '' }}>
+                                                    admin</option>
+                                                <option value="usuario"
+                                                    {{ old('usertype', $user->usertype) == 'usuario' ? 'selected' : '' }}>
+                                                    usuario</option>
+                                            </select>
+                                            <x-input-error :messages="$errors->get('usertype')" class="mt-2" />
+                                        </div>
+
+                                        <!-- Email Address -->
+                                        <div>
+                                            <x-input-label for="email" :value="__('Email')" />
+                                            <x-text-input id="email" class="block mt-1 w-full" type="email"
+                                                name="email" value="{{ $user->email }}"
+                                                autocomplete="username" />
+                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                        </div>
+
+                                        <!-- Password -->
+                                        <div>
+                                            <x-input-label for="password" :value="__('Password')" />
+                                            <x-text-input id="password" class="block mt-1 w-full" type="password"
+                                                name="password" autocomplete="new-password" />
+                                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                        </div>
+
+                                        <!-- Confirm Password -->
+                                        <div>
+                                            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                                            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                                                type="password" name="password_confirmation"
+                                                autocomplete="new-password" />
+                                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                        </div>
+                                    </div>
+
+                                    <!-- Botones -->
+                                    <div class="flex items-center justify-end mt-4">
+                                        <x-primary-button class="ms-4">
+                                            Editar Usuario
+                                        </x-primary-button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
                     <!---------- foreach modal editar y eliminar ---------->

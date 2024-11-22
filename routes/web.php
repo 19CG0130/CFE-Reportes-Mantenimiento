@@ -61,6 +61,9 @@ Route::middleware(['auth', 'adminMiddleware'])->group(function () {
     Route::get('/usuarios', [ProfileController::class, 'index'])->name('usuarios');
     Route::delete('/usuario/{id}', [ProfileController::class, 'destroyUser'])->name('usuario.destroyUser');
     Route::patch('/usuario/{id}', [ProfileController::class, 'editUser'])->name('usuario.editUser');
+
+    Route::post('/jefe_informatica', [MantenimientoController::class, 'actualizarJefe'])->name('jefeInformatica.editJefeInformatica');
+
     
 });
 

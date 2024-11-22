@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\JefeInformatica;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -32,5 +33,10 @@ class DatabaseSeeder extends Seeder
             'usertype' => 'usuario',
             'password' => Hash::make('123456789'),
         ]);
+
+        JefeInformatica::create([
+            'nombre' => 'Ramiro Bejarano Raygoza'
+        ]);
+
     }
 }

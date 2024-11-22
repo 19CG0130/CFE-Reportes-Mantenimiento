@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Auth\Events\Registered;
+use App\Models\jefeInformatica;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Validation\Rules\Password;
@@ -22,8 +23,9 @@ class ProfileController extends Controller
     {
 
         $users = User::paginate(10);
+        $jefeInformatica = JefeInformatica::first();
 
-        return view('admin.usuarios', compact('users'));
+        return view('admin.usuarios', compact('users','jefeInformatica'));
     }
 
     public function edit(Request $request): View
