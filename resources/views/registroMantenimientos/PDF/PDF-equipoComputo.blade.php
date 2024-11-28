@@ -213,7 +213,7 @@
         <!-- Información del reporte -->
         <div class="report-info">
             <h2>Comisión Federal de Electricidad<br>
-                División Centro Oriente</h2>
+                División Norte</h2>
         </div>
     </div>
     <!--tablas datos-->
@@ -247,7 +247,7 @@
                     {{ \Carbon\Carbon::parse($registro->fecha)->format('d-m-Y') }}
                 </td>
                 <td class="px-1 py-1 text-center uppercase">
-                    {{ $registro->id }}
+                    {{ $registro->folio }}
                 </td>
             </tr>
         </tbody>

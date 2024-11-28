@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('active_directory')->nullable();
             $table->string('num_activo_fijo')->nullable();
             $table->text('observaciones');
+            $table->string('folio')->nullable();
             $table->timestamps();
         });
     }

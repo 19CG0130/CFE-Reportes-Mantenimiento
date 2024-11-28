@@ -426,6 +426,7 @@ class MantenimientoController extends Controller
 
         if ($tipoFormulario === 'PC Escritorio' || $tipoFormulario === 'Laptop') {
             $request->validate([
+                'folio' => ['required', 'regex:/^\d{1,2}-\d{4}$/', 'unique:equipos,folio'],
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
@@ -457,6 +458,7 @@ class MantenimientoController extends Controller
             ]);
         } elseif ($tipoFormulario === 'Terminal Portatil') {
             $request->validate([
+                'folio' => ['required', 'regex:/^\d{1,2}-\d{4}$/', 'unique:equipos,folio'],
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
@@ -480,6 +482,7 @@ class MantenimientoController extends Controller
             ]);
         } elseif ($tipoFormulario === 'Tablet') {
             $request->validate([
+                'folio' => ['required', 'regex:/^\d{1,2}-\d{4}$/', 'unique:equipos,folio'],
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
@@ -503,6 +506,7 @@ class MantenimientoController extends Controller
             ]);
         } elseif ($tipoFormulario === 'Impresora') {
             $request->validate([
+                'folio' => ['required', 'regex:/^\d{1,2}-\d{4}$/', 'unique:equipos,folio'],
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
@@ -525,7 +529,7 @@ class MantenimientoController extends Controller
             ]);
         } else {
             $request->validate([
-
+                'folio' => ['required', 'regex:/^\d{1,2}-\d{4}$/', 'unique:equipos,folio'],
                 'fecha' => ['required'],
                 'zona' => ['required'],
                 'departamento' => ['required'],
@@ -552,6 +556,7 @@ class MantenimientoController extends Controller
             $equipo = Equipos::findOrFail($id);
             $equipo->update([
                 'dispositivo' => $request->dispositivo,
+                'folio' => $request->folio,
                 'fecha' => $request->fecha,
                 'zona' => $request->zona,
                 'departamento' => $request->departamento,

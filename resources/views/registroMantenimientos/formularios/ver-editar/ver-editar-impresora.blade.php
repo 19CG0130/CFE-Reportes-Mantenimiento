@@ -24,18 +24,28 @@
                         <span class="text-2xl font-extrabold">Mantenimiento Impresora</span>
                     </div>
 
-                    <!---------- Fecha ---------->
-                    <div class="pl-2">
-                        <div class="relative max-w-sm">
+                    <!---------- Folio y Fecha ---------->
+                    <div class="pr-2 pb-1 flex w-full sm:w-1/2 md:w-1/4">
+
+                        <div class="w-1/2 pr-2">
+                            <label class="block text-base font-medium text-gray-900">Folio</label>
+                            <input type="text" name="folio" value="{{ old('folio', $equipo->folio) }}"
+                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+                                {{ $action == 'ver' ? 'disabled' : '' }}>
+                            <x-input-error :messages="$errors->get('folio')" class="mt-2" />
+                        </div>
+
+                        <div class="w-1/2 pr-2">
+                            <label class="block text-base font-medium text-gray-900">Fecha</label>
                             <input type="{{ $action == 'ver' ? 'text' : 'date' }}" name="fecha"
                                 value="{{ old('fecha', $equipo->fecha ?? date('Y-m-d')) }}"
                                 size="{{ strlen(old('fecha', $equipo->fecha ?? date('Y-m-d'))) }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-center dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="block w-full p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
                                 {{ $action == 'ver' ? 'disabled' : '' }}>
                             <x-input-error :messages="$errors->get('fecha')" class="mt-2" />
                         </div>
+                        
                     </div>
-
                 </div>
 
                 <!---------- Sección ---------->
@@ -160,8 +170,8 @@
                         <div class="relative">
                             <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                 <svg class="w-6 h-6 text-gray-500 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                    viewBox="0 0 24 24">
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    fill="currentColor" viewBox="0 0 24 24">
                                     <path fill-rule="evenodd"
                                         d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.408-5.5a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2h-.01ZM10 10a1 1 0 1 0 0 2h1v3h-1a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-1v-4a1 1 0 0 0-1-1h-2Z"
                                         clip-rule="evenodd" />
