@@ -16,8 +16,8 @@ class EmailVerificationNotificationController extends Controller
         if ($request->user()->hasVerifiedEmail()) {
             return redirect()->intended(route('dashboard', absolute: false));
         }
-
-        $request->user()->sendEmailVerificationNotification();
+        //Verificacion de correo electronico desactivada
+        //$request->user()->sendEmailVerificationNotification();
 
         return back()->with('status', 'verification-link-sent');
     }
