@@ -90,7 +90,7 @@ class ProfileController extends Controller
 
         $request->validate([
             'usertype' => ['required'],
-            'username' => ['required', 'string', 'lowercase', 'max:255', 'unique:' . User::class . ',username,' . $user->id, 'regex:/^[a-z0-9_]+$/u'],
+            'username' => ['required', 'string', 'max:255', 'unique:' . User::class . ',username,' . $user->id, 'regex:/^[a-zA-Z0-9_]+$/u'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class . ',email,' . $user->id],

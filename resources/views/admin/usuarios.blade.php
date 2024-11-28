@@ -16,14 +16,25 @@
                                 data-modal-toggle="modal-jefeDepartamento"
                                 class="inline-flex items-center px-4 py-2 bg-green-600 dark:bg-green-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-green-900 uppercase tracking-widest hover:bg-green-500 dark:hover:bg-green-300 focus:bg-green-500 dark:focus:bg-green-300 active:bg-green-700 dark:active:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-green-800 transition ease-in-out duration-150">Jefe
                                 del departamento</button>
-                                @if (session('success'))
-                                <div class="mt-1 text-green-500">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-                                <x-input-error :messages="$errors->get('nombre')" class="mt-2" />
-                        @endif
                     </div>
+
+                    <!-- Errores Usuarios -->
+                    <div class="flex flex-col items-center mb-1 text-center">
+                        @if (session('success'))
+                            <div class="mt-1 text-green-500">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        <x-input-error :messages="$errors->get('nombre')" />
+                        <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('usertype')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    </div>
+                    @endif
 
                     <!-- Tabla Usuarios -->
                     <table
@@ -168,7 +179,8 @@
                                         <div>
                                             <x-input-label for="nombre" :value="__('Nombre')" />
                                             <x-text-input id="nombre" class="block mt-1 w-full" type="text"
-                                                name="nombre" value="{{ old('nombre', $jefeInformatica->nombre ?? '') }}"
+                                                name="nombre"
+                                                value="{{ old('nombre', $jefeInformatica->nombre ?? '') }}"
                                                 autocomplete="nombre" placeholder="ej. usuario123" />
                                         </div>
                                     </div>
